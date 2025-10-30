@@ -1,0 +1,523 @@
+/* === Ustawienia ogólne - KREATYWNY MINIMALIZM === */
+:root {
+    --kolor-tla-srodek: #ffffff;
+    --kolor-tla-stopki: #f9f9f9;
+    --kolor-tekstu-glowny: #1d1d1f;
+    --kolor-tekstu-pomocniczy: #515154;
+    --kolor-ramki: #e0e0e0;
+    --kolor-shadow: rgba(0, 0, 0, 0.05);
+    
+    --kolor-akcentu: #FF8C00;
+    --kolor-akcentu-hover: #E07B00;
+
+    --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* === USTAWIENIA PRZYCIĄGANIA PRZEWIJANIA === */
+html {
+    scroll-snap-type: y mandatory;
+}
+
+/* === SEKCJA INTRO (Z Twoim zdjęciem w tle) === */
+.intro-hero {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--kolor-tla-srodek);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+}
+
+.intro-content {
+    animation: fadeIn 1.2s ease-out 0.2s;
+    animation-fill-mode: backwards;
+    position: relative;
+    z-index: 2;
+}
+
+.intro-hero h1 {
+    font-size: clamp(4rem, 15vw, 10rem);
+    font-weight: 800;
+    color: var(--kolor-tekstu-glowny);
+    margin: 0;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.intro-hero p {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    color: var(--kolor-tekstu-pomocniczy);
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === ZDJĘCIE W TLE Z GRADIENTEM === */
+.hero-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, 
+            var(--kolor-tla-srodek) 0%,        
+            var(--kolor-tla-srodek) 30%,       
+            rgba(255, 255, 255, 0.6) 50%,    
+            rgba(255, 255, 255, 0) 60%       
+        ),
+        url('Uploaded_10_CNV00010.jpg');
+    background-size: cover;
+    background-position: right center; 
+    z-index: 1; 
+    filter: grayscale(100%); 
+}
+
+
+.scroll-down-prompt {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--kolor-tekstu-pomocniczy);
+    font-weight: 500;
+    font-size: 1rem;
+    animation: bounce 2.5s infinite ease-in-out;
+    z-index: 2;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -10px); }
+    60% { transform: translate(-50%, -5px); }
+}
+
+/* === RESZTA STYLÓW === */
+body {
+    font-family: var(--font-family-system);
+    margin: 0;
+    padding: 0;
+    background-color: var(--kolor-tla-stopki);
+    color: var(--kolor-tekstu-glowny);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+}
+
+.main-content {
+    background-color: var(--kolor-tla-srodek);
+}
+
+.container {
+    width: 90%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: var(--kolor-tekstu-glowny);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+h3 { font-size: 1.6rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--kolor-tekstu-pomocniczy);
+}
+
+a {
+    color: var(--kolor-akcentu);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--kolor-akcentu-hover);
+}
+
+/* === Nawigacja (Navbar) === */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--kolor-ramki);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    scroll-snap-align: start;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--kolor-tekstu-glowny);
+}
+.navbar .logo:hover {
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--kolor-tekstu-glowny);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: var(--kolor-akcentu);
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+.nav-links a:hover {
+    text-decoration: none;
+    color: var(--kolor-tekstu-glowny);
+}
+
+
+/* === Sekcje ogólne === */
+.section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* === UKŁAD SIATKI (GRID) === */
+.section-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    border-bottom: 1px solid var(--kolor-tla-stopki);
+    padding-bottom: 80px;
+}
+
+#skills .section-grid {
+    border-bottom: 1px solid var(--kolor-tla-stopki);
+}
+
+#about.section-padding, #skills.section-padding, #contact.section-padding {
+    padding-bottom: 0;
+}
+
+#contact.section-padding {
+     border-bottom: 1px solid var(--kolor-tla-stopki);
+     padding-bottom: 80px;
+}
+
+
+.section-title-left {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0;
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+.section-content-right {
+    padding-top: 5px;
+}
+
+/* === Sekcja "About" === */
+.about-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    flex-grow: 1;
+}
+.about-text:last-of-type {
+    margin-bottom: 0;
+}
+
+.about-quote {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--kolor-akcentu);
+    border-left: 4px solid var(--kolor-akcentu);
+    padding-left: 1.5rem;
+    margin: 2.5rem 0;
+    font-style: italic;
+}
+
+/* === Sekcja "Skills" (NOWY STYL) === */
+.skills-list {
+    display: flex;
+    flex-direction: column; /* Układ pionowy */
+    gap: 0; /* Zerujemy odstęp, bo będziemy używać border-bottom */
+    position: relative;
+    z-index: 2;
+}
+
+.skill-item {
+    text-align: left;
+    /* Usunięto tło i zaokrąglenia */
+    border-left: 4px solid var(--kolor-akcentu); /* POMARAŃCZOWA LINIA */
+    padding-left: 20px; /* Odstęp od linii */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--kolor-ramki); /* Cienka szara linia */
+}
+
+.skill-item:last-child {
+    border-bottom: none; /* Ostatni element bez linii */
+}
+
+/* Usunęliśmy stary hover */
+.skill-item:hover {
+    transform: none; 
+}
+
+.skill-item h3 {
+    margin: 0 0 5px 0; /* Odstęp między h3 a p */
+    font-weight: 600;
+    font-size: 1.4rem; /* Trochę większy */
+    color: var(--kolor-tekstu-glowny);
+}
+.skill-item p {
+    color: var(--kolor-tekstu-pomocniczy);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+
+/* === Sekcja "Projects" === */
+#projects.section-padding {
+    border-bottom: 1px solid var(--kolor-tla-stopki); 
+}
+
+.section-title-center {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.project-card {
+    position: relative; 
+    background-color: var(--kolor-tla-srodek);
+    border-radius: 20px;
+    color: var(--kolor-tekstu-glowny);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.project-logo {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--kolor-tla-srodek);
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 30px 30px 30px;
+}
+
+.project-card h3 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: var(--kolor-tekstu-glowny);
+}
+
+.project-card p {
+    color: var(--kolor-tekstu-pomocniczy);
+    margin-bottom: 1.5rem;
+}
+
+.project-links .btn {
+    display: inline-block;
+    background-color: var(--kolor-akcentu);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 2px solid var(--kolor-akcentu);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.project-links .btn:hover {
+    background-color: var(--kolor-akcentu-hover);
+    border-color: var(--kolor-akcentu-hover);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+/* === Sekcja "Contact" === */
+#contact.section-padding {
+    border-bottom: none;
+    text-align: center;
+}
+
+.section-description-center {
+    text-align: center;
+    font-size: 1.15rem;
+    margin-bottom: 3rem;
+    color: var(--kolor-tekstu-pomocniczy);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border: 2px solid var(--kolor-akcentu);
+    color: var(--kolor-akcentu);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-contact:hover {
+    background-color: var(--kolor-akcentu);
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-3px);
+}
+
+.btn-contact svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+
+/* === Stopka (Footer) === */
+.footer {
+    background-color: var(--kolor-tla-stopki);
+    padding: 40px 0;
+    text-align: center;
+    color: var(--kolor-tekstu-pomocniczy);
+    font-size: 0.9rem;
+}
+
+/* === Responsywność === */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+    }
+    .navbar .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .section-padding {
+        padding-top: 60px;
+    }
+    
+    .section-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-bottom: 60px;
+    }
+    
+    #skills .section-grid {
+        width: 100%;
+    }
+
+    .section-title-left {
+        position: static;
+        text-align: center;
+        font-size: 2.2rem;
+    }
+    .section-content-right {
+        padding-top: 0;
+    }
+    
+    .about-text, .section-description-center {
+        text-align: center;
+    }
+    
+    .section-title-center {
+        font-size: 2.2rem;
+    }
+    
+    .project-logo {
+        height: 200px;
+    }
+    
+    .hero-image-overlay {
+        background-position: center bottom; 
+        background-image: 
+            linear-gradient(to top, 
+                var(--kolor-tla-srodek) 0%,        
+                var(--kolor-tla-srodek) 20%,       
+                rgba(255, 255, 255, 0.6) 40%,    
+                rgba(255, 255, 255, 0) 60%       
+            ),
+            url('Uploaded_10_CNV00010.jpg');
+    }
+}
