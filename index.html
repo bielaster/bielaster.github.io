@@ -16,9 +16,8 @@
 
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <link rel="stylesheet" href="style.css?v=2">
-    </head>
-<body>
+    <link rel="stylesheet" href="style.css?v=3"> </head>
+<body data-theme="light"> <button id="toggle-theme" class="btn-toggle-theme">🌙</button>
 
     <section class="intro-hero">
         <div class="intro-content">
@@ -39,8 +38,14 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#collaboration">Collaboration</a></li> <li><a href="#contact">Contact</a></li>
                 <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="btn-nav-cv">Download CV</a></li>
+                <li>
+                  <select id="language-select" class="language-switcher">
+                    <option value="en" selected>EN</option>
+                    <option value="pl">PL</option>
+                  </select>
+                </li>
             </ul>
         </div>
     </nav>
@@ -153,6 +158,35 @@
             </div>
         </section>
 
+        <section id="collaboration" class="container section-padding">
+            <h2 class="section-title-center hidden">Propose a Collaboration</h2>
+            <form id="collab-form" class="collab-form hidden">
+                <label>
+                    Name:
+                    <input type="text" name="name" required>
+                </label>
+                <label>
+                    Email:
+                    <input type="email" name="email" required>
+                </label>
+                <label>
+                    Area of Collaboration:
+                    <select name="area" required>
+                        <option value="">Select...</option>
+                        <option value="social">Social Media</option>
+                        <option value="content">Content Strategy</option>
+                        <option value="ai">AI Tools</option>
+                        <option value="consulting">Consulting</option>
+                    </select>
+                </label>
+                <label>
+                    Message:
+                    <textarea name="message" rows="4" required></textarea>
+                </label>
+                <button type="submit" class="btn-contact">Send</button>
+            </form>
+        </section>
+
         <section id="details" class="section-padding">
             <div class="container">
                 <div class="details-grid hidden">
@@ -218,25 +252,48 @@
             });
         });
 
-        // 2. USUNIĘTO SKRYPT DO "SCROLL SNAP"
-
-        // 3. Dynamiczny rok w stopce
+        // 2. Dynamiczny rok w stopce
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // 4. Animacja przy przewijaniu
+        // 3. Animacja przy przewijaniu
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Animacja tylko raz
+                    observer.unobserve(entry.target);
                 }
             });
-        }, {
-            threshold: 0.1 // Uruchom, gdy 10% elementu jest widoczne
-        });
-
+        }, { threshold: 0.1 });
         const hiddenElements = document.querySelectorAll('.hidden');
         hiddenElements.forEach((el) => observer.observe(el));
+
+        // 4. NOWY KOD: Przełącznik motywu
+        const themeToggle = document.getElementById('toggle-theme');
+        themeToggle.addEventListener('click', () => {
+            const theme = document.body.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.body.setAttribute('data-theme', 'light');
+                themeToggle.textContent = '🌙';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+            }
+        });
+
+        // 5. NOWY KOD: Przełącznik języka
+        document.getElementById('language-select').addEventListener('change', (e) => {
+            const lang = e.target.value;
+            if (lang === 'pl') {
+                alert("Polska wersja już niedługo!");
+            }
+        });
+
+        // 6. NOWY KOD: Obsługa formularza
+        document.getElementById('collab-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert("Thanks for your message! I'll be in touch soon 😊");
+            this.reset();
+        });
     </script>
 </body>
 </html>
