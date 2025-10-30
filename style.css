@@ -544,10 +544,10 @@ body[data-theme="dark"] .navbar {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* POPRAWKA DLA 3 KOLUMN */
     justify-items: center;
     gap: 30px;
-    /* max-width: 930px;  USUNIĘTO TĘ LINIĘ, ABY NAPRAWIĆ UKŁAD 3 KART */
+    /* max-width: 930px;  USUNIĘTO BŁĄD */
     margin: 0 auto;
 }
 
@@ -573,32 +573,7 @@ body[data-theme="dark"] .navbar {
     box-shadow: 0 8px 25px var(--kolor-shadow);
 }
 
-/* KARTA TYPOGRAFICZNA DLA LUNAR-COMET */
-.project-card.typographic-card {
-    background-color: #000;
-    justify-content: center;
-    text-align: center;
-}
-.project-card.typographic-card .card-content {
-    padding: 40px;
-}
-.project-card.typographic-card h3 {
-    color: #ffffff;
-    font-size: 2rem;
-}
-.project-card.typographic-card p {
-    color: #f0f0f0;
-}
-.project-card.typographic-card .btn {
-    background-color: var(--kolor-akcentu);
-    border-color: var(--kolor-akcentu);
-    color: #fff;
-}
-.project-card.typographic-card .btn:hover {
-    background-color: #fff;
-    border-color: #fff;
-    color: #000;
-}
+/* Usunięto .typographic-card */
 
 .project-logo {
     width: 100%;
@@ -613,6 +588,10 @@ body[data-theme="dark"] .project-logo[src*="image_5a0506"] {
     background-color: #000;
 }
 body[data-theme="dark"] .project-logo[src*="image_5a0241"] {
+    background-color: #fff;
+}
+/* NOWY STYL DLA LOGO COMET W DARK MODE */
+body[data-theme="dark"] .project-logo[src*="comet.png"] {
     background-color: #fff;
 }
 
