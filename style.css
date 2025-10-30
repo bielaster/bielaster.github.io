@@ -14,7 +14,7 @@
 }
 
 /* === USUNIĘTO "SCROLL SNAP" === */
-/* html { scroll-snap-type: y mandatory; } */
+/* html { ... } */
 
 /* === SEKCJA INTRO === */
 .intro-hero {
@@ -123,7 +123,7 @@ body {
     color: var(--kolor-tekstu-glowny);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Płynne przewijanie po kliknięciu linku */
 }
 
 .main-content {
@@ -361,7 +361,7 @@ a:hover {
 }
 .education-item {
     text-align: left;
-    border-left: 4px solid var(--kolor-akcentu);
+    border-left: 4px solid var(--kolor-akcentu); /* Ten sam styl co Skills */
     padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
