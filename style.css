@@ -106,4 +106,295 @@ html {
 /* === ANIMACJA PRZEWIJANIA === */
 .hidden {
     opacity: 0;
-    transform
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === RESZTA STYLÓW === */
+body {
+    font-family: var(--font-family-system);
+    margin: 0;
+    padding: 0;
+    background-color: var(--kolor-tla-stopki);
+    color: var(--kolor-tekstu-glowny);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+}
+
+.main-content {
+    background-color: var(--kolor-tla-srodek);
+}
+
+.container {
+    width: 90%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: var(--kolor-tekstu-glowny);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+h3 { font-size: 1.6rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--kolor-tekstu-pomocniczy);
+}
+
+a {
+    color: var(--kolor-akcentu);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--kolor-akcentu-hover);
+}
+
+/* === Nawigacja (Navbar) === */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--kolor-ramki);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    scroll-snap-align: start;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--kolor-tekstu-glowny);
+}
+.navbar .logo:hover {
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--kolor-tekstu-glowny);
+    font-weight: 500;
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: var(--kolor-akcentu);
+    transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+.nav-links a:hover {
+    text-decoration: none;
+    color: var(--kolor-tekstu-glowny);
+}
+
+.btn-nav-cv {
+    background-color: transparent;
+    border: 2px solid var(--kolor-akcentu);
+    color: var(--kolor-akcentu);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-left: 15px;
+}
+
+.btn-nav-cv:hover {
+    background-color: var(--kolor-akcentu);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-nav-cv::after {
+    display: none;
+}
+
+
+/* === Sekcje ogólne === */
+.section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* === UKŁAD SIATKI (GRID) - NAPRAWIONY === */
+.section-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Przywrócony układ 1/3 na 2/3 */
+    gap: 40px;
+    border-bottom: 1px solid var(--kolor-tla-stopki);
+    padding-bottom: 80px;
+}
+
+/* Poprawka granic */
+#skills .section-grid, #education .section-grid {
+    border-bottom: 1px solid var(--kolor-tla-stopki);
+}
+
+#about.section-padding, #skills.section-padding, #education.section-padding {
+    padding-bottom: 0; /* Usuwamy dolny padding, bo .section-grid go ma */
+}
+
+/* Sekcja Contact nie używa siatki, więc potrzebuje swojego paddingu i granicy */
+#contact.section-padding {
+     border-bottom: 1px solid var(--kolor-tla-stopki);
+     padding-bottom: 80px;
+}
+
+
+.section-title-left {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0;
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+.section-content-right {
+    padding-top: 5px;
+}
+
+/* === Sekcja "About" === */
+.about-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    flex-grow: 1;
+}
+.about-text:last-of-type {
+    margin-bottom: 0;
+}
+
+.about-quote {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--kolor-akcentu);
+    border-left: 4px solid var(--kolor-akcentu);
+    padding-left: 1.5rem;
+    margin: 2.5rem 0;
+    font-style: italic;
+}
+
+/* === Sekcja "Skills" === */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.skill-item {
+    text-align: left;
+    border-left: 4px solid var(--kolor-akcentu);
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--kolor-ramki);
+}
+
+.skill-item:last-child {
+    border-bottom: none;
+}
+
+.skill-item h3 {
+    margin: 0 0 5px 0;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--kolor-tekstu-glowny);
+}
+.skill-item p {
+    color: var(--kolor-tekstu-pomocniczy);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* === Sekcja "Education" (NAPRAWIONA) === */
+.education-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.education-item {
+    text-align: left;
+    border-left: 4px solid var(--kolor-akcentu); /* Ten sam styl co Skills */
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--kolor-ramki);
+}
+.education-item:last-child {
+    border-bottom: none;
+}
+.education-item h3 {
+    margin: 0 0 5px 0;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--kolor-tekstu-glowny);
+}
+.education-item p {
+    color: var(--kolor-tekstu-pomocniczy);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+
+/* === Sekcja "Projects" === */
+#projects.section-padding {
+    border-bottom: 1px solid var(--kolor-tla-stopki); 
+}
+
+.section-title-center {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+/* NAP
