@@ -14,7 +14,7 @@
 }
 
 /* === USUNIĘTO "SCROLL SNAP" === */
-/* html { ... } */
+/* html { scroll-snap-type: y mandatory; } */
 
 /* === SEKCJA INTRO === */
 .intro-hero {
@@ -361,7 +361,7 @@ a:hover {
 }
 .education-item {
     text-align: left;
-    border-left: 4px solid var(--kolor-akcentu); /* Ten sam styl co Skills */
+    border-left: 4px solid var(--kolor-akcentu);
     padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
