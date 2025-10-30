@@ -13,9 +13,6 @@
     --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* === USUNIĘTO "SCROLL SNAP" === */
-/* html { ... } */
-
 /* === SEKCJA INTRO === */
 .intro-hero {
     height: 100vh;
@@ -27,10 +24,9 @@
     align-items: center;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden;  <-- USUNIĘCIE TEJ LINII NAPRAWIA BŁĄD */
     padding: 20px;
     box-sizing: border-box;
-    /* Usunięto: scroll-snap-align: start; */
 }
 
 .intro-content {
@@ -172,7 +168,6 @@ a:hover {
     left: 0;
     width: 100%;
     z-index: 1000;
-    /* Usunięto: scroll-snap-align: start; */
 }
 
 .navbar .container {
@@ -264,22 +259,20 @@ a:hover {
 /* === UKŁAD SIATKI (GRID) - NAPRAWIONY === */
 .section-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Przywrócony układ 1/3 na 2/3 */
+    grid-template-columns: 1fr 2fr;
     gap: 40px;
     border-bottom: 1px solid var(--kolor-tla-stopki);
     padding-bottom: 80px;
 }
 
-/* Poprawka granic */
 #skills .section-grid, #education .section-grid {
     border-bottom: 1px solid var(--kolor-tla-stopki);
 }
 
 #about.section-padding, #skills.section-padding, #education.section-padding {
-    padding-bottom: 0; /* Usuwamy dolny padding, bo .section-grid go ma */
+    padding-bottom: 0;
 }
 
-/* Sekcja Contact nie używa siatki, więc potrzebuje swojego paddingu i granicy */
 #contact.section-padding {
      border-bottom: 1px solid var(--kolor-tla-stopki);
      padding-bottom: 80px;
@@ -353,7 +346,7 @@ a:hover {
     margin: 0;
 }
 
-/* === Sekcja "Education" (NAPRAWIONA) === */
+/* === Sekcja "Education" === */
 .education-list {
     display: flex;
     flex-direction: column;
@@ -361,7 +354,7 @@ a:hover {
 }
 .education-item {
     text-align: left;
-    border-left: 4px solid var(--kolor-akcentu); /* Ten sam styl co Skills */
+    border-left: 4px solid var(--kolor-akcentu);
     padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -395,7 +388,6 @@ a:hover {
     margin-bottom: 3rem;
 }
 
-/* NAPRAWIONA SIATKA PROJEKTÓW */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
