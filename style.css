@@ -38,7 +38,7 @@ html {
     align-items: center;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden;  <-- USUNIĘTY BŁĄD */
     padding: 20px;
     box-sizing: border-box;
     transition: background-color 0.3s ease;
@@ -322,11 +322,11 @@ body[data-theme="dark"] .navbar {
     transition: border-color 0.3s ease;
 }
 
-#toolkit .section-grid, #education .section-grid, #now .section-grid {
+#skills .section-grid, #education .section-grid, #now .section-grid, #toolkit .section-grid {
     border-bottom: 1px solid var(--kolor-tla-stopki);
 }
 
-#about.section-padding, #toolkit.section-padding, #education.section-padding, #now.section-padding, #collaboration.section-padding, #contact.section-padding {
+#about.section-padding, #skills.section-padding, #education.section-padding, #now.section-padding, #toolkit.section-padding, #collaboration.section-padding, #contact.section-padding {
     padding-bottom: 0;
 }
 
@@ -370,8 +370,8 @@ body[data-theme="dark"] .navbar {
     font-style: italic;
 }
 
-/* === Sekcja "Now" & "Education" === */
-.now-list, .education-list {
+/* === Sekcje "Now" & "Education" & "Skills" === */
+.skills-list, .education-list, .now-list {
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -379,7 +379,7 @@ body[data-theme="dark"] .navbar {
     z-index: 2;
 }
 
-.now-item, .education-item {
+.skill-item, .education-item, .now-item {
     text-align: left;
     border-left: 4px solid var(--kolor-akcentu);
     padding-left: 20px;
@@ -389,21 +389,21 @@ body[data-theme="dark"] .navbar {
     transition: border-color 0.3s ease;
 }
 
-.now-item:last-child, .education-item:last-child {
+.skill-item:last-child, .education-item:last-child, .now-item:last-child {
     border-bottom: none;
 }
 
-.now-item h3, .education-item h3 {
+.skill-item h3, .education-item h3, .now-item h3 {
     margin: 0 0 5px 0;
     font-weight: 600;
     font-size: 1.4rem;
 }
-.now-item p, .education-item p {
+.skill-item p, .education-item p, .now-item p {
     font-size: 0.95rem;
     margin: 0;
 }
 
-/* === NOWA SEKCJA "TOOLKIT" (HEATMAP) === */
+/* === SEKCJA "TOOLKIT" (HEATMAP) === */
 .skill-heatmap {
     display: flex;
     flex-direction: column;
@@ -435,6 +435,7 @@ body[data-theme="dark"] .navbar {
     background-color: var(--kolor-tla-stopki);
     border-radius: 4px;
     overflow: hidden;
+    transition: background-color 0.3s ease;
 }
 
 .skill-bar-fill {
@@ -445,9 +446,9 @@ body[data-theme="dark"] .navbar {
     transition: width 1s ease-out 0.3s; /* 1s animacja z 0.3s opóźnieniem */
 }
 
-/* Magia animacji */
+/* Animacja paska postępu */
 .visible .skill-bar-fill {
-    width: var(--skill-level); /* Ustawia szerokość na wartość z HTML */
+    width: var(--skill-level);
 }
 
 /* === SEKCJA "JOURNEY" (TIMELINE) === */
@@ -540,6 +541,13 @@ body[data-theme="dark"] .navbar {
 #projects.section-padding {
     border-bottom: 1px solid var(--kolor-tla-stopki); 
     transition: border-color 0.3s ease;
+}
+
+.section-title-center {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
 }
 
 .projects-grid {
@@ -865,5 +873,3 @@ body[data-theme="dark"] .project-logo[src*="image_5a0241"] {
             url('Uploaded_10_CNV00010.jpg');
     }
 }
-
-
