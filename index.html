@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piotr Biela - Digital Marketing</title>
+    <title>Piotr Biela - Digital Marketing Portfolio</title>
+
+    <meta name="description" content="Piotr Biela's Digital Marketing portfolio. A creative marketer specializing in social media, content, and AI, looking for new opportunities.">
+    
+    <meta property="og:title" content="Piotr Biela - Digital Marketing Portfolio">
+    <meta property="og:description" content="A creative marketer specializing in social media, content, and AI, looking for new opportunities.">
+    <meta property="og:type" content="website">
+    
+    <meta property="og:url" content="https://bielaster.github.io/">
+    <meta property="og:image" content="https://bielaster.github.io/Uploaded_10_CNV00010.jpg">
+
     <link rel="stylesheet" href="style.css">
     </head>
 <body>
@@ -27,6 +37,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="btn-nav-cv">Download CV</a></li>
             </ul>
         </div>
     </nav>
@@ -94,7 +105,7 @@
             
             <div class="projects-grid">
                 <article class="project-card"> 
-                    <img src="image_5a0506.jpg" alt="Namaste Delhi logo" class="project-logo">
+                    <img src="image_5a0506.jpg" alt="Logo for Namaste Delhi, a university project on digital marketing." class="project-logo" loading="lazy">
                     
                     <div class="card-content">
                         <h3>Namaste Delhi - Digital Marketing Campaign</h3>
@@ -106,7 +117,7 @@
                 </article>
 
                 <article class="project-card"> 
-                    <img src="image_5a0241.jpg" alt="Aberdeen FC Community Trust logo" class="project-logo">
+                    <img src="image_5a0241.jpg" alt="Logo for Aberdeen FC Community Trust, a university fundraising project." class="project-logo" loading="lazy">
 
                     <div class="card-content">
                         <h3>Aberdeen Football Club Community Trust</h3>
@@ -122,7 +133,7 @@
         <section id="contact" class="container section-padding">
             <h2 class="section-title-center">Get in Touch</h2>
             <p class="section-description-center">
-                I'm open to new opportunities. Feel free to reach out!
+                Ready to bring fresh energy and creativity to your team? Let's talk.
             </p>
             
             <div class="contact-buttons-container">
@@ -146,7 +157,7 @@
     
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 Piotr Biela. All rights reserved.</p>
+            <p>&copy; <span id="current-year"></span> Piotr Biela. All rights reserved.</p>
         </div>
     </footer>
 
@@ -174,6 +185,9 @@
                 snapDisabled = true;
             }
         });
+
+        // 3. NOWY KOD: Dynamiczny rok w stopce
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
