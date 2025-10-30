@@ -1,400 +1,242 @@
-/* === Ustawienia ogólne - KREATYWNY MINIMALIZM === */
-:root {
-    --kolor-tla-srodek: #ffffff;
-    --kolor-tla-stopki: #f9f9f9;
-    --kolor-tekstu-glowny: #1d1d1f;
-    --kolor-tekstu-pomocniczy: #515154;
-    --kolor-ramki: #e0e0e0;
-    --kolor-shadow: rgba(0, 0, 0, 0.05);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piotr Biela - Digital Marketing Portfolio</title>
+
+    <meta name="description" content="Piotr Biela's Digital Marketing portfolio. A creative marketer specializing in social media, content, and AI, looking for new opportunities.">
     
-    --kolor-akcentu: #FF8C00;
-    --kolor-akcentu-hover: #E07B00;
+    <meta property="og:title" content="Piotr Biela - Digital Marketing Portfolio">
+    <meta property="og:description" content="A creative marketer specializing in social media, content, and AI, looking for new opportunities.">
+    <meta property="og:type" content="website">
+    
+    <meta property="og:url" content="https://[TwojaNazwaUzytkownika].github.io/">
+    <meta property="og:image" content="https://[TwojaNazwaUzytkownika].github.io/Uploaded_10_CNV00010.jpg">
 
-    --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
+    <link rel="icon" type="image/png" href="favicon.png">
 
-/* === USTAWIENIA PRZYCIĄGANIA PRZEWIJANIA === */
-html {
-    scroll-snap-type: y mandatory;
-}
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
 
-/* === SEKCJA INTRO (Z Twoim zdjęciem w tle) === */
-.intro-hero {
-    height: 100vh;
-    width: 100%;
-    background-color: var(--kolor-tla-srodek);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    padding: 20px;
-    box-sizing: border-box;
-    scroll-snap-align: start;
-}
+    <section class="intro-hero">
+        <div class="intro-content">
+            <h1>Portfolio</h1>
+            <p>Piotr Biela // Digital Marketing</p>
+        </div>
+        <div class="hero-image-overlay"></div> 
+        <div class="scroll-down-prompt">
+            Scroll down &darr;
+        </div>
+    </section>
 
-.intro-content {
-    animation: fadeIn 1.2s ease-out 0.2s;
-    animation-fill-mode: backwards;
-    position: relative;
-    z-index: 2;
-}
+    <nav class="navbar">
+        <div class="container">
+            <a href="#about" class="logo">Piotr Biela</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="btn-nav-cv">Download CV</a></li>
+            </ul>
+        </div>
+    </nav>
 
-.intro-hero h1 {
-    font-size: clamp(4rem, 15vw, 10rem);
-    font-weight: 800;
-    color: var(--kolor-tekstu-glowny);
-    margin: 0;
-    line-height: 1;
-    text-transform: uppercase;
-}
+    <main class="main-content">
 
-.intro-hero p {
-    font-size: clamp(1rem, 3vw, 1.25rem);
-    color: var(--kolor-tekstu-pomocniczy);
-    margin-top: 1rem;
-    font-weight: 500;
-}
+        <section id="about" class="container section-padding">
+            <div class="section-grid"> 
+                <h2 class="section-title-left hidden">About Me</h2>
+                <div class="section-content-right hidden">
+                    <p class="about-text">
+                        I'm a marketer driven by a passion for social media, content strategy, and the creative potential of AI. I believe the best way to learn is by doing.
+                    </p>
+                    <p class="about-text">
+                        That’s why during my studies, I didn't just learn theory—I actively sought out and delivered real-world campaigns for clients like **Namaste Delhi** and the **Aberdeen FC Community Trust**.
+                    </p>
+                    
+                    <blockquote class="about-quote">
+                        I am a fast learner with a proven 'can-do' attitude, ready to bring fresh energy and creativity to your team.
+                    </blockquote>
+                    
+                    <p class="about-text">
+                        I am looking for an opportunity to grow, contribute new ideas, and turn this proven passion into a professional career.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        <section id="skills" class="container section-padding">
+            <div class="section-grid">
+                <h2 class="section-title-left hidden">My Skills</h2>
+                <div class="section-content-right hidden">
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <h3>Social Media Knowledge</h3>
+                            <p>(TikTok, Instagram, Facebook)</p>
+                        </div>
+                        <div class="skill-item">
+                            <h3>Content Design</h3>
+                            <p>(Basic Canva and CapCut)</p>
+                        </div>
+                        <div class="skill-item">
+                            <h3>Content Planning</h3>
+                            <p>(Storytelling & Strategy)</p>
+                        </div>
+                        <div class="skill-item">
+                            <h3>Team Collaboration</h3>
+                            <p>(Communication)</p>
+                        </div>
+                        <div class="skill-item">
+                            <h3>Time Management</h3>
+                            <p>(Multitasking)</p>
+                        </div>
+                        <div class="skill-item">
+                            <h3>AI Tools</h3>
+                            <p>(Curious mindset)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-/* === ZDJĘCIE W TLE Z GRADIENTEM === */
-.hero-image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0; 
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(to right, 
-            var(--kolor-tla-srodek) 0%,        
-            var(--kolor-tla-srodek) 30%,       
-            rgba(255, 255, 255, 0.6) 50%,    
-            rgba(255, 255, 255, 0) 60%       
-        ),
-        url('Uploaded_10_CNV00010.jpg');
-    background-size: cover;
-    background-position: right center; 
-    z-index: 1; 
-    filter: grayscale(100%); 
-}
+        <section id="education" class="container section-padding">
+            <div class="section-grid">
+                <h2 class="section-title-left hidden">Education</h2>
+                <div class="section-content-right hidden">
+                    <div class="education-list">
+                        <div class="education-item">
+                            <h3>BSc Digital Marketing</h3>
+                            <p>Robert Gordon University (2022-2024)</p>
+                        </div>
+                        <div class="education-item">
+                            <h3>HND Technologies in Business</h3>
+                            <p>North East Scotland College (2020-2022)</p>
+                        </div>
+                        <div class="education-item">
+                            <h3>NC Computing with Digital Media</h3>
+                            <p>North East Scotland College (2019–2020)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section id="projects" class="container section-padding"> 
+            <h2 class="section-title-center hidden">My Projects</h2>
+            
+            <div class="projects-grid hidden">
+                <article class="project-card"> 
+                    <img src="image_5a0506.jpg" alt="Logo for Namaste Delhi, a university project on digital marketing." class="project-logo" loading="lazy">
+                    <div class="card-content">
+                        <h3>Namaste Delhi - Digital Marketing Campaign</h3>
+                        <p>Designed and executed a campaign to attract new customers for cooking and bartending teaching classes.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </article>
 
-.scroll-down-prompt {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--kolor-tekstu-pomocniczy);
-    font-weight: 500;
-    font-size: 1rem;
-    animation: bounce 2.5s infinite ease-in-out;
-    z-index: 2;
-}
+                <article class="project-card"> 
+                    <img src="image_5a0241.jpg" alt="Logo for Aberdeen FC Community Trust, a university fundraising project." class="project-logo" loading="lazy">
+                    <div class="card-content">
+                        <h3>Aberdeen Football Club Community Trust</h3>
+                        <p>Collaborated with a team to plan and promote a £1M fundraising initiative, developing strategies to drive donations.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
-    40% { transform: translate(-50%, -10px); }
-    60% { transform: translate(-50%, -5px); }
-}
+        <section id="details" class="section-padding">
+            <div class="container">
+                <div class="details-grid hidden">
+                    <div class="details-column">
+                        <h3 class="details-title">Languages</h3>
+                        <ul>
+                            <li><strong>Polish:</strong> Native Speaker</li>
+                            <li><strong>English:</strong> Highly Proficient</li>
+                        </ul>
+                    </div>
+                    <div class="details-column">
+                        <h3 class="details-title">Interests</h3>
+                        <ul>
+                            <li>Content Creation</li>
+                            <li>AI Tools</li>
+                            <li>Photography</li>
+                            <li>Social Media Trends</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-/* === ANIMACJA PRZEWIJANIA === */
-.hidden {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    will-change: opacity, transform;
-}
+        <section id="contact" class="container section-padding">
+            <h2 class="section-title-center hidden">Get in Touch</h2>
+            <p class="section-description-center hidden">
+                Ready to bring fresh energy and creativity to your team? Let's talk.
+            </p>
+            
+            <div class="contact-buttons-container hidden">
+                <a href="mailto:bielaster@gmail.com" class="btn-contact">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91A2.25 2.25 0 012.25 6.993V6.75" />
+                    </svg>
+                    Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/biela-piotr" target="_blank" class="btn-contact">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    View LinkedIn
+                </a>
+            </div>
+        </section>
 
-.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+    </main> 
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Piotr Biela. All rights reserved.</p>
+        </div>
+    </footer>
 
-/* === RESZTA STYLÓW === */
-body {
-    font-family: var(--font-family-system);
-    margin: 0;
-    padding: 0;
-    background-color: var(--kolor-tla-stopki);
-    color: var(--kolor-tekstu-glowny);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
-}
+    <script>
+        // 1. Płynne przewijanie dla linków nawigacyjnych
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-.main-content {
-    background-color: var(--kolor-tla-srodek);
-}
+        // 2. USUNIĘTO SKRYPT DO "SCROLL SNAP"
 
-.container {
-    width: 90%;
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0;
-}
+        // 3. Dynamiczny rok w stopce
+        document.getElementById('current-year').textContent = new Date().getFullYear();
 
-h1, h2, h3 {
-    color: var(--kolor-tekstu-glowny);
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-}
+        // 4. Animacja przy przewijaniu
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Animacja tylko raz
+                }
+            });
+        }, {
+            threshold: 0.1 // Uruchom, gdy 10% elementu jest widoczne
+        });
 
-h3 { font-size: 1.6rem; }
-
-p {
-    margin-bottom: 1rem;
-    color: var(--kolor-tekstu-pomocniczy);
-}
-
-a {
-    color: var(--kolor-akcentu);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: var(--kolor-akcentu-hover);
-}
-
-/* === Nawigacja (Navbar) === */
-.navbar {
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 15px 0;
-    border-bottom: 1px solid var(--kolor-ramki);
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    scroll-snap-align: start;
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar .logo {
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: var(--kolor-tekstu-glowny);
-}
-.navbar .logo:hover {
-    text-decoration: none;
-}
-
-.nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.nav-links li {
-    display: flex;
-    align-items: center;
-}
-
-.nav-links a {
-    color: var(--kolor-tekstu-glowny);
-    font-weight: 500;
-    position: relative;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0;
-    height: 2px;
-    background-color: var(--kolor-akcentu);
-    transition: width 0.2s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-.nav-links a:hover {
-    text-decoration: none;
-    color: var(--kolor-tekstu-glowny);
-}
-
-.btn-nav-cv {
-    background-color: transparent;
-    border: 2px solid var(--kolor-akcentu);
-    color: var(--kolor-akcentu);
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    margin-left: 15px;
-}
-
-.btn-nav-cv:hover {
-    background-color: var(--kolor-akcentu);
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.btn-nav-cv::after {
-    display: none;
-}
-
-
-/* === Sekcje ogólne === */
-.section-padding {
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
-
-/* === UKŁAD SIATKI (GRID) - NAPRAWIONY === */
-.section-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* Przywrócony układ 1/3 na 2/3 */
-    gap: 40px;
-    border-bottom: 1px solid var(--kolor-tla-stopki);
-    padding-bottom: 80px;
-}
-
-/* Poprawka granic */
-#skills .section-grid, #education .section-grid {
-    border-bottom: 1px solid var(--kolor-tla-stopki);
-}
-
-#about.section-padding, #skills.section-padding, #education.section-padding {
-    padding-bottom: 0; /* Usuwamy dolny padding, bo .section-grid go ma */
-}
-
-/* Sekcja Contact nie używa siatki, więc potrzebuje swojego paddingu i granicy */
-#contact.section-padding {
-     border-bottom: 1px solid var(--kolor-tla-stopki);
-     padding-bottom: 80px;
-}
-
-
-.section-title-left {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin: 0;
-    position: sticky;
-    top: 100px;
-    align-self: start;
-}
-
-.section-content-right {
-    padding-top: 5px;
-}
-
-/* === Sekcja "About" === */
-.about-text {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    flex-grow: 1;
-}
-.about-text:last-of-type {
-    margin-bottom: 0;
-}
-
-.about-quote {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--kolor-akcentu);
-    border-left: 4px solid var(--kolor-akcentu);
-    padding-left: 1.5rem;
-    margin: 2.5rem 0;
-    font-style: italic;
-}
-
-/* === Sekcja "Skills" === */
-.skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    position: relative;
-    z-index: 2;
-}
-
-.skill-item {
-    text-align: left;
-    border-left: 4px solid var(--kolor-akcentu);
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--kolor-ramki);
-}
-
-.skill-item:last-child {
-    border-bottom: none;
-}
-
-.skill-item h3 {
-    margin: 0 0 5px 0;
-    font-weight: 600;
-    font-size: 1.4rem;
-    color: var(--kolor-tekstu-glowny);
-}
-.skill-item p {
-    color: var(--kolor-tekstu-pomocniczy);
-    font-size: 0.95rem;
-    margin: 0;
-}
-
-/* === Sekcja "Education" (NAPRAWIONA) === */
-.education-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
-.education-item {
-    text-align: left;
-    border-left: 4px solid var(--kolor-akcentu); /* Ten sam styl co Skills */
-    padding-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--kolor-ramki);
-}
-.education-item:last-child {
-    border-bottom: none;
-}
-.education-item h3 {
-    margin: 0 0 5px 0;
-    font-weight: 600;
-    font-size: 1.4rem;
-    color: var(--kolor-tekstu-glowny);
-}
-.education-item p {
-    color: var(--kolor-tekstu-pomocniczy);
-    font-size: 0.95rem;
-    margin: 0;
-}
-
-
-/* === Sekcja "Projects" === */
-#projects.section-padding {
-    border-bottom: 1px solid var(--kolor-tla-stopki); 
-}
-
-.section-title-center {
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-}
-
-/* NAP
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
