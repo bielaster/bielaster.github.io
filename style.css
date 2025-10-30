@@ -13,6 +13,20 @@
     --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+/* === NOWY TRYB CIEMNY === */
+body[data-theme="dark"] {
+    --kolor-tla-srodek: #121212;
+    --kolor-tla-stopki: #1e1e1e;
+    --kolor-tekstu-glowny: #f1f1f1;
+    --kolor-tekstu-pomocniczy: #b0b0b0;
+    --kolor-ramki: #2c2c2c;
+    --kolor-shadow: rgba(255, 255, 255, 0.05);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 /* === SEKCJA INTRO === */
 .intro-hero {
     height: 100vh;
@@ -24,9 +38,10 @@
     align-items: center;
     text-align: center;
     position: relative;
-    /* overflow: hidden;  <-- USUNIĘCIE TEJ LINII NAPRAWIA BŁĄD */
+    overflow: hidden;
     padding: 20px;
     box-sizing: border-box;
+    transition: background-color 0.3s ease; /* Płynne przejście */
 }
 
 .intro-content {
@@ -57,7 +72,6 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* === ZDJĘCIE W TLE Z GRADIENTEM === */
 .hero-image-overlay {
     position: absolute;
     top: 0;
@@ -75,7 +89,13 @@
     background-size: cover;
     background-position: right center; 
     z-index: 1; 
-    filter: grayscale(100%); 
+    filter: grayscale(100%);
+    transition: background-color 0.3s ease;
+}
+
+/* Ukrywanie zdjęcia w trybie ciemnym */
+body[data-theme="dark"] .hero-image-overlay {
+    opacity: 0.3;
 }
 
 
@@ -119,11 +139,13 @@ body {
     color: var(--kolor-tekstu-glowny);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth; /* Płynne przewijanie po kliknięciu linku */
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Płynne przejście */
 }
 
 .main-content {
     background-color: var(--kolor-tla-srodek);
+    transition: background-color 0.3s ease;
 }
 
 .container {
@@ -137,6 +159,7 @@ h1, h2, h3 {
     color: var(--kolor-tekstu-glowny);
     margin-bottom: 0.8rem;
     font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 h3 { font-size: 1.6rem; }
@@ -144,6 +167,7 @@ h3 { font-size: 1.6rem; }
 p {
     margin-bottom: 1rem;
     color: var(--kolor-tekstu-pomocniczy);
+    transition: color 0.3s ease;
 }
 
 a {
@@ -154,6 +178,23 @@ a {
 
 a:hover {
     color: var(--kolor-akcentu-hover);
+}
+
+/* === NOWY PRZEŁĄCZNIK MOTYWU === */
+.btn-toggle-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    padding: 8px 12px;
+    background-color: var(--kolor-tla-stopki);
+    color: var(--kolor-tekstu-glowny);
+    border: 1px solid var(--kolor-ramki);
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1;
 }
 
 /* === Nawigacja (Navbar) === */
@@ -168,7 +209,12 @@ a:hover {
     left: 0;
     width: 100%;
     z-index: 1000;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
+body[data-theme="dark"] .navbar {
+    background-color: rgba(18, 18, 18, 0.85); /* Ciemne tło dla szkła */
+}
+
 
 .navbar .container {
     display: flex;
@@ -249,6 +295,18 @@ a:hover {
     display: none;
 }
 
+/* === NOWY PRZEŁĄCZNIK JĘZYKA === */
+.language-switcher {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    border: 1px solid var(--kolor-ramki);
+    margin-left: 10px;
+    background-color: var(--kolor-tla-srodek);
+    color: var(--kolor-tekstu-glowny);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 
 /* === Sekcje ogólne === */
 .section-padding {
@@ -256,28 +314,27 @@ a:hover {
     padding-bottom: 80px;
 }
 
-/* === UKŁAD SIATKI (GRID) - NAPRAWIONY === */
 .section-grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 40px;
     border-bottom: 1px solid var(--kolor-tla-stopki);
     padding-bottom: 80px;
+    transition: border-color 0.3s ease;
 }
 
 #skills .section-grid, #education .section-grid {
     border-bottom: 1px solid var(--kolor-tla-stopki);
 }
 
-#about.section-padding, #skills.section-padding, #education.section-padding {
+#about.section-padding, #skills.section-padding, #education.section-padding, #collaboration.section-padding, #contact.section-padding {
     padding-bottom: 0;
 }
 
-#contact.section-padding {
+#details.section-padding, #contact.section-padding {
      border-bottom: 1px solid var(--kolor-tla-stopki);
      padding-bottom: 80px;
 }
-
 
 .section-title-left {
     font-size: 2.8rem;
@@ -328,6 +385,7 @@ a:hover {
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--kolor-ramki);
+    transition: border-color 0.3s ease;
 }
 
 .skill-item:last-child {
@@ -359,6 +417,7 @@ a:hover {
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--kolor-ramki);
+    transition: border-color 0.3s ease;
 }
 .education-item:last-child {
     border-bottom: none;
@@ -379,6 +438,7 @@ a:hover {
 /* === Sekcja "Projects" === */
 #projects.section-padding {
     border-bottom: 1px solid var(--kolor-tla-stopki); 
+    transition: border-color 0.3s ease;
 }
 
 .section-title-center {
@@ -407,15 +467,16 @@ a:hover {
     flex-direction: column;
     justify-content: flex-start;
     box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     width: 100%;
     max-width: 450px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px var(--kolor-shadow);
+    border: 1px solid var(--kolor-ramki);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px var(--kolor-shadow);
 }
 
 .project-logo {
@@ -425,6 +486,7 @@ a:hover {
     padding: 20px;
     box-sizing: border-box;
     background-color: var(--kolor-tla-srodek);
+    transition: background-color 0.3s ease;
 }
 
 .card-content {
@@ -443,11 +505,9 @@ a:hover {
 .project-card h3 {
     margin-top: 0;
     font-size: 1.8rem;
-    color: var(--kolor-tekstu-glowny);
 }
 
 .project-card p {
-    color: var(--kolor-tekstu-pomocniczy);
     margin-bottom: 1.5rem;
 }
 
@@ -469,10 +529,44 @@ a:hover {
     text-decoration: none;
 }
 
+/* === NOWA SEKCJA "COLLABORATION" === */
+.collab-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.collab-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    color: var(--kolor-tekstu-glowny);
+}
+
+.collab-form input,
+.collab-form select,
+.collab-form textarea {
+    padding: 12px;
+    border: 1px solid var(--kolor-ramki);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-family-system);
+    background-color: var(--kolor-tla-srodek);
+    color: var(--kolor-tekstu-glowny);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.collab-form button.btn-contact {
+    margin-top: 10px;
+}
+
 /* === Sekcja "Languages & Interests" === */
 #details {
     background-color: var(--kolor-tla-stopki);
     border-bottom: 1px solid var(--kolor-ramki);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .details-grid {
@@ -483,9 +577,9 @@ a:hover {
 
 .details-column h3 {
     font-size: 1.8rem;
-    color: var(--kolor-tekstu-glowny);
     border-bottom: 2px solid var(--kolor-ramki);
     padding-bottom: 10px;
+    transition: border-color 0.3s ease;
 }
 
 .details-column ul {
@@ -496,7 +590,6 @@ a:hover {
 
 .details-column li {
     font-size: 1.1rem;
-    color: var(--kolor-tekstu-pomocniczy);
     margin-bottom: 10px;
 }
 
@@ -561,6 +654,7 @@ a:hover {
     text-align: center;
     color: var(--kolor-tekstu-pomocniczy);
     font-size: 0.9rem;
+    transition: background-color 0.3s ease;
 }
 
 /* === Responsywność === */
@@ -580,6 +674,13 @@ a:hover {
         width: 100%;
         text-align: center;
         box-sizing: border-box;
+    }
+    
+    /* Poprawka dla przełącznika języka na mobilnych */
+    .language-switcher {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
     }
 
     .section-padding {
