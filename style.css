@@ -322,15 +322,20 @@ body[data-theme="dark"] .navbar {
     transition: border-color 0.3s ease;
 }
 
-#skills .section-grid, #education .section-grid, #now .section-grid {
+#skills .section-grid, #now .section-grid {
     border-bottom: 1px solid var(--kolor-tla-stopki);
 }
+/* Usunięto błąd z #education */
+#education .section-grid {
+    border-bottom: none; /* Education jest teraz częścią .journey */
+}
 
-#about.section-padding, #skills.section-padding, #education.section-padding, #now.section-padding, #collaboration.section-padding, #contact.section-padding {
+
+#about.section-padding, #skills.section-padding, #now.section-padding, #collaboration.section-padding, #contact.section-padding {
     padding-bottom: 0;
 }
 
-#details.section-padding, #contact.section-padding, #collaboration.section-padding {
+#journey.section-padding, #projects.section-padding, #details.section-padding, #contact.section-padding, #collaboration.section-padding {
      border-bottom: 1px solid var(--kolor-tla-stopki);
      padding-bottom: 80px;
      padding-top: 80px;
@@ -370,8 +375,8 @@ body[data-theme="dark"] .navbar {
     font-style: italic;
 }
 
-/* === Sekcje "Skills", "Education", "Now" === */
-.skills-list, .education-list, .now-list {
+/* === Sekcje "Skills", "Now" === */
+.skills-list, .now-list {
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -379,7 +384,7 @@ body[data-theme="dark"] .navbar {
     z-index: 2;
 }
 
-.skill-item, .education-item, .now-item {
+.skill-item, .now-item {
     text-align: left;
     border-left: 4px solid var(--kolor-akcentu);
     padding-left: 20px;
@@ -389,18 +394,102 @@ body[data-theme="dark"] .navbar {
     transition: border-color 0.3s ease;
 }
 
-.skill-item:last-child, .education-item:last-child, .now-item:last-child {
+.skill-item:last-child, .now-item:last-child {
     border-bottom: none;
 }
 
-.skill-item h3, .education-item h3, .now-item h3 {
+.skill-item h3, .now-item h3 {
     margin: 0 0 5px 0;
     font-weight: 600;
     font-size: 1.4rem;
 }
-.skill-item p, .education-item p, .now-item p {
+.skill-item p, .now-item p {
     font-size: 0.95rem;
     margin: 0;
+}
+
+/* === NOWA SEKCJA "JOURNEY" (TIMELINE) === */
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Centralna linia */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background-color: var(--kolor-ramki);
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 10px 40px;
+    box-sizing: border-box;
+}
+
+/* Nieparzyste elementy (lewa strona) */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 50px;
+    text-align: right;
+}
+
+/* Parzyste elementy (prawa strona) */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 50px;
+    text-align: left;
+}
+
+/* Kropka na osi czasu */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--kolor-akcentu);
+    border: 3px solid var(--kolor-tla-srodek);
+    top: 25px; /* Dopasowanie do paddingu .timeline-content */
+    z-index: 1;
+    transition: border-color 0.3s ease;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -8px; /* Połowa szerokości kropki */
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -8px; /* Połowa szerokości kropki */
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: var(--kolor-tla-stopki);
+    border-radius: 12px;
+    border: 1px solid var(--kolor-ramki);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    color: var(--kolor-akcentu);
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 0.95rem;
 }
 
 
@@ -706,6 +795,26 @@ body[data-theme="dark"] .project-logo[src*="image_5a0241"] {
 
     .details-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* === RESPONSIVE TIMELINE === */
+    .timeline::before {
+        left: 20px;
+        transform: translateX(0);
+    }
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding-left: 60px; /* Więcej miejsca na kropkę */
+        padding-right: 15px;
+        text-align: left;
+    }
+    .timeline-item::after,
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: 12px; /* 20px (padding) - 8px (pół kropki) */
     }
     
     .hero-image-overlay {
