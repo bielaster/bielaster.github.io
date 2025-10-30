@@ -322,16 +322,11 @@ body[data-theme="dark"] .navbar {
     transition: border-color 0.3s ease;
 }
 
-#skills .section-grid, #now .section-grid {
+#toolkit .section-grid, #education .section-grid, #now .section-grid {
     border-bottom: 1px solid var(--kolor-tla-stopki);
 }
-/* Usunięto błąd z #education */
-#education .section-grid {
-    border-bottom: none; /* Education jest teraz częścią .journey */
-}
 
-
-#about.section-padding, #skills.section-padding, #now.section-padding, #collaboration.section-padding, #contact.section-padding {
+#about.section-padding, #toolkit.section-padding, #education.section-padding, #now.section-padding, #collaboration.section-padding, #contact.section-padding {
     padding-bottom: 0;
 }
 
@@ -375,8 +370,8 @@ body[data-theme="dark"] .navbar {
     font-style: italic;
 }
 
-/* === Sekcje "Skills", "Now" === */
-.skills-list, .now-list {
+/* === Sekcja "Now" & "Education" === */
+.now-list, .education-list {
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -384,7 +379,7 @@ body[data-theme="dark"] .navbar {
     z-index: 2;
 }
 
-.skill-item, .now-item {
+.now-item, .education-item {
     text-align: left;
     border-left: 4px solid var(--kolor-akcentu);
     padding-left: 20px;
@@ -394,21 +389,73 @@ body[data-theme="dark"] .navbar {
     transition: border-color 0.3s ease;
 }
 
-.skill-item:last-child, .now-item:last-child {
+.now-item:last-child, .education-item:last-child {
     border-bottom: none;
 }
 
-.skill-item h3, .now-item h3 {
+.now-item h3, .education-item h3 {
     margin: 0 0 5px 0;
     font-weight: 600;
     font-size: 1.4rem;
 }
-.skill-item p, .now-item p {
+.now-item p, .education-item p {
     font-size: 0.95rem;
     margin: 0;
 }
 
-/* === NOWA SEKCJA "JOURNEY" (TIMELINE) === */
+/* === NOWA SEKCJA "TOOLKIT" (HEATMAP) === */
+.skill-heatmap {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.skill-bar {
+    width: 100%;
+}
+
+.skill-bar-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.skill-bar-info span:first-child {
+    color: var(--kolor-tekstu-glowny);
+}
+.skill-bar-info span:last-child {
+    color: var(--kolor-tekstu-pomocniczy);
+    font-size: 0.9rem;
+}
+
+.skill-bar-track {
+    width: 100%;
+    height: 8px;
+    background-color: var(--kolor-tla-stopki);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background-color: var(--kolor-akcentu);
+    width: 0; /* Domyślnie 0, animacja uruchamiana przez .visible */
+    border-radius: 4px;
+    transition: width 1s ease-out 0.3s; /* 1s animacja z 0.3s opóźnieniem */
+}
+
+/* Magia animacji */
+.visible .skill-bar-fill {
+    width: var(--skill-level); /* Ustawia szerokość na wartość z HTML */
+}
+
+/* === SEKCJA "JOURNEY" (TIMELINE) === */
+#journey.section-padding {
+    border-bottom: 1px solid var(--kolor-tla-stopki); 
+    transition: border-color 0.3s ease;
+}
+
 .timeline {
     position: relative;
     max-width: 900px;
@@ -416,7 +463,6 @@ body[data-theme="dark"] .navbar {
     padding: 40px 0;
 }
 
-/* Centralna linia */
 .timeline::before {
     content: '';
     position: absolute;
@@ -437,21 +483,18 @@ body[data-theme="dark"] .navbar {
     box-sizing: border-box;
 }
 
-/* Nieparzyste elementy (lewa strona) */
 .timeline-item:nth-child(odd) {
     left: 0;
     padding-right: 50px;
     text-align: right;
 }
 
-/* Parzyste elementy (prawa strona) */
 .timeline-item:nth-child(even) {
     left: 50%;
     padding-left: 50px;
     text-align: left;
 }
 
-/* Kropka na osi czasu */
 .timeline-item::after {
     content: '';
     position: absolute;
@@ -460,17 +503,17 @@ body[data-theme="dark"] .navbar {
     border-radius: 50%;
     background-color: var(--kolor-akcentu);
     border: 3px solid var(--kolor-tla-srodek);
-    top: 25px; /* Dopasowanie do paddingu .timeline-content */
+    top: 25px;
     z-index: 1;
     transition: border-color 0.3s ease;
 }
 
 .timeline-item:nth-child(odd)::after {
-    right: -8px; /* Połowa szerokości kropki */
+    right: -8px;
 }
 
 .timeline-item:nth-child(even)::after {
-    left: -8px; /* Połowa szerokości kropki */
+    left: -8px;
 }
 
 .timeline-content {
@@ -497,13 +540,6 @@ body[data-theme="dark"] .navbar {
 #projects.section-padding {
     border-bottom: 1px solid var(--kolor-tla-stopki); 
     transition: border-color 0.3s ease;
-}
-
-.section-title-center {
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
 }
 
 .projects-grid {
@@ -764,7 +800,7 @@ body[data-theme="dark"] .project-logo[src*="image_5a0241"] {
         padding-bottom: 60px;
     }
     
-    #skills .section-grid, #education .section-grid, #now .section-grid {
+    #toolkit .section-grid, #education .section-grid, #now .section-grid {
         width: 100%;
     }
 
@@ -796,7 +832,7 @@ body[data-theme="dark"] .project-logo[src*="image_5a0241"] {
     .details-grid {
         grid-template-columns: 1fr;
     }
-
+    
     /* === RESPONSIVE TIMELINE === */
     .timeline::before {
         left: 20px;
@@ -807,14 +843,14 @@ body[data-theme="dark"] .project-logo[src*="image_5a0241"] {
     .timeline-item:nth-child(even) {
         width: 100%;
         left: 0;
-        padding-left: 60px; /* Więcej miejsca na kropkę */
+        padding-left: 60px;
         padding-right: 15px;
         text-align: left;
     }
     .timeline-item::after,
     .timeline-item:nth-child(odd)::after,
     .timeline-item:nth-child(even)::after {
-        left: 12px; /* 20px (padding) - 8px (pół kropki) */
+        left: 12px;
     }
     
     .hero-image-overlay {
