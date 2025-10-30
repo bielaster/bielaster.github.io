@@ -1,299 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piotr Biela - Digital Marketing Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piotr Biela - Digital Marketing Portfolio</title>
 
-    <meta name="description" content="Piotr Biela's Digital Marketing portfolio. A creative marketer specializing in social media, content, and AI, looking for new opportunities.">
-    
-    <meta property="og:title" content="Piotr Biela - Digital Marketing Portfolio">
-    <meta property="og:description" content="A creative marketer specializing in social media, content, and AI, looking for new opportunities.">
-    <meta property="og:type" content="website">
-    
-    <meta property="og:url" content="https://[TwojaNazwaUzytkownika].github.io/">
-    <meta property="og:image" content="https://[TwojaNazwaUzytkownika].github.io/Uploaded_10_CNV00010.jpg">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    body[data-theme="dark"] {
+      --kolor-tla-srodek: #121212;
+      --kolor-tla-stopki: #1e1e1e;
+      --kolor-tekstu-glowny: #f1f1f1;
+      --kolor-tekstu-pomocniczy: #b0b0b0;
+      --kolor-ramki: #2c2c2c;
+      --kolor-shadow: rgba(255, 255, 255, 0.05);
+    }
 
-    <link rel="stylesheet" href="style.css?v=3"> </head>
-<body data-theme="light"> <button id="toggle-theme" class="btn-toggle-theme">🌙</button>
+    .btn-toggle-theme {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 10000;
+      padding: 10px 15px;
+      background-color: var(--kolor-akcentu);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-    <section class="intro-hero">
-        <div class="intro-content">
-            <h1>Portfolio</h1>
-            <p>Piotr Biela // Digital Marketing</p>
-        </div>
-        <div class="hero-image-overlay"></div> 
-        <div class="scroll-down-prompt">
-            Scroll down &darr;
-        </div>
+    .language-switcher {
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: 600;
+      border: 1px solid var(--kolor-ramki);
+      margin-left: 10px;
+    }
+
+    .collab-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .collab-form label {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+      color: var(--kolor-tekstu-glowny);
+    }
+
+    .collab-form input,
+    .collab-form select,
+    .collab-form textarea {
+      padding: 10px;
+      border: 1px solid var(--kolor-ramki);
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🌙 DARK MODE TOGGLE -->
+  <button id="toggle-theme" class="btn-toggle-theme">🌙 Theme</button>
+
+  <!-- Your NAV BAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#about" class="logo">Piotr Biela</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#collaboration">Collaboration</a></li>
+        <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="btn-nav-cv">Download CV</a></li>
+        <li>
+          <select id="language-select" class="language-switcher">
+            <option value="en" selected>EN</option>
+            <option value="pl">PL</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- 📬 COLLABORATION FORM -->
+    <section id="collaboration" class="container section-padding">
+      <h2 class="section-title-center">Propose a Collaboration</h2>
+      <form id="collab-form" class="collab-form">
+        <label>
+          Name:
+          <input type="text" name="name" required>
+        </label>
+        <label>
+          Email:
+          <input type="email" name="email" required>
+        </label>
+        <label>
+          Area of Collaboration:
+          <select name="area" required>
+            <option value="">Select...</option>
+            <option value="social">Social Media</option>
+            <option value="content">Content Strategy</option>
+            <option value="ai">AI Tools</option>
+            <option value="consulting">Consulting</option>
+          </select>
+        </label>
+        <label>
+          Message:
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="btn-contact">Send</button>
+      </form>
     </section>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="#about" class="logo">Piotr Biela</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#collaboration">Collaboration</a></li> <li><a href="#contact">Contact</a></li>
-                <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="btn-nav-cv">Download CV</a></li>
-                <li>
-                  <select id="language-select" class="language-switcher">
-                    <option value="en" selected>EN</option>
-                    <option value="pl">PL</option>
-                  </select>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  </main>
 
-    <main class="main-content">
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="current-year"></span> Piotr Biela. All rights reserved.</p>
+    </div>
+  </footer>
 
-        <section id="about" class="container section-padding">
-            <div class="section-grid"> 
-                <h2 class="section-title-left hidden">About Me</h2>
-                <div class="section-content-right hidden">
-                    <p class="about-text">
-                        I'm a marketer driven by a passion for social media, content strategy, and the creative potential of AI. I believe the best way to learn is by doing.
-                    </p>
-                    <p class="about-text">
-                        That’s why during my studies, I didn't just learn theory—I actively sought out and delivered real-world campaigns for clients like **Namaste Delhi** and the **Aberdeen FC Community Trust**.
-                    </p>
-                    
-                    <blockquote class="about-quote">
-                        I am a fast learner with a proven 'can-do' attitude, ready to bring fresh energy and creativity to your team.
-                    </blockquote>
-                    
-                    <p class="about-text">
-                        I am looking for an opportunity to grow, contribute new ideas, and turn this proven passion into a professional career.
-                    </p>
-                </div>
-            </div>
-        </section>
+  <script>
+    // Scroll reveal (keep your IntersectionObserver if you have it)
+    const hiddenElements = document.querySelectorAll('.hidden');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    hiddenElements.forEach(el => observer.observe(el));
 
-        <section id="skills" class="container section-padding">
-            <div class="section-grid">
-                <h2 class="section-title-left hidden">My Skills</h2>
-                <div class="section-content-right hidden">
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <h3>Social Media Knowledge</h3>
-                            <p>(TikTok, Instagram, Facebook)</p>
-                        </div>
-                        <div class="skill-item">
-                            <h3>Content Design</h3>
-                            <p>(Basic Canva and CapCut)</p>
-                        </div>
-                        <div class="skill-item">
-                            <h3>Content Planning</h3>
-                            <p>(Storytelling & Strategy)</p>
-                        </div>
-                        <div class="skill-item">
-                            <h3>Team Collaboration</h3>
-                            <p>(Communication)</p>
-                        </div>
-                        <div class="skill-item">
-                            <h3>Time Management</h3>
-                            <p>(Multitasking)</p>
-                        </div>
-                        <div class="skill-item">
-                            <h3>AI Tools</h3>
-                            <p>(Curious mindset)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    // Update year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        <section id="education" class="container section-padding">
-            <div class="section-grid">
-                <h2 class="section-title-left hidden">Education</h2>
-                <div class="section-content-right hidden">
-                    <div class="education-list">
-                        <div class="education-item">
-                            <h3>BSc Digital Marketing</h3>
-                            <p>Robert Gordon University (2022-2024)</p>
-                        </div>
-                        <div class="education-item">
-                            <h3>HND Technologies in Business</h3>
-                            <p>North East Scotland College (2020-2022)</p>
-                        </div>
-                        <div class="education-item">
-                            <h3>NC Computing with Digital Media</h3>
-                            <p>North East Scotland College (2019–2020)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    // Theme toggle
+    document.getElementById('toggle-theme').addEventListener('click', () => {
+      const theme = document.body.getAttribute('data-theme');
+      document.body.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
+    });
 
-        <section id="projects" class="container section-padding"> 
-            <h2 class="section-title-center hidden">My Projects</h2>
-            
-            <div class="projects-grid hidden">
-                <article class="project-card"> 
-                    <img src="image_5a0506.jpg" alt="Logo for Namaste Delhi, a university project on digital marketing." class="project-logo" loading="lazy">
-                    <div class="card-content">
-                        <h3>Namaste Delhi - Digital Marketing Campaign</h3>
-                        <p>Designed and executed a campaign to attract new customers for cooking and bartending teaching classes.</p>
-                        <div class="project-links">
-                            <a href="#" target="_blank" class="btn">View Project</a>
-                        </div>
-                    </div>
-                </article>
+    // Language switcher
+    document.getElementById('language-select').addEventListener('change', (e) => {
+      const lang = e.target.value;
+      alert(lang === 'pl' ? "Polska wersja już niedługo!" : "You're already viewing the English version.");
+    });
 
-                <article class="project-card"> 
-                    <img src="image_5a0241.jpg" alt="Logo for Aberdeen FC Community Trust, a university fundraising project." class="project-logo" loading="lazy">
-                    <div class="card-content">
-                        <h3>Aberdeen Football Club Community Trust</h3>
-                        <p>Collaborated with a team to plan and promote a £1M fundraising initiative, developing strategies to drive donations.</p>
-                        <div class="project-links">
-                            <a href="#" target="_blank" class="btn">View Project</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="collaboration" class="container section-padding">
-            <h2 class="section-title-center hidden">Propose a Collaboration</h2>
-            <form id="collab-form" class="collab-form hidden">
-                <label>
-                    Name:
-                    <input type="text" name="name" required>
-                </label>
-                <label>
-                    Email:
-                    <input type="email" name="email" required>
-                </label>
-                <label>
-                    Area of Collaboration:
-                    <select name="area" required>
-                        <option value="">Select...</option>
-                        <option value="social">Social Media</option>
-                        <option value="content">Content Strategy</option>
-                        <option value="ai">AI Tools</option>
-                        <option value="consulting">Consulting</option>
-                    </select>
-                </label>
-                <label>
-                    Message:
-                    <textarea name="message" rows="4" required></textarea>
-                </label>
-                <button type="submit" class="btn-contact">Send</button>
-            </form>
-        </section>
-
-        <section id="details" class="section-padding">
-            <div class="container">
-                <div class="details-grid hidden">
-                    <div class="details-column">
-                        <h3 class="details-title">Languages</h3>
-                        <ul>
-                            <li><strong>Polish:</strong> Native Speaker</li>
-                            <li><strong>English:</strong> Highly Proficient</li>
-                        </ul>
-                    </div>
-                    <div class="details-column">
-                        <h3 class="details-title">Interests</h3>
-                        <ul>
-                            <li>Content Creation</li>
-                            <li>AI Tools</li>
-                            <li>Photography</li>
-                            <li>Social Media Trends</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="container section-padding">
-            <h2 class="section-title-center hidden">Get in Touch</h2>
-            <p class="section-description-center hidden">
-                Ready to bring fresh energy and creativity to your team? Let's talk.
-            </p>
-            
-            <div class="contact-buttons-container hidden">
-                <a href="mailto:bielaster@gmail.com" class="btn-contact">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91A2.25 2.25 0 012.25 6.993V6.75" />
-                    </svg>
-                    Email Me
-                </a>
-                <a href="https://www.linkedin.com/in/biela-piotr" target="_blank" class="btn-contact">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                    View LinkedIn
-                </a>
-            </div>
-        </section>
-
-    </main> 
-    
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="current-year"></span> Piotr Biela. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // 1. Płynne przewijanie dla linków nawigacyjnych
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // 2. Dynamiczny rok w stopce
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // 3. Animacja przy przewijaniu
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
-
-        // 4. NOWY KOD: Przełącznik motywu
-        const themeToggle = document.getElementById('toggle-theme');
-        themeToggle.addEventListener('click', () => {
-            const theme = document.body.getAttribute('data-theme');
-            if (theme === 'dark') {
-                document.body.setAttribute('data-theme', 'light');
-                themeToggle.textContent = '🌙';
-            } else {
-                document.body.setAttribute('data-theme', 'dark');
-                themeToggle.textContent = '☀️';
-            }
-        });
-
-        // 5. NOWY KOD: Przełącznik języka
-        document.getElementById('language-select').addEventListener('change', (e) => {
-            const lang = e.target.value;
-            if (lang === 'pl') {
-                alert("Polska wersja już niedługo!");
-            }
-        });
-
-        // 6. NOWY KOD: Obsługa formularza
-        document.getElementById('collab-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert("Thanks for your message! I'll be in touch soon 😊");
-            this.reset();
-        });
-    </script>
+    // Handle form submission
+    document.getElementById('collab-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert("Thanks for your message! I'll be in touch soon 😊");
+      this.reset();
+    });
+  </script>
 </body>
 </html>
