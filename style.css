@@ -38,7 +38,7 @@ html {
     align-items: center;
     text-align: center;
     position: relative;
-    /* overflow: hidden;  <-- USUNIĘTY BŁĄD */
+    overflow: hidden;
     padding: 20px;
     box-sizing: border-box;
     transition: background-color 0.3s ease;
@@ -322,11 +322,11 @@ body[data-theme="dark"] .navbar {
     transition: border-color 0.3s ease;
 }
 
-#skills .section-grid, #education .section-grid, #now .section-grid, #toolkit .section-grid {
+#toolkit .section-grid, #education .section-grid, #now .section-grid {
     border-bottom: 1px solid var(--kolor-tla-stopki);
 }
 
-#about.section-padding, #skills.section-padding, #education.section-padding, #now.section-padding, #toolkit.section-padding, #collaboration.section-padding, #contact.section-padding {
+#about.section-padding, #toolkit.section-padding, #education.section-padding, #now.section-padding, #collaboration.section-padding, #contact.section-padding {
     padding-bottom: 0;
 }
 
@@ -441,12 +441,11 @@ body[data-theme="dark"] .navbar {
 .skill-bar-fill {
     height: 100%;
     background-color: var(--kolor-akcentu);
-    width: 0; /* Domyślnie 0, animacja uruchamiana przez .visible */
+    width: 0;
     border-radius: 4px;
-    transition: width 1s ease-out 0.3s; /* 1s animacja z 0.3s opóźnieniem */
+    transition: width 1s ease-out 0.3s;
 }
 
-/* Animacja paska postępu */
 .visible .skill-bar-fill {
     width: var(--skill-level);
 }
@@ -543,19 +542,12 @@ body[data-theme="dark"] .navbar {
     transition: border-color 0.3s ease;
 }
 
-.section-title-center {
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-}
-
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     justify-items: center;
     gap: 30px;
-    max-width: 930px;
+    /* max-width: 930px;  USUNIĘTO TĘ LINIĘ, ABY NAPRAWIĆ UKŁAD 3 KART */
     margin: 0 auto;
 }
 
@@ -579,6 +571,33 @@ body[data-theme="dark"] .navbar {
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px var(--kolor-shadow);
+}
+
+/* KARTA TYPOGRAFICZNA DLA LUNAR-COMET */
+.project-card.typographic-card {
+    background-color: #000;
+    justify-content: center;
+    text-align: center;
+}
+.project-card.typographic-card .card-content {
+    padding: 40px;
+}
+.project-card.typographic-card h3 {
+    color: #ffffff;
+    font-size: 2rem;
+}
+.project-card.typographic-card p {
+    color: #f0f0f0;
+}
+.project-card.typographic-card .btn {
+    background-color: var(--kolor-akcentu);
+    border-color: var(--kolor-akcentu);
+    color: #fff;
+}
+.project-card.typographic-card .btn:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: #000;
 }
 
 .project-logo {
