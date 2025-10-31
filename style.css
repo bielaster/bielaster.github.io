@@ -322,6 +322,90 @@ a:hover {
     margin: 0;
 }
 
+/* === Sekcja "Journey" (Oś Czasu) === */
+.timeline-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 3rem auto 0;
+    padding: 20px 0;
+}
+
+/* Centralna linia osi czasu */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background-color: var(--kolor-ramki); /* Używa koloru ramki z Twojej palety */
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 10px 40px;
+    margin-bottom: 20px;
+}
+
+/* Kropki na osi czasu */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--kolor-akcentu); /* Używa niebieskiego akcentu */
+    border: 3px solid var(--kolor-tla-srodek); /* Tło strony "wycina" kropkę */
+    top: 15px;
+    right: -9px; /* Połowa szerokości kropki (18/2=9) */
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+/* Pozycjonowanie itemów */
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+/* Poprawka pozycji kropki dla itemów po lewej */
+.timeline-item:nth-child(odd)::after {
+    right: -9px;
+}
+
+/* Poprawka pozycji kropki dla itemów po prawej */
+.timeline-item:nth-child(even)::after {
+    left: -9px;
+}
+
+/* Karta z treścią */
+.timeline-content {
+    background-color: #ffffff; /* Czysta biel dla kontrastu z tłem */
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Ten sam cień co na kartach projektów */
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-content h3 {
+    color: var(--kolor-akcentu); /* Niebieski rok */
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.timeline-content p {
+    color: var(--kolor-tekstu-pomocniczy); /* Ciemnoniebieski tekst */
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
 
 /* === Sekcja "Projects" === */
 #projects.section-padding {
@@ -524,5 +608,32 @@ a:hover {
                 rgba(240, 225, 220, 0) 60%       /* <-- Zmiana koloru w gradiencie */
             ),
             url('Uploaded_10_CNV00010.jpg');
+    }
+
+    /* === Responsywna Oś Czasu === */
+    .timeline-container::before {
+        /* Przesuń linię na lewą stronę */
+        left: 10px; 
+    }
+
+    .timeline-item {
+        /* Wszystkie itemy na 100% szerokości */
+        width: 100%;
+        padding-left: 45px; /* Zrób miejsce na linię i kropkę */
+        padding-right: 15px;
+    }
+
+    .timeline-item:nth-child(odd) {
+        left: 0; /* Resetuj pozycjonowanie */
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0; /* Resetuj pozycjonowanie */
+    }
+
+    .timeline-item::after {
+        /* Przesuń kropki na lewą linię */
+        left: 10px; /* Dopasuj do linii */
+        transform: translateX(-50%);
     }
 }
