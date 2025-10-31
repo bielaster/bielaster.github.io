@@ -1,33 +1,34 @@
-/* === Ustawienia ogólne - KREATYWNY MINIMALIZM === */
+/* === Globalne ustawienia === */
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth; /* Zastępuje skrypt JS */
+}
+
+/* Globalny box-sizing dla łatwiejszego layoutu */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* === Ustawienia ogólne - NOWA PALETA BARW === */
 :root {
-    --kolor-tla-srodek: #ffffff;
-    --kolor-tla-stopki: #f9f9f9;
-    --kolor-tekstu-glowny: #1d1d1f;
-    --kolor-tekstu-pomocniczy: #515154;
-    --kolor-ramki: #e0e0e0;
+    --kolor-tla-srodek: #F0E1DC;     /* Najjaśniejszy beż/róż */
+    --kolor-tla-stopki: #D9C0B9;     /* Ciemniejszy beż/taupe */
+    --kolor-tekstu-glowny: #181D45;    /* Ciemny granat */
+    --kolor-tekstu-pomocniczy: #5A5E7A;  /* Stonowany granat (pochodny) */
+    --kolor-ramki: #D9C0B9;     /* Używamy koloru tła stopki */
     --kolor-shadow: rgba(0, 0, 0, 0.05);
     
-    --kolor-akcentu: #FF8C00;
-    --kolor-akcentu-hover: #E07B00;
+    --kolor-akcentu: #5670A3;        /* Główny błękit */
+    --kolor-akcentu-hover: #4A618E;  /* Ciemniejszy błękit (pochodny) */
 
     --font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* === NOWY TRYB CIEMNY === */
-body[data-theme="dark"] {
-    --kolor-tla-srodek: #121212;
-    --kolor-tla-stopki: #1e1e1e;
-    --kolor-tekstu-glowny: #f1f1f1;
-    --kolor-tekstu-pomocniczy: #b0b0b0;
-    --kolor-ramki: #2c2c2c;
-    --kolor-shadow: rgba(255, 255, 255, 0.05);
-}
 
-html {
-    scroll-behavior: smooth;
-}
-
-/* === SEKCJA INTRO === */
+/* === SEKCJA INTRO (Z Twoim zdjęciem w tle) === */
 .intro-hero {
     height: 100vh;
     width: 100%;
@@ -40,8 +41,7 @@ html {
     position: relative;
     overflow: hidden;
     padding: 20px;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease;
+    scroll-snap-align: start;
 }
 
 .intro-content {
@@ -72,6 +72,7 @@ html {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* === ZDJĘCIE W TLE Z GRADIENTEM === */
 .hero-image-overlay {
     position: absolute;
     top: 0;
@@ -82,19 +83,14 @@ html {
         linear-gradient(to right, 
             var(--kolor-tla-srodek) 0%,        
             var(--kolor-tla-srodek) 30%,       
-            rgba(255, 255, 255, 0.6) 50%,    
-            rgba(255, 255, 255, 0) 60%       
+            rgba(240, 225, 220, 0.6) 50%, /* <-- Zmiana koloru w gradiencie */
+            rgba(240, 225, 220, 0) 60%    /* <-- Zmiana koloru w gradiencie */
         ),
         url('Uploaded_10_CNV00010.jpg');
     background-size: cover;
     background-position: right center; 
     z-index: 1; 
-    filter: grayscale(100%);
-    transition: background-color 0.3s ease, opacity 0.3s ease;
-}
-
-body[data-theme="dark"] .hero-image-overlay {
-    opacity: 0.3;
+    filter: grayscale(100%); 
 }
 
 
@@ -116,19 +112,6 @@ body[data-theme="dark"] .hero-image-overlay {
     60% { transform: translate(-50%, -5px); }
 }
 
-/* === ANIMACJA PRZEWIJANIA === */
-.hidden {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    will-change: opacity, transform;
-}
-
-.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* === RESZTA STYLÓW === */
 body {
     font-family: var(--font-family-system);
@@ -138,13 +121,10 @@ body {
     color: var(--kolor-tekstu-glowny);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .main-content {
     background-color: var(--kolor-tla-srodek);
-    transition: background-color 0.3s ease;
 }
 
 .container {
@@ -158,7 +138,6 @@ h1, h2, h3 {
     color: var(--kolor-tekstu-glowny);
     margin-bottom: 0.8rem;
     font-weight: 600;
-    transition: color 0.3s ease;
 }
 
 h3 { font-size: 1.6rem; }
@@ -166,7 +145,6 @@ h3 { font-size: 1.6rem; }
 p {
     margin-bottom: 1rem;
     color: var(--kolor-tekstu-pomocniczy);
-    transition: color 0.3s ease;
 }
 
 a {
@@ -179,27 +157,10 @@ a:hover {
     color: var(--kolor-akcentu-hover);
 }
 
-/* === PRZEŁĄCZNIK MOTYWU === */
-.btn-toggle-theme {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 10000;
-    padding: 8px 12px;
-    background-color: var(--kolor-tla-stopki);
-    color: var(--kolor-tekstu-glowny);
-    border: 1px solid var(--kolor-ramki);
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1.2rem;
-    line-height: 1;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
 /* === Nawigacja (Navbar) === */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.85);
+    /* ZMIANA: Kolor tła nawigacji dopasowany do tła strony */
+    background-color: rgba(240, 225, 220, 0.85); /* <-- rgba(--kolor-tla-srodek) */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 15px 0;
@@ -209,12 +170,8 @@ a:hover {
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    scroll-snap-align: start;
 }
-body[data-theme="dark"] .navbar {
-    background-color: rgba(18, 18, 18, 0.85);
-}
-
 
 .navbar .container {
     display: flex;
@@ -236,21 +193,13 @@ body[data-theme="dark"] .navbar {
     margin: 0;
     padding: 0;
     display: flex;
-    align-items: center;
     gap: 25px;
-}
-
-.nav-links li {
-    display: flex;
-    align-items: center;
 }
 
 .nav-links a {
     color: var(--kolor-tekstu-glowny);
     font-weight: 500;
     position: relative;
-    padding-top: 5px;
-    padding-bottom: 5px;
 }
 
 .nav-links a::after {
@@ -272,40 +221,6 @@ body[data-theme="dark"] .navbar {
     color: var(--kolor-tekstu-glowny);
 }
 
-.btn-nav-cv {
-    background-color: transparent;
-    border: 2px solid var(--kolor-akcentu);
-    color: var(--kolor-akcentu);
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    margin-left: 15px;
-}
-
-.btn-nav-cv:hover {
-    background-color: var(--kolor-akcentu);
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.btn-nav-cv::after {
-    display: none;
-}
-
-.language-switcher {
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: 600;
-    border: 1px solid var(--kolor-ramki);
-    margin-left: 10px;
-    background-color: var(--kolor-tla-srodek);
-    color: var(--kolor-tekstu-glowny);
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
 
 /* === Sekcje ogólne === */
 .section-padding {
@@ -313,27 +228,25 @@ body[data-theme="dark"] .navbar {
     padding-bottom: 80px;
 }
 
+/* === UKŁAD SIATKI (GRID) === */
 .section-grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 40px;
     border-bottom: 1px solid var(--kolor-tla-stopki);
     padding-bottom: 80px;
-    transition: border-color 0.3s ease;
 }
 
-#toolkit .section-grid, #education .section-grid, #now .section-grid {
+#skills .section-grid {
     border-bottom: 1px solid var(--kolor-tla-stopki);
 }
 
-#about.section-padding, #toolkit.section-padding, #education.section-padding, #now.section-padding, #collaboration.section-padding, #contact.section-padding {
+#about.section-padding, #skills.section-padding {
     padding-bottom: 0;
 }
 
-#journey.section-padding, #projects.section-padding, #details.section-padding, #contact.section-padding, #collaboration.section-padding {
+#contact.section-padding {
      border-bottom: 1px solid var(--kolor-tla-stopki);
-     padding-bottom: 80px;
-     padding-top: 80px;
 }
 
 
@@ -360,18 +273,19 @@ body[data-theme="dark"] .navbar {
     margin-bottom: 0;
 }
 
+/* ZMIANA: Kolor cytatu na #926F89 z palety */
 .about-quote {
     font-size: 1.8rem;
     font-weight: 600;
-    color: var(--kolor-akcentu);
-    border-left: 4px solid var(--kolor-akcentu);
+    color: #926F89;
+    border-left: 4px solid #926F89;
     padding-left: 1.5rem;
     margin: 2.5rem 0;
     font-style: italic;
 }
 
-/* === Sekcje "Now" & "Education" & "Skills" === */
-.skills-list, .education-list, .now-list {
+/* === Sekcja "Skills" === */
+.skills-list {
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -379,176 +293,53 @@ body[data-theme="dark"] .navbar {
     z-index: 2;
 }
 
-.skill-item, .education-item, .now-item {
+.skill-item {
     text-align: left;
-    border-left: 4px solid var(--kolor-akcentu);
+    border-left: 4px solid var(--kolor-akcentu); /* Nowy niebieski akcent */
     padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
-    border-bottom: 1px solid var(--kolor-ramki);
-    transition: border-color 0.3s ease;
+    border-bottom: 1px solid var(--kolor-ramki); /* Nowy kolor ramki */
 }
 
-.skill-item:last-child, .education-item:last-child, .now-item:last-child {
+.skill-item:last-child {
     border-bottom: none;
 }
 
-.skill-item h3, .education-item h3, .now-item h3 {
+.skill-item:hover {
+    transform: none; 
+}
+
+.skill-item h3 {
     margin: 0 0 5px 0;
     font-weight: 600;
     font-size: 1.4rem;
-}
-.skill-item p, .education-item p, .now-item p {
-    font-size: 0.95rem;
-    margin: 0;
-}
-
-/* === SEKCJA "TOOLKIT" (HEATMAP) === */
-.skill-heatmap {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.skill-bar {
-    width: 100%;
-}
-
-.skill-bar-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-.skill-bar-info span:first-child {
     color: var(--kolor-tekstu-glowny);
 }
-.skill-bar-info span:last-child {
+.skill-item p {
     color: var(--kolor-tekstu-pomocniczy);
-    font-size: 0.9rem;
-}
-
-.skill-bar-track {
-    width: 100%;
-    height: 8px;
-    background-color: var(--kolor-tla-stopki);
-    border-radius: 4px;
-    overflow: hidden;
-    transition: background-color 0.3s ease;
-}
-
-.skill-bar-fill {
-    height: 100%;
-    background-color: var(--kolor-akcentu);
-    width: 0;
-    border-radius: 4px;
-    transition: width 1s ease-out 0.3s;
-}
-
-.visible .skill-bar-fill {
-    width: var(--skill-level);
-}
-
-/* === SEKCJA "JOURNEY" (TIMELINE) === */
-#journey.section-padding {
-    border-bottom: 1px solid var(--kolor-tla-stopki); 
-    transition: border-color 0.3s ease;
-}
-
-.timeline {
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 100%;
-    background-color: var(--kolor-ramki);
-    border-radius: 2px;
-    transition: background-color 0.3s ease;
-}
-
-.timeline-item {
-    position: relative;
-    width: 50%;
-    padding: 10px 40px;
-    box-sizing: border-box;
-}
-
-.timeline-item:nth-child(odd) {
-    left: 0;
-    padding-right: 50px;
-    text-align: right;
-}
-
-.timeline-item:nth-child(even) {
-    left: 50%;
-    padding-left: 50px;
-    text-align: left;
-}
-
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: var(--kolor-akcentu);
-    border: 3px solid var(--kolor-tla-srodek);
-    top: 25px;
-    z-index: 1;
-    transition: border-color 0.3s ease;
-}
-
-.timeline-item:nth-child(odd)::after {
-    right: -8px;
-}
-
-.timeline-item:nth-child(even)::after {
-    left: -8px;
-}
-
-.timeline-content {
-    padding: 20px 30px;
-    background-color: var(--kolor-tla-stopki);
-    border-radius: 12px;
-    border: 1px solid var(--kolor-ramki);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.timeline-content h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.5rem;
-    color: var(--kolor-akcentu);
-}
-
-.timeline-content p {
-    margin: 0;
     font-size: 0.95rem;
+    margin: 0;
 }
 
 
 /* === Sekcja "Projects" === */
 #projects.section-padding {
     border-bottom: 1px solid var(--kolor-tla-stopki); 
-    transition: border-color 0.3s ease;
+}
+
+.section-title-center {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* POPRAWKA DLA 3 KOLUMN */
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
-    /* max-width: 930px;  USUNIĘTO BŁĄD */
-    margin: 0 auto;
 }
 
 .project-card {
@@ -560,67 +351,46 @@ body[data-theme="dark"] .navbar {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    box-sizing: border-box;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
     max-width: 450px;
-    box-shadow: 0 4px 15px var(--kolor-shadow);
-    border: 1px solid var(--kolor-ramki);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px var(--kolor-shadow);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
-
-/* Usunięto .typographic-card */
 
 .project-logo {
     width: 100%;
     height: 250px;
     object-fit: contain;
     padding: 20px;
-    box-sizing: border-box;
     background-color: var(--kolor-tla-srodek);
-    transition: background-color 0.3s ease;
-}
-body[data-theme="dark"] .project-logo[src*="image_5a0506"] {
-    background-color: #000;
-}
-body[data-theme="dark"] .project-logo[src*="image_5a0241"] {
-    background-color: #fff;
-}
-/* NOWY STYL DLA LOGO COMET W DARK MODE */
-body[data-theme="dark"] .project-logo[src*="comet.png"] {
-    background-color: #fff;
 }
 
 .card-content {
     position: relative;
     z-index: 2;
     padding: 0 30px 30px 30px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; 
-}
-
-.card-content .project-links {
-    margin-top: auto;
 }
 
 .project-card h3 {
     margin-top: 0;
     font-size: 1.8rem;
+    color: var(--kolor-tekstu-glowny);
 }
 
 .project-card p {
+    color: var(--kolor-tekstu-pomocniczy);
     margin-bottom: 1.5rem;
 }
 
 .project-links .btn {
     display: inline-block;
     background-color: var(--kolor-akcentu);
-    color: #ffffff;
+    color: #ffffff; /* Zakładamy, że biały tekst będzie czytelny na niebieskim */
     padding: 10px 20px;
     border-radius: 20px;
     font-weight: 600;
@@ -633,78 +403,6 @@ body[data-theme="dark"] .project-logo[src*="comet.png"] {
     border-color: var(--kolor-akcentu-hover);
     color: #ffffff;
     text-decoration: none;
-}
-
-/* === SEKCJA "COLLABORATION" === */
-.collab-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.collab-form label {
-    display: flex;
-    flex-direction: column;
-    font-weight: 600;
-    color: var(--kolor-tekstu-glowny);
-}
-
-.collab-form input,
-.collab-form select,
-.collab-form textarea {
-    padding: 12px;
-    border: 1px solid var(--kolor-ramki);
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: var(--font-family-system);
-    background-color: var(--kolor-tla-srodek);
-    color: var(--kolor-tekstu-glowny);
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-
-.collab-form input:focus,
-.collab-form select:focus,
-.collab-form textarea:focus {
-    outline: 2px solid var(--kolor-akcentu);
-    border-color: var(--kolor-akcentu);
-}
-
-.collab-form button.btn-contact {
-    margin-top: 10px;
-}
-
-
-/* === Sekcja "Languages & Interests" === */
-#details {
-    background-color: var(--kolor-tla-stopki);
-    border-bottom: 1px solid var(--kolor-ramki);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.details-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.details-column h3 {
-    font-size: 1.8rem;
-    border-bottom: 2px solid var(--kolor-ramki);
-    padding-bottom: 10px;
-    transition: border-color 0.3s ease;
-}
-
-.details-column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.details-column li {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
 }
 
 
@@ -748,7 +446,7 @@ body[data-theme="dark"] .project-logo[src*="comet.png"] {
 
 .btn-contact:hover {
     background-color: var(--kolor-akcentu);
-    color: #ffffff;
+    color: #ffffff; /* Zakładamy biały tekst na niebieskim tle */
     text-decoration: none;
     transform: translateY(-3px);
 }
@@ -768,7 +466,6 @@ body[data-theme="dark"] .project-logo[src*="comet.png"] {
     text-align: center;
     color: var(--kolor-tekstu-pomocniczy);
     font-size: 0.9rem;
-    transition: background-color 0.3s ease;
 }
 
 /* === Responsywność === */
@@ -780,22 +477,8 @@ body[data-theme="dark"] .project-logo[src*="comet.png"] {
         margin-top: 15px;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
     }
     
-    .btn-nav-cv {
-        margin-left: 0;
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
-    }
-    
-    .language-switcher {
-        width: 100%;
-        text-align: center;
-        margin-left: 0;
-    }
-
     .section-padding {
         padding-top: 60px;
     }
@@ -806,7 +489,7 @@ body[data-theme="dark"] .project-logo[src*="comet.png"] {
         padding-bottom: 60px;
     }
     
-    #toolkit .section-grid, #education .section-grid, #now .section-grid {
+    #skills .section-grid {
         width: 100%;
     }
 
@@ -827,36 +510,8 @@ body[data-theme="dark"] .project-logo[src*="comet.png"] {
         font-size: 2.2rem;
     }
     
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
     .project-logo {
         height: 200px;
-    }
-
-    .details-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    /* === RESPONSIVE TIMELINE === */
-    .timeline::before {
-        left: 20px;
-        transform: translateX(0);
-    }
-    .timeline-item,
-    .timeline-item:nth-child(odd),
-    .timeline-item:nth-child(even) {
-        width: 100%;
-        left: 0;
-        padding-left: 60px;
-        padding-right: 15px;
-        text-align: left;
-    }
-    .timeline-item::after,
-    .timeline-item:nth-child(odd)::after,
-    .timeline-item:nth-child(even)::after {
-        left: 12px;
     }
     
     .hero-image-overlay {
@@ -865,11 +520,9 @@ body[data-theme="dark"] .project-logo[src*="comet.png"] {
             linear-gradient(to top, 
                 var(--kolor-tla-srodek) 0%,        
                 var(--kolor-tla-srodek) 20%,       
-                rgba(255, 255, 255, 0.6) 40%,    
-                rgba(255, 255, 255, 0) 60%       
+                rgba(240, 225, 220, 0.6) 40%,    /* <-- Zmiana koloru w gradiencie */
+                rgba(240, 225, 220, 0) 60%       /* <-- Zmiana koloru w gradiencie */
             ),
             url('Uploaded_10_CNV00010.jpg');
     }
 }
-
-
