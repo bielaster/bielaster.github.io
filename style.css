@@ -162,8 +162,6 @@ a:hover {
     color: var(--kolor-akcentu-hover);
 }
 
-/* Usunięto .btn-toggle-theme */
-
 /* === Nawigacja (Navbar) === */
 .navbar {
     background-color: rgba(255, 255, 255, 0.85); /* Tło kart (Biel) z przezroczystością */
@@ -268,6 +266,32 @@ a:hover {
     color: var(--kolor-tekstu-glowny);
 }
 
+/* === NOWY LIVE COUNTER === */
+.live-counter {
+    background: var(--kolor-tekstu-glowny);
+    color: var(--kolor-tla-srodek);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-left: 15px;
+}
+.live-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--kolor-akcentu); /* Błękit */
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
 
 /* === Sekcje ogólne === */
 .section-padding {
@@ -279,12 +303,12 @@ a:hover {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 40px;
-    border-bottom: 1px solid var(--kolor-ramki); /* Zmieniono z tla-stopki na ramki */
+    border-bottom: 1px solid var(--kolor-ramki);
     padding-bottom: 80px;
 }
 
 #toolkit .section-grid, #education .section-grid, #now .section-grid {
-    border-bottom: 1px solid var(--kolor-ramki); /* Zmieniono z tla-stopki na ramki */
+    border-bottom: 1px solid var(--kolor-ramki);
 }
 
 #about.section-padding, #toolkit.section-padding, #education.section-padding, #now.section-padding, #collaboration.section-padding, #contact.section-padding {
@@ -292,7 +316,7 @@ a:hover {
 }
 
 #journey.section-padding, #projects.section-padding, #details.section-padding, #contact.section-padding, #collaboration.section-padding {
-     border-bottom: 1px solid var(--kolor-ramki); /* Zmieniono z tla-stopki na ramki */
+     border-bottom: 1px solid var(--kolor-ramki);
      padding-bottom: 80px;
      padding-top: 80px;
 }
@@ -324,8 +348,8 @@ a:hover {
 .about-quote {
     font-size: 1.8rem;
     font-weight: 600;
-    color: var(--kolor-cytatu); /* NOWY KOLOR CYTATU */
-    border-left: 4px solid var(--kolor-cytatu); /* NOWY KOLOR CYTATU */
+    color: var(--kolor-cytatu);
+    border-left: 4px solid var(--kolor-cytatu);
     padding-left: 1.5rem;
     margin: 2.5rem 0;
     font-style: italic;
@@ -342,7 +366,7 @@ a:hover {
 
 .skill-item, .education-item, .now-item {
     text-align: left;
-    border-left: 4px solid var(--kolor-akcentu); /* BŁĘKITNA LINIA */
+    border-left: 4px solid var(--kolor-akcentu);
     padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -392,14 +416,14 @@ a:hover {
 .skill-bar-track {
     width: 100%;
     height: 8px;
-    background-color: var(--kolor-tla-stopki); /* Tło główne (Beż) */
+    background-color: var(--kolor-tla-stopki);
     border-radius: 4px;
     overflow: hidden;
 }
 
 .skill-bar-fill {
     height: 100%;
-    background-color: var(--kolor-akcentu); /* Błękit */
+    background-color: var(--kolor-akcentu);
     width: 0;
     border-radius: 4px;
     transition: width 1s ease-out 0.3s;
@@ -458,8 +482,8 @@ a:hover {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: var(--kolor-akcentu); /* Błękit */
-    border: 3px solid var(--kolor-tla-srodek); /* Tło kart (Biel) */
+    background-color: var(--kolor-akcentu);
+    border: 3px solid var(--kolor-tla-srodek);
     top: 25px;
     z-index: 1;
 }
@@ -474,7 +498,7 @@ a:hover {
 
 .timeline-content {
     padding: 20px 30px;
-    background-color: var(--kolor-tla-stopki); /* Tło główne (Beż) */
+    background-color: #ffffff; /* Czysta biel dla kart */
     border-radius: 12px;
     border: 1px solid var(--kolor-ramki);
 }
@@ -482,7 +506,7 @@ a:hover {
 .timeline-content h3 {
     margin: 0 0 10px 0;
     font-size: 1.5rem;
-    color: var(--kolor-akcentu); /* Błękit */
+    color: var(--kolor-akcentu);
 }
 
 .timeline-content p {
@@ -491,29 +515,32 @@ a:hover {
 }
 
 
-/* === Sekcja "Projects" === */
+/* === NOWA SEKCJA "CASE STUDIES" === */
 #projects.section-padding {
-    border-bottom: 1px solid var(--kolor-ramki);
+    border-bottom: 1px solid var(--kolor-ramki); 
 }
 
-.projects-grid {
+.section-title-center {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.case-studies-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     justify-items: center;
     gap: 30px;
+    max-width: 930px;
     margin: 0 auto;
 }
 
-.project-card {
-    position: relative; 
-    background-color: var(--kolor-tla-srodek); /* Tło kart (Biel) */
+.case-study-card {
+    background-color: var(--kolor-tla-srodek);
     border-radius: 20px;
     color: var(--kolor-tekstu-glowny);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
     max-width: 450px;
@@ -521,71 +548,93 @@ a:hover {
     border: 1px solid var(--kolor-ramki);
 }
 
-.project-card:hover {
+.case-study-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px var(--kolor-shadow);
 }
 
-.project-logo {
-    width: 100%;
-    height: 250px;
-    object-fit: contain;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: var(--kolor-tla-srodek); /* Tło kart (Biel) */
-}
-
-/* Specjalne tła dla logo, które ich wymagają */
-.project-logo[src*="image_5a0506"] { /* Namaste */
-    background-color: #000;
-}
-.project-logo[src*="image_5a0241"] { /* Aberdeen */
-    background-color: #fff;
-}
-.project-logo[src*="comet.png"] { /* Comet */
-    background-color: #fff;
-}
-
-
-.card-content {
-    position: relative;
-    z-index: 2;
-    padding: 0 30px 30px 30px;
+.case-header {
     display: flex;
-    flex-direction: column;
-    flex-grow: 1; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: var(--kolor-tla-stopki); /* Beżowe tło nagłówka */
+    border-bottom: 1px solid var(--kolor-ramki);
 }
 
-.card-content .project-links {
-    margin-top: auto;
+.case-logo {
+    height: 40px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+}
+/* Poprawka dla logo Namaste Delhi */
+.case-logo[src*="image_5a0506"] {
+    background-color: #000;
+    padding: 5px; /* Dodatkowy padding dla czarnego tła */
+    border-radius: 5px;
 }
 
-.project-card h3 {
-    margin-top: 0;
-    font-size: 1.8rem;
-}
-
-.project-card p {
-    margin-bottom: 1.5rem;
-}
-
-.project-links .btn {
-    display: inline-block;
-    background-color: var(--kolor-akcentu);
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 20px;
+.case-meta {
+    font-size: 0.85rem;
     font-weight: 600;
-    border: 2px solid var(--kolor-akcentu);
-    transition: background-color 0.2s ease, color 0.2s ease;
+    color: var(--kolor-tekstu-pomocniczy);
+    text-transform: uppercase;
 }
 
-.project-links .btn:hover {
-    background-color: var(--kolor-akcentu-hover);
-    border-color: var(--kolor-akcentu-hover);
-    color: #ffffff;
+.case-content {
+    padding: 30px;
+}
+
+.case-metrics {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.metric-box {
+    flex: 1;
+    border: 2px solid var(--kolor-ramki);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+}
+
+.metric-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--kolor-akcentu); /* Błękit */
+}
+
+.metric-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--kolor-tekstu-pomocniczy);
+}
+
+.case-details p {
+    font-size: 0.95rem;
+    color: var(--kolor-tekstu-pomocniczy);
+    margin-bottom: 10px;
+}
+
+.case-details p strong {
+    color: var(--kolor-tekstu-glowny);
+}
+
+.btn-case {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--kolor-akcentu);
     text-decoration: none;
 }
+.btn-case:hover {
+    color: var(--kolor-akcentu-hover);
+    text-decoration: underline;
+}
+
 
 /* === SEKCJA "COLLABORATION" === */
 #collaboration.section-padding {
@@ -633,7 +682,7 @@ a:hover {
 
 /* === Sekcja "Languages & Interests" === */
 #details {
-    background-color: var(--kolor-tla-stopki); /* Tło główne (Beż) */
+    background-color: var(--kolor-tla-stopki);
     border-bottom: 1px solid var(--kolor-ramki);
 }
 
@@ -716,17 +765,17 @@ a:hover {
 
 /* === Stopka (Footer) === */
 .footer {
-    background-color: #D9C0B9; /* Tło stopki (Ciemniejszy beż) */
+    background-color: #D9C0B9;
     padding: 40px 0;
     text-align: center;
-    color: var(--kolor-tekstu-glowny); /* Ciemny granatowy tekst */
+    color: var(--kolor-tekstu-glowny);
     font-size: 0.9rem;
 }
 
 /* === Responsywność === */
 @media (max-width: 1080px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .case-studies-grid {
+        grid-template-columns: 1fr; /* 1 kolumna na tabletach */
     }
 }
 
@@ -752,6 +801,13 @@ a:hover {
         width: 100%;
         text-align: center;
         margin-left: 0;
+    }
+
+    .live-counter {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
     }
 
     .section-padding {
@@ -785,12 +841,12 @@ a:hover {
         font-size: 2.2rem;
     }
     
-    .projects-grid {
+    .case-studies-grid {
         grid-template-columns: 1fr;
     }
-
-    .project-logo {
-        height: 200px;
+    
+    .case-metrics {
+        flex-direction: column;
     }
 
     .details-grid {
