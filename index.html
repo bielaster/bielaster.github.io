@@ -6,41 +6,37 @@
     <title>Piotr Biela - Digital Marketing Portfolio</title>
 
     <meta name="description" content="Piotr Biela's Digital Marketing portfolio. A creative marketer specializing in social media, content, and AI, looking for new opportunities.">
+    
     <meta name="keywords" content="Piotr Biela, Digital Marketing, Social Media, Content Creation, AI, Portfolio, Aberdeen, Marketing">
     
     <meta property="og:title" content="Piotr Biela - Digital Marketing Portfolio">
     <meta property="og:description" content="A creative marketer specializing in social media, content, and AI, looking for new opportunities.">
     <meta property="og:type" content="website">
+    
     <meta property="og:url" content="https://[TwojaNazwaUzytkownika].github.io/">
     <meta property="og:image" content="https://[TwojaNazwaUzytkownika].github.io/Uploaded_10_CNV00010.jpg">
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png"> 
 
-    <link rel="stylesheet" href="style.css?v=8">
-
-    <!-- Three.js dla 3D Hero -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-</head>
+    <link rel="stylesheet" href="style.css?v=7"> 
+    
+    </head>
 <body data-theme="light"> 
 
-    <!-- CUSTOM CURSOR -->
-    <div class="custom-cursor"></div>
-
-    <!-- DARK MODE TOGGLE -->
     <button id="toggle-theme" class="btn-toggle-theme">🌙</button>
 
-    <!-- HERO with Three.js -->
     <section class="intro-hero">
-        <canvas id="three-canvas"></canvas>
         <div class="intro-content">
             <h1>Portfolio</h1>
             <p>Piotr Biela // Digital Marketing</p>
         </div>
-        <div class="scroll-down-prompt">Scroll down &darr;</div>
+        <div class="hero-image-overlay"></div> 
+        <div class="scroll-down-prompt">
+            Scroll down &darr;
+        </div>
     </section>
 
-    <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="container">
             <a href="#about" class="logo">Piotr Biela</a>
@@ -50,9 +46,8 @@
                 <li><a href="#toolkit">Toolkit</a></li>
                 <li><a href="#journey">My Journey</a></li>
                 <li><a href="#projects">Case Studies</a></li>
-                <li><a href="#audit-tool">Free Audit</a></li> <!-- NOWY LINK -->
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#collaboration">Collaboration</a></li>
+                <li><a href="#collaboration">Collaboration</a></li> 
                 <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="btn-nav-cv">Download CV</a></li>
                 <li>
                   <select id="language-select" class="language-switcher">
@@ -60,13 +55,18 @@
                     <option value="pl">PL</option>
                   </select>
                 </li>
+                <li>
+                    <div class="live-counter">
+                        <span class="live-dot"></span>
+                        <span id="visitor-count">0</span> visitors this week
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
 
     <main class="main-content">
 
-        <!-- ABOUT -->
         <section id="about" class="container section-padding">
             <div class="section-grid"> 
                 <h2 class="section-title-left hidden">About Me</h2>
@@ -75,11 +75,13 @@
                         I'm a marketer driven by a passion for social media, content strategy, and the creative potential of AI. I believe the best way to learn is by doing.
                     </p>
                     <p class="about-text">
-                        That’s why during my studies, I didn't just learn theory—I actively sought out and delivered real-world campaigns for clients like <strong>Namaste Delhi</strong> and the <strong>Aberdeen FC Community Trust</strong>.
+                        That’s why during my studies, I didn't just learn theory—I actively sought out and delivered real-world campaigns for clients like **Namaste Delhi** and the **Aberdeen FC Community Trust**.
                     </p>
+                    
                     <blockquote class="about-quote">
                         I am a fast learner with a proven 'can-do' attitude, ready to bring fresh energy and creativity to your team.
                     </blockquote>
+                    
                     <p class="about-text">
                         I am looking for an opportunity to grow, contribute new ideas, and turn this proven passion into a professional career.
                     </p>
@@ -87,7 +89,6 @@
             </div>
         </section>
 
-        <!-- WHAT I'M DOING -->
         <section id="now" class="container section-padding">
             <div class="section-grid">
                 <h2 class="section-title-left hidden">What I'm Doing Now</h2>
@@ -110,12 +111,12 @@
             </div>
         </section>
 
-        <!-- TOOLKIT -->
         <section id="toolkit" class="container section-padding">
             <div class="section-grid">
                 <h2 class="section-title-left hidden">My Toolkit</h2>
                 <div class="section-content-right hidden">
                     <div class="skill-heatmap">
+                        
                         <div class="skill-bar">
                             <div class="skill-bar-info">
                                 <span>Canva & CapCut</span>
@@ -125,6 +126,7 @@
                                 <div class="skill-bar-fill" style="--skill-level: 90%;"></div>
                             </div>
                         </div>
+
                         <div class="skill-bar">
                             <div class="skill-bar-info">
                                 <span>Social Media (TikTok, Instagram)</span>
@@ -134,6 +136,7 @@
                                 <div class="skill-bar-fill" style="--skill-level: 85%;"></div>
                             </div>
                         </div>
+                        
                         <div class="skill-bar">
                             <div class="skill-bar-info">
                                 <span>AI Tools (ChatGPT, Foocus)</span>
@@ -143,6 +146,7 @@
                                 <div class="skill-bar-fill" style="--skill-level: 80%;"></div>
                             </div>
                         </div>
+
                         <div class="skill-bar">
                             <div class="skill-bar-info">
                                 <span>Meta Business Suite</span>
@@ -152,6 +156,7 @@
                                 <div class="skill-bar-fill" style="--skill-level: 75%;"></div>
                             </div>
                         </div>
+
                         <div class="skill-bar">
                             <div class="skill-bar-info">
                                 <span>Content Planning (Notion)</span>
@@ -161,12 +166,12 @@
                                 <div class="skill-bar-fill" style="--skill-level: 85%;"></div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MY JOURNEY -->
         <section id="journey" class="container section-padding">
             <h2 class="section-title-center hidden">My Journey</h2>
             <div class="timeline hidden">
@@ -197,7 +202,6 @@
             </div>
         </section>
 
-        <!-- CASE STUDIES -->
         <section id="projects" class="container section-padding"> 
             <h2 class="section-title-center hidden">Case Studies</h2>
             
@@ -205,7 +209,7 @@
                 <article class="case-study-card"> 
                     <div class="case-header">
                         <img src="image_5a0506.jpg" alt="Namaste Delhi" class="case-logo">
-                        <span class="case-meta">RESTAURANT • 3-MONTH CAMPAIGN</span>
+                        <span class="case-meta">RESTAURANT | 3-MONTH CAMPAIGN</span>
                     </div>
                     <div class="case-content">
                         <h3>Namaste Delhi - Customer Acquisition</h3>
@@ -232,7 +236,7 @@
                 <article class="case-study-card"> 
                     <div class="case-header">
                         <img src="image_5a0241.jpg" alt="Aberdeen FC" class="case-logo">
-                        <span class="case-meta">NON-PROFIT • FUNDRAISING</span>
+                        <span class="case-meta">NON-PROFIT | FUNDRAISING</span>
                     </div>
                     <div class="case-content">
                         <h3>Aberdeen FC Community Trust - £1M Campaign</h3>
@@ -255,21 +259,37 @@
                         <a href="AFCCT_Final Presentation.pdf" target="_blank" class="btn-case">View Case Study →</a>
                     </div>
                 </article>
+
+                <article class="case-study-card"> 
+                    <div class="case-header">
+                        <img src="comet.png" alt="COMET Logo" class="case-logo">
+                        <span class="case-meta">B2B | SUPPLY CHAIN</span>
+                    </div>
+                    <div class="case-content">
+                        <h3>LUNAR-COMET Strategy</h3>
+                        <div class="case-metrics">
+                            <div class="metric-box">
+                                <span class="metric-number">B2B</span>
+                                <span class="metric-label">Strategy</span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-number">3</span>
+                                <span class="metric-label">Channels</span>
+                            </div>
+                        </div>
+                        <div class="case-details">
+                            <p><strong>Problem:</strong> Low brand visibility for a new B2B supply chain software.</p>
+                            <p><strong>Strategy:</strong> Develop a multi-channel content strategy (Email, LinkedIn, Instagram) to build trust and authority.</p>
+                            <p><strong>Actions:</strong> Created case studies, email drip campaigns, and educational content.</p>
+                            <p><strong>Results:</strong> Delivered a complete 3-month content plan and email marketing templates.</p>
+                        </div>
+                        <a href="LUNAR-COMET (5).pdf" target="_blank" class="btn-case">View Full Strategy →</a>
+                    </div>
+                </article>
+
             </div>
         </section>
 
-        <!-- MICRO-AUDIT TOOL -->
-        <section id="audit-tool" class="container section-padding">
-            <h2 class="section-title-center hidden">🔍 Free Micro-Audit</h2>
-            <p class="section-description-center hidden">Enter any website URL for instant SEO & performance tips</p>
-            <div class="audit-box hidden">
-                <input type="url" id="audit-url" placeholder="https://example.com">
-                <button onclick="runAudit()">Audit Now (Instant)</button>
-                <div id="audit-results"></div>
-            </div>
-        </section>
-
-        <!-- DETAILS -->
         <section id="details" class="section-padding">
             <div class="container">
                 <div class="details-grid hidden">
@@ -293,7 +313,6 @@
             </div>
         </section>
 
-        <!-- CONTACT -->
         <section id="contact" class="container section-padding">
             <h2 class="section-title-center hidden">Get in Touch</h2>
             <p class="section-description-center hidden">
@@ -315,27 +334,21 @@
                     View LinkedIn
                 </a>
             </div>
-
-            <!-- LINKEDIN WIDGET -->
-            <div class="linkedin-widget hidden">
-                <h3>Latest from My LinkedIn</h3>
-                <div class="linkedin-posts">
-                    <blockquote class="linkedin-post">
-                        "Just finished A/B testing TikTok hooks for a local cafe. Winner: 'We tried 10 coffees in 10 minutes' got 3x more saves. Key insight: curiosity + local angle performs best."
-                        <span class="post-stats">💬 12 comments | 🔄 89 shares</span>
-                    </blockquote>
-                </div>
-                <a href="https://linkedin.com/in/biela-piotr" class="btn-contact" target="_blank">Follow My Journey →</a>
-            </div>
         </section>
 
-        <!-- COLLABORATION -->
         <section id="collaboration" class="container section-padding">
             <h2 class="section-title-center hidden">Propose a Collaboration</h2>
             <form id="collab-form" class="collab-form hidden">
-                <label>Name: <input type="text" name="name" required></label>
-                <label>Email: <input type="email" name="email" required></label>
-                <label>Area of Collaboration:
+                <label>
+                    Name:
+                    <input type="text" name="name" required>
+                </label>
+                <label>
+                    Email:
+                    <input type="email" name="email" required>
+                </label>
+                <label>
+                    Area of Collaboration:
                     <select name="area" required>
                         <option value="">Select...</option>
                         <option value="social">Social Media</option>
@@ -344,22 +357,12 @@
                         <option value="consulting">Consulting</option>
                     </select>
                 </label>
-                <label>Message: <textarea name="message" rows="4" required></textarea></label>
+                <label>
+                    Message:
+                    <textarea name="message" rows="4" required></textarea>
+                </label>
                 <button type="submit" class="btn-contact">Send Proposal</button>
             </form>
-        </section>
-
-        <!-- LEAD MAGNET -->
-        <section id="lead-magnet" class="container section-padding">
-            <div class="lead-box">
-                <h2>🚀 Free TikTok Marketing Checklist</h2>
-                <p>50 proven hooks that increased my engagement by 200%</p>
-                <form class="lead-form" id="lead-form">
-                    <input type="email" placeholder="Your email" required>
-                    <button type="submit" class="btn-lead">Send It To Me!</button>
-                </form>
-                <span class="lead-privacy">No spam. Unsubscribe anytime.</span>
-            </div>
         </section>
 
     </main> 
@@ -370,22 +373,8 @@
         </div>
     </footer>
 
-    <!-- EXIT INTENT POPUP -->
-    <div id="exit-popup" class="exit-popup">
-        <div class="popup-content">
-            <h3>Wait! 🎯</h3>
-            <p>Get my "TikTok Viral Hooks" PDF before you go!</p>
-            <form id="popup-form">
-                <input type="email" placeholder="Your email" required>
-                <button type="submit">Send It!</button>
-            </form>
-            <span class="popup-close">&times;</span>
-        </div>
-    </div>
-
-    <!-- SKRYPTY -->
     <script>
-        // 1. Płynne przewijanie
+        // 1. Płynne przewijanie dla linków nawigacyjnych
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -403,173 +392,44 @@
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
-        document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
 
-        // 4. Dark Mode
-        const toggleBtn = document.getElementById('toggle-theme');
-        const body = document.body;
-        
-        // Load preference
-        if (localStorage.getItem('darkMode') === 'true') {
-            body.classList.add('dark-mode');
-            toggleBtn.textContent = '☀️';
-        }
-        
-        toggleBtn.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const isDark = body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDark);
-            toggleBtn.textContent = isDark ? '☀️' : '🌙';
-        });
+        // 4. USUNIĘTO Przełącznik motywu
 
-        // 5. Language switcher
+        // 5. Przełącznik języka
         document.getElementById('language-select').addEventListener('change', (e) => {
-            if (e.target.value === 'pl') {
+            const lang = e.target.value;
+            if (lang === 'pl') {
                 alert("Polska wersja już niedługo!");
             }
         });
 
-        // 6. Collaboration form
+        // 6. Obsługa formularza
         document.getElementById('collab-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            alert("Thanks! I'll reply within 24h 😊");
+            alert("Thanks for your message! I'll be in touch soon 😊");
             this.reset();
         });
 
-        // 7. Live counter animation
+        // 7. Licznik odwiedzin (placeholder)
         const visitorCountEl = document.getElementById('visitor-count');
         let count = 0;
-        const targetCount = 127;
+        const targetCount = 127; 
+        
         const counterInterval = setInterval(() => {
             count += Math.ceil(targetCount / 50);
-            if (count >= targetCount) {
+            if (count > targetCount) {
                 count = targetCount;
                 clearInterval(counterInterval);
             }
             visitorCountEl.textContent = count;
-        }, 50);
+        }, 50); 
 
-        // 8. Gamification - Skills click
-        document.querySelectorAll('.skill-item[data-cert]').forEach(item => {
-            item.addEventListener('click', () => {
-                const cert = item.dataset.cert;
-                alert(`Verifying ${cert.toUpperCase()} certification... (Link would open to Google/Meta certificate)`);
-            });
-        });
-
-        // 9. Audit Tool
-        window.runAudit = function() {
-            const url = document.getElementById('audit-url').value;
-            const results = document.getElementById('audit-results');
-            if (!url) return alert('Please enter a URL');
-            
-            results.innerHTML = `
-                <div class="audit-item">
-                    <span class="audit-score good">85/100</span>
-                    <strong>Meta Tags:</strong> Missing OG image, title OK
-                </div>
-                <div class="audit-item">
-                    <span class="audit-score medium">60/100</span>
-                    <strong>Mobile Speed:</strong> 3.2s load time (target <2.5s)
-                </div>
-                <div class="audit-item">
-                    <span class="audit-score good">92/100</span>
-                    <strong>Accessibility:</strong> Good contrast, alt texts OK
-                </div>
-                <p style="margin-top:20px; color: var(--kolor-tekstu-pomocniczy);">
-                    📧 Full report would be sent to your email (this is a demo)
-                </p>
-            `;
-        };
-
-        // 10. Exit Intent Popup
-        let exitIntent = false;
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY <= 0 && !exitIntent) {
-                exitIntent = true;
-                document.getElementById('exit-popup').style.display = 'flex';
-            }
-        });
-        document.querySelector('.popup-close').addEventListener('click', () => {
-            document.getElementById('exit-popup').style.display = 'none';
-        });
-        document.getElementById('popup-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert("Checklist sent! Check your inbox 📧");
-            document.getElementById('exit-popup').style.display = 'none';
-        });
-
-        // 11. Lead Magnet form
-        document.getElementById('lead-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert("Checklist sent to your email! 📧");
-            e.target.reset();
-        });
-
-        // 12. Custom cursor
-        const cursor = document.querySelector('.custom-cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-        document.querySelectorAll('a, button, .skill-item, .case-study-card, .btn-case').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-        });
-
-        // 13. Three.js Hero
-        if (typeof THREE !== 'undefined') {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('three-canvas'), alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-
-            const geometry = new THREE.BoxGeometry(2, 2, 2);
-            const materials = [
-                new THREE.MeshBasicMaterial({ color: 0xFF8C00 }),
-                new THREE.MeshBasicMaterial({ color: 0x1d1d1f }),
-                new THREE.MeshBasicMaterial({ color: 0xffffff }),
-                new THREE.MeshBasicMaterial({ color: 0x515154 }),
-                new THREE.MeshBasicMaterial({ color: 0xE07B00 }),
-                new THREE.MeshBasicMaterial({ color: 0xFFA500 })
-            ];
-
-            const cube = new THREE.Mesh(geometry, materials);
-            scene.add(cube);
-            camera.position.z = 5;
-
-            let mouseX = 0, mouseY = 0;
-            document.addEventListener('mousemove', (e) => {
-                mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-                mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-            });
-
-            function animate() {
-                requestAnimationFrame(animate);
-                cube.rotation.x += (mouseY * 0.5 - cube.rotation.x) * 0.05;
-                cube.rotation.y += (mouseX * 0.5 - cube.rotation.y) * 0.05;
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        }
-
-        // 14. Scroll-snap disable after scroll
-        let snapDisabled = false;
-        window.addEventListener('scroll', () => {
-            if (!snapDisabled && window.scrollY > 100) {
-                document.documentElement.style.scrollSnapType = 'none';
-                snapDisabled = true;
-            }
-        });
     </script>
 </body>
 </html>
