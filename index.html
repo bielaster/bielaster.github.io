@@ -13,25 +13,31 @@
     <meta property="og:description" content="A creative marketer specializing in social media, content, and AI, looking for new opportunities.">
     <meta property="og:type" content="website">
     
-    <meta property="og:url" content="https://[TwojaNazwaUzytkownika].github.io/">
-    <meta property="og:image" content="https://[TwojaNazwaUzytkownika].github.io/Uploaded_10_CNV00010.jpg">
+    <meta property="og:url" content="https://bielaster.github.io/">
+    <meta property="og:image" content="https://bielaster.github.io/Uploaded_10_CNV00010.jpg">
 
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png"> 
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Preconnect to external domains for better performance -->
+    <link rel="preconnect" href="https://www.linkedin.com"> 
 
-    <link rel="stylesheet" href="style.css?v=7"> 
+    <link rel="stylesheet" href="style.css?v=9"> 
     
     </head>
 <body data-theme="light"> 
 
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="scroll-progress-bar"></div>
+
     <button id="toggle-theme" class="btn-toggle-theme">🌙</button>
+    <button id="toggle-sound" class="btn-toggle-sound" title="Toggle sounds">🔊</button>
 
     <section class="intro-hero">
         <div class="intro-content">
             <h1>Portfolio</h1>
             <p>Piotr Biela // Digital Marketing</p>
         </div>
-        <div class="hero-image-overlay"></div> 
         <div class="scroll-down-prompt">
             Scroll down &darr;
         </div>
@@ -66,6 +72,38 @@
     </nav>
 
     <main class="main-content">
+
+        <!-- Skeleton Screens -->
+        <div id="skeleton-loader" class="skeleton-container">
+            <section class="container section-padding skeleton-section">
+                <div class="section-grid">
+                    <div class="skeleton-title"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line skeleton-line-short"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="container section-padding skeleton-section">
+                <div class="section-grid">
+                    <div class="skeleton-title"></div>
+                    <div class="skeleton-content">
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line skeleton-line-short"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="container section-padding skeleton-section">
+                <div class="skeleton-title-center"></div>
+                <div class="skeleton-cards">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </section>
+        </div>
 
         <section id="about" class="container section-padding">
             <div class="section-grid"> 
@@ -168,35 +206,241 @@
                         </div>
 
                     </div>
+                    
+                    <!-- Animated Tag Cloud -->
+                    <div class="tag-cloud-container hidden">
+                        <h3 class="tag-cloud-title">Technologies & Skills</h3>
+                        <div class="tag-cloud" id="tag-cloud">
+                            <span class="tag tag-expert" data-skill="Canva">Canva</span>
+                            <span class="tag tag-expert" data-skill="CapCut">CapCut</span>
+                            <span class="tag tag-advanced" data-skill="TikTok">TikTok</span>
+                            <span class="tag tag-advanced" data-skill="Instagram">Instagram</span>
+                            <span class="tag tag-advanced" data-skill="ChatGPT">ChatGPT</span>
+                            <span class="tag tag-advanced" data-skill="Foocus">Foocus</span>
+                            <span class="tag tag-advanced" data-skill="Notion">Notion</span>
+                            <span class="tag tag-intermediate" data-skill="Meta Business Suite">Meta Business Suite</span>
+                            <span class="tag tag-intermediate" data-skill="Facebook Ads">Facebook Ads</span>
+                            <span class="tag tag-intermediate" data-skill="Stable Diffusion">Stable Diffusion</span>
+                            <span class="tag tag-intermediate" data-skill="ComfyUI">ComfyUI</span>
+                            <span class="tag tag-intermediate" data-skill="Content Strategy">Content Strategy</span>
+                            <span class="tag tag-intermediate" data-skill="Social Media Marketing">Social Media Marketing</span>
+                            <span class="tag tag-beginner" data-skill="Google Analytics">Google Analytics</span>
+                            <span class="tag tag-beginner" data-skill="SEO">SEO</span>
+                            <span class="tag tag-beginner" data-skill="Email Marketing">Email Marketing</span>
+                            <span class="tag tag-advanced" data-skill="AI Prompt Engineering">AI Prompt Engineering</span>
+                            <span class="tag tag-intermediate" data-skill="Video Editing">Video Editing</span>
+                            <span class="tag tag-intermediate" data-skill="Graphic Design">Graphic Design</span>
+                            <span class="tag tag-advanced" data-skill="Content Creation">Content Creation</span>
+                            <span class="tag tag-intermediate" data-skill="Market Research">Market Research</span>
+                            <span class="tag tag-beginner" data-skill="Web Analytics">Web Analytics</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Scrollytelling Section -->
+        <section id="story" class="scrollytelling-section">
+            <div class="scrollytelling-container">
+                <!-- Story Stage 1 -->
+                <div class="story-stage" data-stage="1">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h2 class="story-title">The Beginning</h2>
+                            <p class="story-description">It all started with curiosity...</p>
+                        </div>
+                        <div class="story-visual">
+                            <div class="story-icon">🎓</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story Stage 2 -->
+                <div class="story-stage" data-stage="2">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h2 class="story-title">Learning by Doing</h2>
+                            <p class="story-description">Theory wasn't enough. I needed real projects, real clients, real results.</p>
+                        </div>
+                        <div class="story-visual">
+                            <div class="story-icon">💡</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story Stage 3 -->
+                <div class="story-stage" data-stage="3">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h2 class="story-title">First Breakthrough</h2>
+                            <p class="story-description">Namaste Delhi campaign: 45% increase in bookings, 250K TikTok views.</p>
+                        </div>
+                        <div class="story-visual">
+                            <div class="story-icon">🚀</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story Stage 4 -->
+                <div class="story-stage" data-stage="4">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h2 class="story-title">B2B Excellence</h2>
+                            <p class="story-description">LUNAR-COMET: Developed multi-channel content strategy for B2B supply chain software, building trust and authority.</p>
+                        </div>
+                        <div class="story-visual">
+                            <div class="story-icon">💼</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story Stage 5 -->
+                <div class="story-stage" data-stage="5">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h2 class="story-title">Making an Impact</h2>
+                            <p class="story-description">Aberdeen FC Community Trust: £1.2M raised, 150% of target achieved.</p>
+                        </div>
+                        <div class="story-visual">
+                            <div class="story-icon">🏆</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Story Stage 6 -->
+                <div class="story-stage" data-stage="6">
+                    <div class="story-content">
+                        <div class="story-text">
+                            <h2 class="story-title">The Future</h2>
+                            <p class="story-description">Ready to bring fresh energy, creativity, and proven results to your team.</p>
+                        </div>
+                        <div class="story-visual">
+                            <div class="story-icon">✨</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scrollytelling-background"></div>
         </section>
 
         <section id="journey" class="container section-padding">
             <h2 class="section-title-center hidden">My Journey</h2>
             <div class="timeline hidden">
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>2024</h3>
-                        <p>Graduated with BSc in Digital Marketing (Robert Gordon University)</p>
+                    <div class="timeline-content timeline-clickable">
+                        <div class="timeline-header">
+                            <h3>2024</h3>
+                            <span class="timeline-expand-icon">+</span>
+                        </div>
+                        <p class="timeline-summary">Graduated with BSc in Digital Marketing (Robert Gordon University)</p>
+                        <div class="timeline-details">
+                            <div class="timeline-detail-item">
+                                <strong>Degree:</strong> BSc in Digital Marketing
+                            </div>
+                            <div class="timeline-detail-item">
+                                <strong>Institution:</strong> Robert Gordon University, Aberdeen
+                            </div>
+                            <div class="timeline-detail-item">
+                                <strong>Key Achievements:</strong>
+                                <ul>
+                                    <li>Completed comprehensive digital marketing curriculum</li>
+                                    <li>Developed expertise in social media strategy and analytics</li>
+                                    <li>Gained hands-on experience with real client projects</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-detail-item">
+                                <strong>Skills Acquired:</strong> Strategic Planning, Data Analytics, Content Creation, Campaign Management
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>2023</h3>
-                        <p>Led client projects for Comet, Aberdeen FC Community Trust & Namaste Delhi</p>
+                    <div class="timeline-content timeline-clickable">
+                        <div class="timeline-header">
+                            <h3>2023</h3>
+                            <span class="timeline-expand-icon">+</span>
+                        </div>
+                        <p class="timeline-summary">Led client projects for Comet, Aberdeen FC Community Trust & Namaste Delhi</p>
+                        <div class="timeline-details">
+                            <div class="timeline-detail-item">
+                                <strong>Client Projects:</strong>
+                                <ul>
+                                    <li><strong>Namaste Delhi:</strong> TikTok-first campaign resulting in 45% increase in bookings</li>
+                                    <li><strong>Aberdeen FC Community Trust:</strong> £1.2M fundraising campaign (150% of target)</li>
+                                    <li><strong>LUNAR-COMET:</strong> B2B content strategy and email marketing campaigns</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-detail-item">
+                                <strong>Responsibilities:</strong>
+                                <ul>
+                                    <li>Developed and executed multi-channel marketing strategies</li>
+                                    <li>Created engaging content for TikTok, Instagram, and Facebook</li>
+                                    <li>Managed influencer partnerships and UGC campaigns</li>
+                                    <li>Analyzed campaign performance and optimized ROI</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-detail-item">
+                                <strong>Results:</strong> Generated £12K+ revenue impact, 250K+ TikTok views, 12% engagement rate
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>2022</h3>
-                        <p>Graduated with HND in Technologies in Business (NESCol)</p>
+                    <div class="timeline-content timeline-clickable">
+                        <div class="timeline-header">
+                            <h3>2022</h3>
+                            <span class="timeline-expand-icon">+</span>
+                        </div>
+                        <p class="timeline-summary">Graduated with HND in Technologies in Business (NESCol)</p>
+                        <div class="timeline-details">
+                            <div class="timeline-detail-item">
+                                <strong>Qualification:</strong> HND in Technologies in Business
+                            </div>
+                            <div class="timeline-detail-item">
+                                <strong>Institution:</strong> North East Scotland College (NESCol)
+                            </div>
+                            <div class="timeline-detail-item">
+                                <strong>Focus Areas:</strong>
+                                <ul>
+                                    <li>Business technology integration</li>
+                                    <li>Digital transformation strategies</li>
+                                    <li>Project management fundamentals</li>
+                                    <li>Data analysis and reporting</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-detail-item">
+                                <strong>Foundation Skills:</strong> Business Analysis, Technology Solutions, Project Coordination
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>2020</h3>
-                        <p>Graduated with NC in Computing with Digital Media (NESCol)</p>
+                    <div class="timeline-content timeline-clickable">
+                        <div class="timeline-header">
+                            <h3>2020</h3>
+                            <span class="timeline-expand-icon">+</span>
+                        </div>
+                        <p class="timeline-summary">Graduated with NC in Computing with Digital Media (NESCol)</p>
+                        <div class="timeline-details">
+                            <div class="timeline-detail-item">
+                                <strong>Qualification:</strong> NC in Computing with Digital Media
+                            </div>
+                            <div class="timeline-detail-item">
+                                <strong>Institution:</strong> North East Scotland College (NESCol)
+                            </div>
+                            <div class="timeline-detail-item">
+                                <strong>Introduction to:</strong>
+                                <ul>
+                                    <li>Digital media production and editing</li>
+                                    <li>Web development basics</li>
+                                    <li>Graphic design fundamentals</li>
+                                    <li>Content creation principles</li>
+                                </ul>
+                            </div>
+                            <div class="timeline-detail-item">
+                                <strong>Starting Point:</strong> First formal education in digital technologies and media creation
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -206,12 +450,14 @@
             <h2 class="section-title-center hidden">Case Studies</h2>
             
             <div class="case-studies-grid hidden">
-                <article class="case-study-card"> 
+                <article class="case-study-card wow-effect"> 
                     <div class="case-header">
-                        <img src="image_5a0506.jpg" alt="Namaste Delhi" class="case-logo">
+                        <div class="case-image-wrapper">
+                            <img src="image_5a0506.jpg" alt="Namaste Delhi" class="case-logo" loading="lazy">
+                        </div>
                         <span class="case-meta">RESTAURANT | 3-MONTH CAMPAIGN</span>
                     </div>
-                    <div class="case-content">
+                    <div class="case-content case-text-content">
                         <h3>Namaste Delhi - Customer Acquisition</h3>
                         <div class="case-metrics">
                             <div class="metric-box">
@@ -233,12 +479,14 @@
                     </div>
                 </article>
 
-                <article class="case-study-card"> 
+                <article class="case-study-card wow-effect"> 
                     <div class="case-header">
-                        <img src="image_5a0241.jpg" alt="Aberdeen FC" class="case-logo">
+                        <div class="case-image-wrapper">
+                            <img src="image_5a0241.jpg" alt="Aberdeen FC" class="case-logo" loading="lazy">
+                        </div>
                         <span class="case-meta">NON-PROFIT | FUNDRAISING</span>
                     </div>
-                    <div class="case-content">
+                    <div class="case-content case-text-content">
                         <h3>Aberdeen FC Community Trust - £1M Campaign</h3>
                         <div class="case-metrics">
                             <div class="metric-box">
@@ -260,12 +508,14 @@
                     </div>
                 </article>
 
-                <article class="case-study-card"> 
+                <article class="case-study-card wow-effect"> 
                     <div class="case-header">
-                        <img src="comet.png" alt="COMET Logo" class="case-logo">
+                        <div class="case-image-wrapper">
+                            <img src="comet.png" alt="COMET Logo" class="case-logo" loading="lazy">
+                        </div>
                         <span class="case-meta">B2B | SUPPLY CHAIN</span>
                     </div>
-                    <div class="case-content">
+                    <div class="case-content case-text-content">
                         <h3>LUNAR-COMET Strategy</h3>
                         <div class="case-metrics">
                             <div class="metric-box">
@@ -373,63 +623,6 @@
         </div>
     </footer>
 
-    <script>
-        // 1. Płynne przewijanie dla linków nawigacyjnych
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // 2. Dynamiczny rok w stopce
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // 3. Animacja przy przewijaniu
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
-
-        // 4. USUNIĘTO Przełącznik motywu
-
-        // 5. Przełącznik języka
-        document.getElementById('language-select').addEventListener('change', (e) => {
-            const lang = e.target.value;
-            if (lang === 'pl') {
-                alert("Polska wersja już niedługo!");
-            }
-        });
-
-        // 6. Obsługa formularza
-        document.getElementById('collab-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert("Thanks for your message! I'll be in touch soon 😊");
-            this.reset();
-        });
-
-        // 7. Licznik odwiedzin (placeholder)
-        const visitorCountEl = document.getElementById('visitor-count');
-        let count = 0;
-        const targetCount = 127; 
-        
-        const counterInterval = setInterval(() => {
-            count += Math.ceil(targetCount / 50);
-            if (count > targetCount) {
-                count = targetCount;
-                clearInterval(counterInterval);
-            }
-            visitorCountEl.textContent = count;
-        }, 50); 
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
