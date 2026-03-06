@@ -1,628 +1,1361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piotr Biela - Digital Marketing Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piotr Biela — Social Media & Content Marketer</title>
+<meta name="description" content="Portfolio of Piotr Biela — Digital Marketing graduate specialising in social media, content strategy and AI-powered workflows. Available for remote roles.">
+<meta property="og:title" content="Piotr Biela — Social Media & Content Marketer">
+<meta property="og:description" content="Digital Marketing graduate. Real campaigns. Available immediately.">
+<meta property="og:url" content="https://bielaster.github.io/">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <meta name="description" content="Piotr Biela's Digital Marketing portfolio. A creative marketer specializing in social media, content, and AI, looking for new opportunities.">
-    
-    <meta name="keywords" content="Piotr Biela, Digital Marketing, Social Media, Content Creation, AI, Portfolio, Aberdeen, Marketing">
-    
-    <meta property="og:title" content="Piotr Biela - Digital Marketing Portfolio">
-    <meta property="og:description" content="A creative marketer specializing in social media, content, and AI, looking for new opportunities.">
-    <meta property="og:type" content="website">
-    
-    <meta property="og:url" content="https://bielaster.github.io/">
-    <meta property="og:image" content="https://bielaster.github.io/Uploaded_10_CNV00010.jpg">
+<style>
+/* ─── RESET & VARIABLES ─────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
-    <!-- Preconnect to external domains for better performance -->
-    <link rel="preconnect" href="https://www.linkedin.com"> 
+:root {
+  --black:    #080808;
+  --off-black:#111111;
+  --cream:    #F5F0E8;
+  --cream-dk: #EDE7DB;
+  --amber:    #C8963E;
+  --amber-lt: #E0AF60;
+  --warm:     #7A7468;
+  --muted:    #4A4540;
+  --border:   rgba(200,150,62,0.2);
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body:    'Jost', sans-serif;
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+}
 
-    <link rel="stylesheet" href="style.css?v=9"> 
-    
-    </head>
-<body data-theme="light"> 
+html { scroll-behavior: smooth; }
 
-    <!-- Scroll Progress Bar -->
-    <div id="scroll-progress" class="scroll-progress-bar"></div>
+body {
+  background: var(--cream);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  cursor: none;
+  overflow-x: hidden;
+}
 
-    <button id="toggle-theme" class="btn-toggle-theme">🌙</button>
-    <button id="toggle-sound" class="btn-toggle-sound" title="Toggle sounds">🔊</button>
+/* ─── CUSTOM CURSOR ──────────────────────────────────── */
+.cursor {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: var(--amber);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+  mix-blend-mode: multiply;
+}
+.cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid var(--amber);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.12s var(--ease);
+  opacity: 0.6;
+}
+body:hover .cursor { opacity: 1; }
+.cursor.hover { width: 16px; height: 16px; }
+.cursor-ring.hover { width: 56px; height: 56px; opacity: 0.3; }
 
-    <section class="intro-hero">
-        <div class="intro-content">
-            <h1>Portfolio</h1>
-            <p>Piotr Biela // Digital Marketing</p>
+/* ─── SCROLL PROGRESS ────────────────────────────────── */
+.scroll-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: var(--amber);
+  z-index: 1000;
+  width: 0%;
+  transition: width 0.05s linear;
+}
+
+/* ─── NAV ────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.4s, padding 0.4s;
+}
+nav.scrolled {
+  background: rgba(8,8,8,0.95);
+  backdrop-filter: blur(12px);
+  padding: 16px 48px;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--cream); }
+.nav-cv {
+  border: 1px solid var(--amber) !important;
+  color: var(--amber) !important;
+  padding: 8px 20px;
+  transition: background 0.2s, color 0.2s !important;
+}
+.nav-cv:hover { background: var(--amber) !important; color: var(--black) !important; }
+
+/* ─── HERO ───────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 60% 60% at 70% 40%, rgba(200,150,62,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,150,62,0.04) 0%, transparent 60%);
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 0.2s var(--ease-out) forwards;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 11vw, 160px);
+  font-weight: 300;
+  line-height: 0.92;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s 0.4s var(--ease-out) forwards;
+}
+.hero-name em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 60px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(200,150,62,0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 0.8s var(--ease-out) forwards;
+}
+
+.hero-role {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(245,240,232,0.5);
+  letter-spacing: 0.04em;
+}
+.hero-role strong {
+  color: var(--cream);
+  font-weight: 500;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  font-size: 12px;
+  color: rgba(245,240,232,0.35);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hero-meta span { display: flex; align-items: center; gap: 8px; }
+.hero-meta span::before {
+  content: '';
+  display: inline-block;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 48px;
+  right: 48px;
+  writing-mode: vertical-rl;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeUp 0.8s 1.2s var(--ease-out) forwards;
+}
+.scroll-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--amber), transparent);
+  animation: growDown 1.5s 1.6s var(--ease-out) forwards;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+/* ─── SECTION SHARED ─────────────────────────────────── */
+section { padding: 120px 48px; }
+
+.section-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 80px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 300;
+  color: var(--off-black);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.section-title em { font-style: italic; color: var(--amber); }
+
+/* ─── ABOUT ──────────────────────────────────────────── */
+#about { background: var(--cream); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 64px;
+  align-items: start;
+}
+
+.about-text p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.about-text p strong { color: var(--off-black); font-weight: 500; }
+
+.about-aside {
+  padding-top: 8px;
+}
+
+.stat-row {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--cream-dk);
+  padding: 24px 0;
+}
+.stat-row:last-child { border-bottom: 1px solid var(--cream-dk); }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--off-black);
+  line-height: 1;
+}
+.stat-num em { font-style: italic; color: var(--amber); font-size: 32px; }
+.stat-label {
+  font-size: 13px;
+  color: var(--warm);
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+}
+
+/* ─── NOW ────────────────────────────────────────────── */
+#now { background: var(--off-black); }
+#now .section-label, #now .section-title { color: var(--cream); }
+#now .section-title em { color: var(--amber); }
+
+.now-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 64px;
+}
+
+.now-card {
+  background: rgba(245,240,232,0.04);
+  padding: 40px 36px;
+  border: 1px solid rgba(200,150,62,0.1);
+  transition: background 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.now-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--amber);
+  transition: height 0.4s var(--ease-out);
+}
+.now-card:hover { background: rgba(245,240,232,0.07); border-color: rgba(200,150,62,0.25); }
+.now-card:hover::before { height: 100%; }
+
+.now-icon { font-size: 28px; margin-bottom: 20px; display: block; }
+.now-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.now-desc { font-size: 14px; color: rgba(245,240,232,0.45); line-height: 1.7; }
+
+/* ─── SKILLS ─────────────────────────────────────────── */
+#skills { background: var(--cream); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  margin-top: 64px;
+  align-items: start;
+}
+
+.skills-intro {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  padding: 10px 20px;
+  border: 1px solid var(--cream-dk);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.skill-tag::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-out);
+  z-index: -1;
+}
+.skill-tag:hover { color: var(--black); border-color: var(--amber); }
+.skill-tag:hover::after { transform: scaleX(1); }
+.skill-tag.featured {
+  background: var(--off-black);
+  color: var(--cream);
+  border-color: var(--off-black);
+  font-weight: 500;
+}
+
+/* ─── CASE STUDIES ───────────────────────────────────── */
+#work { background: var(--cream-dk); padding-bottom: 160px; }
+
+.work-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 64px;
+  margin-bottom: 80px;
+  align-items: end;
+}
+.work-intro p { font-size: 16px; line-height: 1.8; color: var(--warm); }
+
+.case-list { display: flex; flex-direction: column; gap: 2px; }
+
+.case-item {
+  background: var(--cream);
+  border: 1px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+  cursor: pointer;
+}
+.case-item:hover { border-color: var(--border); }
+
+.case-header {
+  display: grid;
+  grid-template-columns: 80px 1fr auto auto;
+  align-items: center;
+  gap: 32px;
+  padding: 36px 40px;
+}
+
+.case-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+}
+
+.case-meta-top {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.case-name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--off-black);
+  letter-spacing: -0.01em;
+  transition: color 0.2s;
+}
+.case-item:hover .case-name { color: var(--amber); }
+
+.case-type {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--warm);
+}
+
+.case-tags {
+  display: flex;
+  gap: 8px;
+}
+.case-tag {
+  font-size: 11px;
+  padding: 4px 12px;
+  border: 1px solid var(--cream-dk);
+  color: var(--warm);
+  letter-spacing: 0.06em;
+}
+
+.case-arrow {
+  width: 36px; height: 36px;
+  border: 1px solid var(--cream-dk);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--warm);
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+.case-item:hover .case-arrow {
+  background: var(--off-black);
+  border-color: var(--off-black);
+  color: var(--cream);
+  transform: rotate(45deg);
+}
+
+.case-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease-out), opacity 0.4s;
+  opacity: 0;
+}
+.case-body.open { opacity: 1; }
+
+.case-body-inner {
+  padding: 0 40px 40px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  padding-left: calc(40px + 80px + 32px);
+}
+
+.case-section-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+}
+
+.case-p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.case-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.case-bullets li {
+  font-size: 14px;
+  color: var(--muted);
+  display: flex;
+  gap: 12px;
+  line-height: 1.6;
+}
+.case-bullets li::before {
+  content: '—';
+  color: var(--amber);
+  flex-shrink: 0;
+  font-family: var(--font-display);
+}
+
+.btn-case-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--off-black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--off-black);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-case-pdf:hover { color: var(--amber); border-color: var(--amber); }
+
+/* ─── CONTACT ────────────────────────────────────────── */
+#contact {
+  background: var(--black);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 48px;
+}
+
+.contact-inner { max-width: 800px; }
+
+.contact-pre {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 32px;
+}
+
+.contact-heading {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 88px);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 48px;
+  letter-spacing: -0.02em;
+}
+.contact-heading em { font-style: italic; color: var(--amber); }
+
+.contact-links {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(245,240,232,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(200,150,62,0.2);
+}
+.contact-link:hover { color: var(--amber); border-bottom-color: var(--amber); }
+.contact-link-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.25);
+  margin-right: 8px;
+}
+
+/* ─── FOOTER ─────────────────────────────────────────── */
+footer {
+  background: var(--black);
+  padding: 32px 48px;
+  border-top: 1px solid rgba(200,150,62,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer p {
+  font-size: 12px;
+  color: rgba(245,240,232,0.2);
+  letter-spacing: 0.06em;
+}
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 12px;
+  color: rgba(245,240,232,0.2);
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 0.06em;
+}
+.footer-links a:hover { color: var(--amber); }
+
+/* ─── AVAILABILITY BANNER ───────────────────────────── */
+.avail-banner {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 800;
+  background: var(--off-black);
+  border: 1px solid rgba(200,150,62,0.35);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  animation: slideInBanner 0.6s 1.8s var(--ease-out) both;
+}
+@keyframes slideInBanner {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.avail-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #4CAF50;
+  flex-shrink: 0;
+  animation: pulse-green 2s infinite;
+}
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(76,175,80,0.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(76,175,80,0); }
+}
+.avail-text {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+}
+.avail-text span {
+  color: rgba(245,240,232,0.4);
+  font-weight: 300;
+  margin-left: 6px;
+  letter-spacing: 0.04em;
+}
+.avail-close {
+  background: none;
+  border: none;
+  color: rgba(245,240,232,0.25);
+  font-size: 16px;
+  cursor: none;
+  padding: 0 0 0 8px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.avail-close:hover { color: var(--cream); }
+
+/* ─── WHY ME ─────────────────────────────────────────── */
+#whyme { background: var(--black); padding: 120px 48px; }
+#whyme .section-label { color: rgba(200,150,62,0.7); }
+
+.whyme-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 64px;
+  align-items: start;
+}
+
+.whyme-intro {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(245,240,232,0.55);
+}
+.whyme-intro strong { color: var(--cream); font-weight: 500; }
+
+.whyme-cards { display: flex; flex-direction: column; gap: 2px; }
+
+.whyme-card {
+  background: rgba(245,240,232,0.03);
+  border: 1px solid rgba(200,150,62,0.08);
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 20px;
+  align-items: start;
+  transition: background 0.3s, border-color 0.3s;
+}
+.whyme-card:hover {
+  background: rgba(245,240,232,0.06);
+  border-color: rgba(200,150,62,0.2);
+}
+.whyme-icon {
+  font-size: 22px;
+  line-height: 1.4;
+}
+.whyme-card-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.whyme-card-desc {
+  font-size: 14px;
+  color: rgba(245,240,232,0.4);
+  line-height: 1.7;
+}
+.whyme-card-desc strong { color: rgba(245,240,232,0.75); font-weight: 500; }
+
+/* ─── PROCESS ────────────────────────────────────────── */
+#process { background: var(--cream-dk); padding: 120px 48px; }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 64px;
+}
+
+.process-step {
+  background: var(--cream);
+  padding: 40px 32px;
+  border: 1px solid transparent;
+  position: relative;
+  transition: border-color 0.3s, background 0.3s;
+  overflow: hidden;
+}
+.process-step:hover {
+  border-color: var(--border);
+  background: #FEFCF7;
+}
+.process-step::after {
+  content: attr(data-num);
+  position: absolute;
+  top: -20px; right: 20px;
+  font-family: var(--font-display);
+  font-size: 96px;
+  font-weight: 300;
+  color: rgba(200,150,62,0.07);
+  line-height: 1;
+  pointer-events: none;
+  transition: color 0.3s;
+}
+.process-step:hover::after { color: rgba(200,150,62,0.13); }
+
+.process-num {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 20px;
+}
+.process-step-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--off-black);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+.process-step-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--warm);
+}
+
+@media (max-width: 900px) {
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .whyme-grid { grid-template-columns: 1fr; gap: 40px; }
+  .avail-banner { bottom: 16px; right: 16px; left: 16px; }
+}
+@media (max-width: 600px) {
+  .process-steps { grid-template-columns: 1fr; }
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────── */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes growDown {
+  to { transform: scaleY(1); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 20px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+  .nav-links { gap: 20px; }
+  .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
+  section { padding: 80px 24px; }
+  .hero { padding: 0 24px 60px; }
+  .about-grid, .skills-grid, .now-grid,
+  .work-intro, .case-body-inner { grid-template-columns: 1fr; gap: 40px; }
+  .case-header { grid-template-columns: 48px 1fr; gap: 16px; }
+  .case-tags, .case-arrow { display: none; }
+  footer { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- Scroll bar -->
+<div class="scroll-bar" id="scroll-bar"></div>
+
+<!-- AVAILABILITY BANNER -->
+<div class="avail-banner" id="avail-banner">
+  <div class="avail-dot"></div>
+  <p class="avail-text">Available immediately<span>· Remote · UK-wide · Open to freelance</span></p>
+  <button class="avail-close" onclick="document.getElementById('avail-banner').style.display='none'" aria-label="Close">×</button>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#about" class="nav-logo">PB</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#whyme">Why me</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="nav-cv">Download CV</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+
+  <p class="hero-eyebrow">Digital Marketing Portfolio — Aberdeen, UK</p>
+
+  <h1 class="hero-name">
+    Piotr<br><em>Biela</em>
+  </h1>
+
+  <div class="hero-bottom">
+    <p class="hero-role">
+      <strong>Social Media & Content Marketer</strong> — BSc Digital Marketing, Robert Gordon University
+    </p>
+    <div class="hero-meta">
+      <span>Available immediately</span>
+      <span>Open to remote</span>
+      <span>Real campaigns</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label reveal">About me</p>
+
+  <div class="about-grid">
+    <div class="about-text reveal reveal-delay-1">
+      <p>
+        I'm a <strong>Digital Marketing graduate</strong> who believes the best way to learn is by doing — so during my studies I didn't just read theory, I delivered real campaigns for real clients.
+      </p>
+      <p>
+        Three years of practical project work alongside a BSc from Robert Gordon University gave me hands-on experience in <strong>TikTok strategy, social media content, audience research and multi-channel campaigns</strong>.
+      </p>
+      <p>
+        Six years in fast-paced, customer-facing environments have sharpened something textbooks can't teach: an instinct for <strong>what connects with people</strong> — and what doesn't.
+      </p>
+      <p>
+        Currently learning TikTok Ads Manager, Meta Blueprint and GA4. Looking for a remote or hybrid role where I can grow fast and contribute from day one.
+      </p>
+    </div>
+
+    <div class="about-aside reveal reveal-delay-2">
+      <div class="stat-row">
+        <span class="stat-num">3<em>+</em></span>
+        <span class="stat-label">Real-client projects delivered during university</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-num">4.8<em>/5</em></span>
+        <span class="stat-label">Customer rating at Bagel Society (232 reviews, Restaurant Guru)</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-num">6<em>yrs</em></span>
+        <span class="stat-label">Customer-facing experience — consumer insight built in the real world</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section id="whyme">
+  <p class="section-label reveal">Why me</p>
+
+  <div class="whyme-grid">
+    <div class="reveal reveal-delay-1">
+      <h2 class="section-title" style="color: var(--cream); margin-bottom: 28px;">
+        What makes me<br><em>different</em>
+      </h2>
+      <p class="whyme-intro">
+        A lot of marketing graduates have the same degree, the same tools, and the same CV template. Here's what I have that most don't — and why it's actually useful to you.
+      </p>
+    </div>
+
+    <div class="whyme-cards reveal reveal-delay-2">
+      <div class="whyme-card">
+        <span class="whyme-icon">🍽️</span>
+        <div>
+          <p class="whyme-card-title">Deep food & hospitality fluency</p>
+          <p class="whyme-card-desc">6 years working inside restaurants — not observing them. I understand the operational reality behind food brands: <strong>what they can actually deliver</strong>, what their customers care about, and what content resonates. That's rare in a junior marketer.</p>
         </div>
-        <div class="scroll-down-prompt">
-            Scroll down &darr;
+      </div>
+      <div class="whyme-card">
+        <span class="whyme-icon">🤖</span>
+        <div>
+          <p class="whyme-card-title">AI workflows as a practical skill</p>
+          <p class="whyme-card-desc">I use Stable Diffusion, ComfyUI, Foocus and AI writing tools daily — not as novelties, but as <strong>genuine production tools</strong> that speed up asset creation. Most juniors claim "AI skills" and mean ChatGPT. I mean image generation pipelines.</p>
         </div>
-    </section>
+      </div>
+      <div class="whyme-card">
+        <span class="whyme-icon">🇵🇱</span>
+        <div>
+          <p class="whyme-card-title">Bilingual — Polish & English</p>
+          <p class="whyme-card-desc">Native Polish speaker, fluent English. If your brand has <strong>any Polish-speaking audience</strong> — in the UK or EU — I can create content that actually sounds right, not translated.</p>
+        </div>
+      </div>
+      <div class="whyme-card">
+        <span class="whyme-icon">📐</span>
+        <div>
+          <p class="whyme-card-title">Strategy-first mindset</p>
+          <p class="whyme-card-desc">My degree wasn't just "how to post on Instagram." It covered <strong>consumer behaviour, campaign planning, B2B content strategy and audience research</strong>. I know why tactics work, not just how to execute them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <nav class="navbar">
-        <div class="container">
-            <a href="#about" class="logo">Piotr Biela</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#now">What I'm Doing</a></li>
-                <li><a href="#toolkit">Toolkit</a></li>
-                <li><a href="#journey">My Journey</a></li>
-                <li><a href="#projects">Case Studies</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#collaboration">Collaboration</a></li> 
-                <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="btn-nav-cv">Download CV</a></li>
-                <li>
-                  <select id="language-select" class="language-switcher">
-                    <option value="en" selected>EN</option>
-                    <option value="pl">PL</option>
-                  </select>
-                </li>
-                <li>
-                    <div class="live-counter">
-                        <span class="live-dot"></span>
-                        <span id="visitor-count">0</span> visitors this week
-                    </div>
-                </li>
+<!-- NOW -->
+<section id="now">
+  <p class="section-label reveal" style="color: rgba(200,150,62,0.7);">What I'm doing now</p>
+
+  <h2 class="section-title reveal reveal-delay-1" style="color: var(--cream);">
+    Always <em>learning,</em><br>never standing still
+  </h2>
+
+  <div class="now-grid" style="margin-top: 64px;">
+    <div class="now-card reveal reveal-delay-1">
+      <span class="now-icon">📱</span>
+      <h3 class="now-title">Studying TikTok Ads</h3>
+      <p class="now-desc">Working through TikTok's official Ads Manager certification — learning campaign structure, creative best practices and performance optimisation for short-form paid content.</p>
+    </div>
+    <div class="now-card reveal reveal-delay-2">
+      <span class="now-icon">🤖</span>
+      <h3 class="now-title">AI Content Workflows</h3>
+      <p class="now-desc">Experimenting with Stable Diffusion, ComfyUI and Foocus for AI-assisted visual content creation. Building workflows that speed up asset production without losing brand consistency.</p>
+    </div>
+    <div class="now-card reveal reveal-delay-3">
+      <span class="now-icon">✍️</span>
+      <h3 class="now-title">Writing & Analysing</h3>
+      <p class="now-desc">Drafting an analysis of social media storytelling trends for lifestyle brands — documenting patterns in what drives engagement beyond standard food and product photography.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label reveal">Toolkit</p>
+
+  <div class="skills-grid">
+    <div class="reveal reveal-delay-1">
+      <h2 class="section-title" style="margin-bottom: 24px;">Skills that<br><em>ship work</em></h2>
+      <p class="skills-intro">
+        Tools are only as good as the strategy behind them. Here's what I know — and what I'm actively building on.
+      </p>
+    </div>
+
+    <div class="skills-tags reveal reveal-delay-2">
+      <span class="skill-tag featured">TikTok Strategy</span>
+      <span class="skill-tag featured">Instagram Marketing</span>
+      <span class="skill-tag featured">Content Creation</span>
+      <span class="skill-tag featured">Canva — Advanced</span>
+      <span class="skill-tag featured">CapCut — Advanced</span>
+      <span class="skill-tag">Meta Ads</span>
+      <span class="skill-tag">Facebook Ads</span>
+      <span class="skill-tag">Content Planning</span>
+      <span class="skill-tag">Audience Research</span>
+      <span class="skill-tag">Email Marketing</span>
+      <span class="skill-tag">Campaign Reporting</span>
+      <span class="skill-tag">AI Content Workflows</span>
+      <span class="skill-tag">Stable Diffusion</span>
+      <span class="skill-tag">Notion</span>
+      <span class="skill-tag">Meta Business Suite</span>
+      <span class="skill-tag">Google Analytics 4</span>
+      <span class="skill-tag">SEO Fundamentals</span>
+      <span class="skill-tag">B2B Content Strategy</span>
+      <span class="skill-tag">Brand Storytelling</span>
+      <span class="skill-tag">Consumer Behaviour</span>
+      <span class="skill-tag">Polish — Native</span>
+      <span class="skill-tag">English — Fluent</span>
+    </div>
+  </div>
+</section>
+
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <p class="section-label reveal">How I work</p>
+
+  <h2 class="section-title reveal reveal-delay-1" style="margin-bottom: 0;">
+    Four steps.<br><em>Every time.</em>
+  </h2>
+
+  <div class="process-steps">
+    <div class="process-step reveal reveal-delay-1" data-num="1">
+      <p class="process-num">Step 01</p>
+      <h3 class="process-step-title">Research</h3>
+      <p class="process-step-desc">Audience analysis, competitor content audit, platform behaviour patterns. I don't create content before I understand <em>who</em> I'm talking to and <em>where</em> they spend their attention.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-2" data-num="2">
+      <p class="process-num">Step 02</p>
+      <h3 class="process-step-title">Strategy</h3>
+      <p class="process-step-desc">Campaign objectives, channel selection, content pillars, posting cadence. Everything mapped before a single piece of content is made — so execution is fast and purposeful.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-3" data-num="3">
+      <p class="process-num">Step 03</p>
+      <h3 class="process-step-title">Execution</h3>
+      <p class="process-step-desc">Content creation, scheduling, copy, visuals. I build the assets, write the captions, and ship on time. I use Canva, CapCut, AI tools and Notion to stay organised and consistent.</p>
+    </div>
+    <div class="process-step reveal" style="transition-delay: 0.4s;" data-num="4">
+      <p class="process-num">Step 04</p>
+      <h3 class="process-step-title">Review</h3>
+      <p class="process-step-desc">Analytics review, performance tracking, content iteration. What worked, what didn't, what to change next cycle. Strategy without review is just guessing twice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WORK / CASE STUDIES -->
+<section id="work">
+  <p class="section-label reveal">Selected work</p>
+
+  <div class="work-intro">
+    <h2 class="section-title reveal reveal-delay-1">
+      Three campaigns.<br><em>Real clients.</em>
+    </h2>
+    <p class="reveal reveal-delay-2">
+      Every project below was delivered as part of my BSc at Robert Gordon University — real briefs, real clients, real deliverables. No mock-ups, no invented numbers.
+    </p>
+  </div>
+
+  <div class="case-list reveal">
+
+    <!-- Case 1 -->
+    <div class="case-item" onclick="toggleCase(this)">
+      <div class="case-header">
+        <span class="case-num">01 —</span>
+        <div class="case-meta-top">
+          <span class="case-name">Namaste Delhi</span>
+          <span class="case-type">Restaurant · Social Media Campaign · 2023</span>
+        </div>
+        <div class="case-tags">
+          <span class="case-tag">TikTok</span>
+          <span class="case-tag">Instagram</span>
+          <span class="case-tag">Facebook Ads</span>
+        </div>
+        <div class="case-arrow">↗</div>
+      </div>
+      <div class="case-body">
+        <div class="case-body-inner">
+          <div>
+            <p class="case-section-title">The Brief</p>
+            <p class="case-p">Drive awareness and bookings for cooking and bartending classes among 25–40 year olds in Aberdeen. The client had no existing social strategy and relied entirely on word-of-mouth.</p>
+
+            <p class="case-section-title" style="margin-top: 28px;">Strategy</p>
+            <p class="case-p">TikTok-first content campaign — short-form video to drive discovery, supported by Instagram cross-posting and targeted Facebook Ads to convert interest into bookings.</p>
+          </div>
+          <div>
+            <p class="case-section-title">What I Did</p>
+            <ul class="case-bullets">
+              <li>Conducted audience segmentation research to define targeting parameters</li>
+              <li>Built a 3-month TikTok-first content calendar covering food, behind-the-scenes and class previews</li>
+              <li>Produced 15 short-form videos with scripted storytelling hooks</li>
+              <li>Coordinated local influencer outreach and managed 3 partnerships</li>
+              <li>Set up and ran a £200 Facebook Ads test targeting Aberdeen food enthusiasts</li>
             </ul>
+            <a href="AFCCT_Final Presentation.pdf" target="_blank" class="btn-case-pdf">View presentation ↗</a>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
 
-    <main class="main-content">
-
-        <!-- Skeleton Screens -->
-        <div id="skeleton-loader" class="skeleton-container">
-            <section class="container section-padding skeleton-section">
-                <div class="section-grid">
-                    <div class="skeleton-title"></div>
-                    <div class="skeleton-content">
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line skeleton-line-short"></div>
-                    </div>
-                </div>
-            </section>
-            <section class="container section-padding skeleton-section">
-                <div class="section-grid">
-                    <div class="skeleton-title"></div>
-                    <div class="skeleton-content">
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line skeleton-line-short"></div>
-                    </div>
-                </div>
-            </section>
-            <section class="container section-padding skeleton-section">
-                <div class="skeleton-title-center"></div>
-                <div class="skeleton-cards">
-                    <div class="skeleton-card"></div>
-                    <div class="skeleton-card"></div>
-                    <div class="skeleton-card"></div>
-                </div>
-            </section>
+    <!-- Case 2 -->
+    <div class="case-item" onclick="toggleCase(this)">
+      <div class="case-header">
+        <span class="case-num">02 —</span>
+        <div class="case-meta-top">
+          <span class="case-name">Aberdeen FC Community Trust</span>
+          <span class="case-type">Non-profit · Fundraising Campaign · 2023</span>
         </div>
-
-        <section id="about" class="container section-padding">
-            <div class="section-grid"> 
-                <h2 class="section-title-left hidden">About Me</h2>
-                <div class="section-content-right hidden">
-                    <p class="about-text">
-                        I'm a marketer driven by a passion for social media, content strategy, and the creative potential of AI. I believe the best way to learn is by doing.
-                    </p>
-                    <p class="about-text">
-                        That’s why during my studies, I didn't just learn theory—I actively sought out and delivered real-world campaigns for clients like **Namaste Delhi** and the **Aberdeen FC Community Trust**.
-                    </p>
-                    
-                    <blockquote class="about-quote">
-                        I am a fast learner with a proven 'can-do' attitude, ready to bring fresh energy and creativity to your team.
-                    </blockquote>
-                    
-                    <p class="about-text">
-                        I am looking for an opportunity to grow, contribute new ideas, and turn this proven passion into a professional career.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="now" class="container section-padding">
-            <div class="section-grid">
-                <h2 class="section-title-left hidden">What I'm Doing Now</h2>
-                <div class="section-content-right hidden">
-                    <div class="now-list">
-                        <div class="now-item">
-                            <h3>📚 Learning</h3>
-                            <p>Advanced TikTok advertising strategies and new AI prompt engineering techniques.</p>
-                        </div>
-                        <div class="now-item">
-                            <h3>🤖 Experimenting</h3>
-                            <p>With new AI-powered tools for content generation (like Foocus, Stable Diffusion, and ComfyUI) and market research.</p>
-                        </div>
-                        <div class="now-item">
-                            <h3>✍️ Writing</h3>
-                            <p>An analysis of social media storytelling trends for lifestyle brands.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="toolkit" class="container section-padding">
-            <div class="section-grid">
-                <h2 class="section-title-left hidden">My Toolkit</h2>
-                <div class="section-content-right hidden">
-                    <div class="skill-heatmap">
-                        
-                        <div class="skill-bar">
-                            <div class="skill-bar-info">
-                                <span>Canva & CapCut</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" style="--skill-level: 90%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="skill-bar">
-                            <div class="skill-bar-info">
-                                <span>Social Media (TikTok, Instagram)</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" style="--skill-level: 85%;"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-bar">
-                            <div class="skill-bar-info">
-                                <span>AI Tools (ChatGPT, Foocus)</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" style="--skill-level: 80%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="skill-bar">
-                            <div class="skill-bar-info">
-                                <span>Meta Business Suite</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" style="--skill-level: 75%;"></div>
-                            </div>
-                        </div>
-
-                        <div class="skill-bar">
-                            <div class="skill-bar-info">
-                                <span>Content Planning (Notion)</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar-track">
-                                <div class="skill-bar-fill" style="--skill-level: 85%;"></div>
-                            </div>
-                        </div>
-
-                    </div>
-                    
-                    <!-- Animated Tag Cloud -->
-                    <div class="tag-cloud-container hidden">
-                        <h3 class="tag-cloud-title">Technologies & Skills</h3>
-                        <div class="tag-cloud" id="tag-cloud">
-                            <span class="tag tag-expert" data-skill="Canva">Canva</span>
-                            <span class="tag tag-expert" data-skill="CapCut">CapCut</span>
-                            <span class="tag tag-advanced" data-skill="TikTok">TikTok</span>
-                            <span class="tag tag-advanced" data-skill="Instagram">Instagram</span>
-                            <span class="tag tag-advanced" data-skill="ChatGPT">ChatGPT</span>
-                            <span class="tag tag-advanced" data-skill="Foocus">Foocus</span>
-                            <span class="tag tag-advanced" data-skill="Notion">Notion</span>
-                            <span class="tag tag-intermediate" data-skill="Meta Business Suite">Meta Business Suite</span>
-                            <span class="tag tag-intermediate" data-skill="Facebook Ads">Facebook Ads</span>
-                            <span class="tag tag-intermediate" data-skill="Stable Diffusion">Stable Diffusion</span>
-                            <span class="tag tag-intermediate" data-skill="ComfyUI">ComfyUI</span>
-                            <span class="tag tag-intermediate" data-skill="Content Strategy">Content Strategy</span>
-                            <span class="tag tag-intermediate" data-skill="Social Media Marketing">Social Media Marketing</span>
-                            <span class="tag tag-beginner" data-skill="Google Analytics">Google Analytics</span>
-                            <span class="tag tag-beginner" data-skill="SEO">SEO</span>
-                            <span class="tag tag-beginner" data-skill="Email Marketing">Email Marketing</span>
-                            <span class="tag tag-advanced" data-skill="AI Prompt Engineering">AI Prompt Engineering</span>
-                            <span class="tag tag-intermediate" data-skill="Video Editing">Video Editing</span>
-                            <span class="tag tag-intermediate" data-skill="Graphic Design">Graphic Design</span>
-                            <span class="tag tag-advanced" data-skill="Content Creation">Content Creation</span>
-                            <span class="tag tag-intermediate" data-skill="Market Research">Market Research</span>
-                            <span class="tag tag-beginner" data-skill="Web Analytics">Web Analytics</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Scrollytelling Section -->
-        <section id="story" class="scrollytelling-section">
-            <div class="scrollytelling-container">
-                <!-- Story Stage 1 -->
-                <div class="story-stage" data-stage="1">
-                    <div class="story-content">
-                        <div class="story-text">
-                            <h2 class="story-title">The Beginning</h2>
-                            <p class="story-description">It all started with curiosity...</p>
-                        </div>
-                        <div class="story-visual">
-                            <div class="story-icon">🎓</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Story Stage 2 -->
-                <div class="story-stage" data-stage="2">
-                    <div class="story-content">
-                        <div class="story-text">
-                            <h2 class="story-title">Learning by Doing</h2>
-                            <p class="story-description">Theory wasn't enough. I needed real projects, real clients, real results.</p>
-                        </div>
-                        <div class="story-visual">
-                            <div class="story-icon">💡</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Story Stage 3 -->
-                <div class="story-stage" data-stage="3">
-                    <div class="story-content">
-                        <div class="story-text">
-                            <h2 class="story-title">First Breakthrough</h2>
-                            <p class="story-description">Namaste Delhi campaign: 45% increase in bookings, 250K TikTok views.</p>
-                        </div>
-                        <div class="story-visual">
-                            <div class="story-icon">🚀</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Story Stage 4 -->
-                <div class="story-stage" data-stage="4">
-                    <div class="story-content">
-                        <div class="story-text">
-                            <h2 class="story-title">B2B Excellence</h2>
-                            <p class="story-description">LUNAR-COMET: Developed multi-channel content strategy for B2B supply chain software, building trust and authority.</p>
-                        </div>
-                        <div class="story-visual">
-                            <div class="story-icon">💼</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Story Stage 5 -->
-                <div class="story-stage" data-stage="5">
-                    <div class="story-content">
-                        <div class="story-text">
-                            <h2 class="story-title">Making an Impact</h2>
-                            <p class="story-description">Aberdeen FC Community Trust: £1.2M raised, 150% of target achieved.</p>
-                        </div>
-                        <div class="story-visual">
-                            <div class="story-icon">🏆</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Story Stage 6 -->
-                <div class="story-stage" data-stage="6">
-                    <div class="story-content">
-                        <div class="story-text">
-                            <h2 class="story-title">The Future</h2>
-                            <p class="story-description">Ready to bring fresh energy, creativity, and proven results to your team.</p>
-                        </div>
-                        <div class="story-visual">
-                            <div class="story-icon">✨</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="scrollytelling-background"></div>
-        </section>
-
-        <section id="journey" class="container section-padding">
-            <h2 class="section-title-center hidden">My Journey</h2>
-            <div class="timeline hidden">
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-clickable">
-                        <div class="timeline-header">
-                            <h3>2024</h3>
-                            <span class="timeline-expand-icon">+</span>
-                        </div>
-                        <p class="timeline-summary">Graduated with BSc in Digital Marketing (Robert Gordon University)</p>
-                        <div class="timeline-details">
-                            <div class="timeline-detail-item">
-                                <strong>Degree:</strong> BSc in Digital Marketing
-                            </div>
-                            <div class="timeline-detail-item">
-                                <strong>Institution:</strong> Robert Gordon University, Aberdeen
-                            </div>
-                            <div class="timeline-detail-item">
-                                <strong>Key Achievements:</strong>
-                                <ul>
-                                    <li>Completed comprehensive digital marketing curriculum</li>
-                                    <li>Developed expertise in social media strategy and analytics</li>
-                                    <li>Gained hands-on experience with real client projects</li>
-                                </ul>
-                            </div>
-                            <div class="timeline-detail-item">
-                                <strong>Skills Acquired:</strong> Strategic Planning, Data Analytics, Content Creation, Campaign Management
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-clickable">
-                        <div class="timeline-header">
-                            <h3>2023</h3>
-                            <span class="timeline-expand-icon">+</span>
-                        </div>
-                        <p class="timeline-summary">Led client projects for Comet, Aberdeen FC Community Trust & Namaste Delhi</p>
-                        <div class="timeline-details">
-                            <div class="timeline-detail-item">
-                                <strong>Client Projects:</strong>
-                                <ul>
-                                    <li><strong>Namaste Delhi:</strong> TikTok-first campaign resulting in 45% increase in bookings</li>
-                                    <li><strong>Aberdeen FC Community Trust:</strong> £1.2M fundraising campaign (150% of target)</li>
-                                    <li><strong>LUNAR-COMET:</strong> B2B content strategy and email marketing campaigns</li>
-                                </ul>
-                            </div>
-                            <div class="timeline-detail-item">
-                                <strong>Responsibilities:</strong>
-                                <ul>
-                                    <li>Developed and executed multi-channel marketing strategies</li>
-                                    <li>Created engaging content for TikTok, Instagram, and Facebook</li>
-                                    <li>Managed influencer partnerships and UGC campaigns</li>
-                                    <li>Analyzed campaign performance and optimized ROI</li>
-                                </ul>
-                            </div>
-                            <div class="timeline-detail-item">
-                                <strong>Results:</strong> Generated £12K+ revenue impact, 250K+ TikTok views, 12% engagement rate
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-clickable">
-                        <div class="timeline-header">
-                            <h3>2022</h3>
-                            <span class="timeline-expand-icon">+</span>
-                        </div>
-                        <p class="timeline-summary">Graduated with HND in Technologies in Business (NESCol)</p>
-                        <div class="timeline-details">
-                            <div class="timeline-detail-item">
-                                <strong>Qualification:</strong> HND in Technologies in Business
-                            </div>
-                            <div class="timeline-detail-item">
-                                <strong>Institution:</strong> North East Scotland College (NESCol)
-                            </div>
-                            <div class="timeline-detail-item">
-                                <strong>Focus Areas:</strong>
-                                <ul>
-                                    <li>Business technology integration</li>
-                                    <li>Digital transformation strategies</li>
-                                    <li>Project management fundamentals</li>
-                                    <li>Data analysis and reporting</li>
-                                </ul>
-                            </div>
-                            <div class="timeline-detail-item">
-                                <strong>Foundation Skills:</strong> Business Analysis, Technology Solutions, Project Coordination
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content timeline-clickable">
-                        <div class="timeline-header">
-                            <h3>2020</h3>
-                            <span class="timeline-expand-icon">+</span>
-                        </div>
-                        <p class="timeline-summary">Graduated with NC in Computing with Digital Media (NESCol)</p>
-                        <div class="timeline-details">
-                            <div class="timeline-detail-item">
-                                <strong>Qualification:</strong> NC in Computing with Digital Media
-                            </div>
-                            <div class="timeline-detail-item">
-                                <strong>Institution:</strong> North East Scotland College (NESCol)
-                            </div>
-                            <div class="timeline-detail-item">
-                                <strong>Introduction to:</strong>
-                                <ul>
-                                    <li>Digital media production and editing</li>
-                                    <li>Web development basics</li>
-                                    <li>Graphic design fundamentals</li>
-                                    <li>Content creation principles</li>
-                                </ul>
-                            </div>
-                            <div class="timeline-detail-item">
-                                <strong>Starting Point:</strong> First formal education in digital technologies and media creation
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="container section-padding"> 
-            <h2 class="section-title-center hidden">Case Studies</h2>
-            
-            <div class="case-studies-grid hidden">
-                <article class="case-study-card wow-effect"> 
-                    <div class="case-header">
-                        <div class="case-image-wrapper">
-                            <img src="image_5a0506.jpg" alt="Namaste Delhi" class="case-logo" loading="lazy">
-                        </div>
-                        <span class="case-meta">RESTAURANT | 3-MONTH CAMPAIGN</span>
-                    </div>
-                    <div class="case-content case-text-content">
-                        <h3>Namaste Delhi - Customer Acquisition</h3>
-                        <div class="case-metrics">
-                            <div class="metric-box">
-                                <span class="metric-number">+45%</span>
-                                <span class="metric-label">New Customers</span>
-                            </div>
-                            <div class="metric-box">
-                                <span class="metric-number">£12K</span>
-                                <span class="metric-label">Revenue Impact</span>
-                            </div>
-                        </div>
-                        <div class="case-details">
-                            <p><strong>Problem:</strong> Low awareness of cooking classes among 25-40 year olds in Aberdeen.</p>
-                            <p><strong>Strategy:</strong> TikTok-first content + UGC campaign with local food influencers.</p>
-                            <p><strong>Actions:</strong> 15 videos, 3 influencer partnerships, targeted Facebook ads (£200 budget).</p>
-                            <p><strong>Results:</strong> 45% increase in bookings, 250K TikTok views, 12% engagement rate.</p>
-                        </div>
-                        <a href="#" class="btn-case">View Full Campaign →</a>
-                    </div>
-                </article>
-
-                <article class="case-study-card wow-effect"> 
-                    <div class="case-header">
-                        <div class="case-image-wrapper">
-                            <img src="image_5a0241.jpg" alt="Aberdeen FC" class="case-logo" loading="lazy">
-                        </div>
-                        <span class="case-meta">NON-PROFIT | FUNDRAISING</span>
-                    </div>
-                    <div class="case-content case-text-content">
-                        <h3>Aberdeen FC Community Trust - £1M Campaign</h3>
-                        <div class="case-metrics">
-                            <div class="metric-box">
-                                <span class="metric-number">£1.2M</span>
-                                <span class="metric-label">Funds Raised</span>
-                            </div>
-                            <div class="metric-box">
-                                <span class="metric-number">150%</span>
-                                <span class="metric-label">Of Target</span>
-                            </div>
-                        </div>
-                        <div class="case-details">
-                            <p><strong>Problem:</strong> Need to fund new community sports facilities.</p>
-                            <p><strong>Strategy:</strong> Multi-channel storytelling focusing on local impact.</p>
-                            <p><strong>Actions:</strong> Email sequences, donor segmentation, social proof campaigns.</p>
-                            <p><strong>Results:</strong> Exceeded target by 150% in 8 months.</p>
-                        </div>
-                        <a href="AFCCT_Final Presentation.pdf" target="_blank" class="btn-case">View Case Study →</a>
-                    </div>
-                </article>
-
-                <article class="case-study-card wow-effect"> 
-                    <div class="case-header">
-                        <div class="case-image-wrapper">
-                            <img src="comet.png" alt="COMET Logo" class="case-logo" loading="lazy">
-                        </div>
-                        <span class="case-meta">B2B | SUPPLY CHAIN</span>
-                    </div>
-                    <div class="case-content case-text-content">
-                        <h3>LUNAR-COMET Strategy</h3>
-                        <div class="case-metrics">
-                            <div class="metric-box">
-                                <span class="metric-number">B2B</span>
-                                <span class="metric-label">Strategy</span>
-                            </div>
-                            <div class="metric-box">
-                                <span class="metric-number">3</span>
-                                <span class="metric-label">Channels</span>
-                            </div>
-                        </div>
-                        <div class="case-details">
-                            <p><strong>Problem:</strong> Low brand visibility for a new B2B supply chain software.</p>
-                            <p><strong>Strategy:</strong> Develop a multi-channel content strategy (Email, LinkedIn, Instagram) to build trust and authority.</p>
-                            <p><strong>Actions:</strong> Created case studies, email drip campaigns, and educational content.</p>
-                            <p><strong>Results:</strong> Delivered a complete 3-month content plan and email marketing templates.</p>
-                        </div>
-                        <a href="LUNAR-COMET (5).pdf" target="_blank" class="btn-case">View Full Strategy →</a>
-                    </div>
-                </article>
-
-            </div>
-        </section>
-
-        <section id="details" class="section-padding">
-            <div class="container">
-                <div class="details-grid hidden">
-                    <div class="details-column">
-                        <h3 class="details-title">Languages</h3>
-                        <ul>
-                            <li><strong>Polish:</strong> Native Speaker</li>
-                            <li><strong>English:</strong> Highly Proficient</li>
-                        </ul>
-                    </div>
-                    <div class="details-column">
-                        <h3 class="details-title">Interests</h3>
-                        <ul>
-                            <li>Content Creation</li>
-                            <li>AI Tools</li>
-                            <li>Photography</li>
-                            <li>Social Media Trends</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="container section-padding">
-            <h2 class="section-title-center hidden">Get in Touch</h2>
-            <p class="section-description-center hidden">
-                Ready to bring fresh energy and creativity to your team? Let's talk.
-            </p>
-            
-            <div class="contact-buttons-container hidden">
-                <a href="mailto:bielaster@gmail.com" class="btn-contact">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91A2.25 2.25 0 012.25 6.993V6.75" />
-                    </svg>
-                    Email Me
-                </a>
-                <a href="https://www.linkedin.com/in/biela-piotr" target="_blank" class="btn-contact">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                    View LinkedIn
-                </a>
-            </div>
-        </section>
-
-        <section id="collaboration" class="container section-padding">
-            <h2 class="section-title-center hidden">Propose a Collaboration</h2>
-            <form id="collab-form" class="collab-form hidden">
-                <label>
-                    Name:
-                    <input type="text" name="name" required>
-                </label>
-                <label>
-                    Email:
-                    <input type="email" name="email" required>
-                </label>
-                <label>
-                    Area of Collaboration:
-                    <select name="area" required>
-                        <option value="">Select...</option>
-                        <option value="social">Social Media</option>
-                        <option value="content">Content Strategy</option>
-                        <option value="ai">AI Tools</option>
-                        <option value="consulting">Consulting</option>
-                    </select>
-                </label>
-                <label>
-                    Message:
-                    <textarea name="message" rows="4" required></textarea>
-                </label>
-                <button type="submit" class="btn-contact">Send Proposal</button>
-            </form>
-        </section>
-
-    </main> 
-    
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <span id="current-year"></span> Piotr Biela. All rights reserved.</p>
+        <div class="case-tags">
+          <span class="case-tag">Email</span>
+          <span class="case-tag">Social</span>
+          <span class="case-tag">Storytelling</span>
         </div>
-    </footer>
+        <div class="case-arrow">↗</div>
+      </div>
+      <div class="case-body">
+        <div class="case-body-inner">
+          <div>
+            <p class="case-section-title">The Brief</p>
+            <p class="case-p">Develop a digital marketing strategy to support a £1M fundraising initiative for new community sports facilities. The campaign needed to mobilise local supporters and drive donations through digital channels.</p>
 
-    <script src="script.js"></script>
-</body>
-</html>
+            <p class="case-section-title" style="margin-top: 28px;">Strategy</p>
+            <p class="case-p">Multi-channel community storytelling approach — leading with emotional local impact narratives, supported by structured donor segmentation and email sequences.</p>
+          </div>
+          <div>
+            <p class="case-section-title">What I Did</p>
+            <ul class="case-bullets">
+              <li>Developed the overarching campaign narrative framework around community impact</li>
+              <li>Built a donor segmentation model to personalise messaging by audience type</li>
+              <li>Designed 4-part email sequence from awareness to donation conversion</li>
+              <li>Created social proof content series featuring community testimonials</li>
+              <li>Delivered complete campaign strategy and content plan to the Trust</li>
+            </ul>
+            <a href="AFCCT_Final Presentation.pdf" target="_blank" class="btn-case-pdf">View case study ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3 -->
+    <div class="case-item" onclick="toggleCase(this)">
+      <div class="case-header">
+        <span class="case-num">03 —</span>
+        <div class="case-meta-top">
+          <span class="case-name">LUNAR-COMET</span>
+          <span class="case-type">B2B SaaS · Content Strategy · 2023</span>
+        </div>
+        <div class="case-tags">
+          <span class="case-tag">LinkedIn</span>
+          <span class="case-tag">Email</span>
+          <span class="case-tag">B2B</span>
+        </div>
+        <div class="case-arrow">↗</div>
+      </div>
+      <div class="case-body">
+        <div class="case-body-inner">
+          <div>
+            <p class="case-section-title">The Brief</p>
+            <p class="case-p">Build brand visibility and credibility for a new B2B supply chain software company starting from zero — no existing content, no audience, no brand voice.</p>
+
+            <p class="case-section-title" style="margin-top: 28px;">Strategy</p>
+            <p class="case-p">Thought leadership-led content approach across three channels: LinkedIn for B2B trust building, Instagram for brand personality, Email for direct nurturing of prospects.</p>
+          </div>
+          <div>
+            <p class="case-section-title">What I Did</p>
+            <ul class="case-bullets">
+              <li>Developed brand voice guidelines and content tone for a technical B2B audience</li>
+              <li>Built a 3-month multi-channel content calendar across LinkedIn, Instagram and Email</li>
+              <li>Created case study content templates for client success stories</li>
+              <li>Wrote 6-part email drip campaign from cold lead to demo request</li>
+              <li>Produced educational content series establishing thought leadership</li>
+            </ul>
+            <a href="LUNAR-COMET (5).pdf" target="_blank" class="btn-case-pdf">View full strategy ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="contact-pre reveal">Get in touch</p>
+    <h2 class="contact-heading reveal reveal-delay-1">
+      Let's work<br><em>together</em>
+    </h2>
+    <div class="contact-links reveal reveal-delay-2">
+      <a href="/cdn-cgi/l/email-protection#0f6d666a636e7c7b6a7d4f68626e6663216c6062" class="contact-link">
+        <span class="contact-link-label">Email</span>
+        <span class="__cf_email__" data-cfemail="47252e222b263433223507202a262e2b6924282a">[email&#160;protected]</span>
+      </a>
+      <a href="https://www.linkedin.com/in/biela-piotr" target="_blank" class="contact-link">
+        <span class="contact-link-label">LinkedIn</span>
+        biela-piotr
+      </a>
+      <a href="Piotr_Biela_CV.pdf" target="_blank" class="contact-link">
+        <span class="contact-link-label">CV</span>
+        Download PDF
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© <span id="yr"></span> Piotr Biela</p>
+  <div class="footer-links">
+    <a href="#hero">Back to top ↑</a>
+    <a href="https://github.com/bielaster" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/biela-piotr" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Year
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Scroll bar
+const bar = document.getElementById('scroll-bar');
+window.addEventListener('scroll', () => {
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  bar.style.width = (window.scrollY / h * 100) + '%';
+}, { passive: true });
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+});
+
+function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+document.querySelectorAll('a, button, .case-item, .skill-tag, .now-card, .whyme-card, .process-step').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
+  el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
+});
+
+// Reveal on scroll — with fallback for iframe/preview environments
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
+revealEls.forEach(el => revealObs.observe(el));
+// Fallback: show everything after short delay if observer doesn't fire
+setTimeout(() => { revealEls.forEach(el => el.classList.add('visible')); }, 1200);
+
+// Case study toggle
+function toggleCase(el) {
+  const body = el.querySelector('.case-body');
+  const isOpen = body.classList.contains('open');
+
+  // Close all
+  document.querySelectorAll('.case-body').forEach(b => {
+    b.classList.remove('open');
+    b.style.maxHeight = '0';
+  });
+  document.querySelectorAll('.case-item').forEach(i => i.style.borderColor = 'transparent');
+
+  if (!isOpen) {
+    body.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 500 + 'px';
+    el.style.borderColor = 'rgba(200,150,62,0.3)';
+  }
+}
+
+// Smooth nav links
+document.querySelectorAll(
