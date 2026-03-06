@@ -587,7 +587,195 @@ section { padding: 120px 48px; }
 }
 .btn-case-pdf:hover { color: var(--amber); border-color: var(--amber); }
 
-/* ─── CONTACT ────────────────────────────────────────── */
+/* ─── AI TOOL SECTION ────────────────────────────────── */
+#ai-tool {
+  background: var(--off-black);
+  padding: 120px 48px;
+  position: relative;
+  overflow: hidden;
+}
+#ai-tool::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,150,62,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ai-tool-label { color: rgba(200,150,62,0.7); }
+.ai-tool-title { color: var(--cream); margin-bottom: 12px; }
+.ai-tool-title em { color: var(--amber); }
+.ai-tool-subtitle {
+  font-size: 16px;
+  color: rgba(245,240,232,0.4);
+  margin-bottom: 56px;
+  max-width: 560px;
+  line-height: 1.7;
+}
+.ai-tool-subtitle strong { color: rgba(245,240,232,0.7); font-weight: 500; }
+
+.ai-tool-box {
+  background: rgba(245,240,232,0.03);
+  border: 1px solid rgba(200,150,62,0.15);
+  padding: 40px;
+  max-width: 760px;
+}
+
+.ai-tool-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: end;
+}
+
+.ai-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ai-field-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(200,150,62,0.7);
+}
+.ai-input, .ai-select {
+  background: rgba(245,240,232,0.05);
+  border: 1px solid rgba(245,240,232,0.1);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 12px 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  cursor: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.ai-input::placeholder { color: rgba(245,240,232,0.2); }
+.ai-input:focus, .ai-select:focus { border-color: rgba(200,150,62,0.5); }
+.ai-select option { background: var(--off-black); }
+
+.ai-generate-btn {
+  background: var(--amber);
+  border: none;
+  color: var(--black);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  cursor: none;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+  align-self: end;
+}
+.ai-generate-btn:hover { background: var(--amber-lt); }
+.ai-generate-btn:active { transform: scale(0.98); }
+.ai-generate-btn:disabled {
+  background: rgba(200,150,62,0.3);
+  color: rgba(0,0,0,0.4);
+  cursor: not-allowed;
+}
+
+.ai-output {
+  margin-top: 24px;
+  border-top: 1px solid rgba(245,240,232,0.06);
+  padding-top: 24px;
+  display: none;
+}
+.ai-output.visible { display: block; }
+
+.ai-output-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(200,150,62,0.6);
+  margin-bottom: 16px;
+}
+
+.ai-loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(245,240,232,0.3);
+  font-size: 13px;
+}
+.ai-dots span {
+  display: inline-block;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--amber);
+  animation: dot-bounce 1.2s infinite;
+}
+.ai-dots span:nth-child(2) { animation-delay: 0.2s; }
+.ai-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-6px); opacity: 1; }
+}
+
+.hook-cards { display: flex; flex-direction: column; gap: 10px; }
+.hook-card {
+  background: rgba(245,240,232,0.04);
+  border: 1px solid rgba(245,240,232,0.07);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.hook-card:hover { border-color: rgba(200,150,62,0.25); background: rgba(245,240,232,0.07); }
+.hook-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--amber);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.hook-text {
+  font-size: 14px;
+  color: rgba(245,240,232,0.8);
+  line-height: 1.6;
+  flex: 1;
+}
+.hook-copy {
+  background: none;
+  border: 1px solid rgba(245,240,232,0.1);
+  color: rgba(245,240,232,0.3);
+  font-size: 11px;
+  padding: 5px 10px;
+  cursor: none;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  font-family: var(--font-body);
+  letter-spacing: 0.06em;
+}
+.hook-copy:hover { border-color: var(--amber); color: var(--amber); }
+.hook-copy.copied { border-color: #4CAF50; color: #4CAF50; }
+
+.ai-disclaimer {
+  margin-top: 20px;
+  font-size: 11px;
+  color: rgba(245,240,232,0.18);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .ai-tool-row { grid-template-columns: 1fr; }
+  .ai-tool-box { padding: 24px 20px; }
+  #ai-tool { padding: 80px 24px; }
+}
+
 #contact {
   background: var(--black);
   min-height: 60vh;
@@ -1247,6 +1435,56 @@ footer p {
   </div>
 </section>
 
+<!-- AI TOOL -->
+<section id="ai-tool">
+  <p class="section-label ai-tool-label">Live demo</p>
+  <h2 class="section-title ai-tool-title">TikTok Hook<br><em>Generator</em></h2>
+  <p class="ai-tool-subtitle">
+    Not just a case study — a working tool. Enter any brand or niche below and get <strong>5 scroll-stopping TikTok hooks</strong> generated in seconds. Built by me, powered by AI.
+  </p>
+
+  <div class="ai-tool-box">
+    <div class="ai-tool-row">
+      <div class="ai-field-group">
+        <label class="ai-field-label" for="brand-input">Brand / Niche</label>
+        <input
+          class="ai-input"
+          id="brand-input"
+          type="text"
+          placeholder="e.g. vegan café, fitness app, skincare brand"
+          maxlength="80"
+        />
+      </div>
+      <div class="ai-field-group">
+        <label class="ai-field-label" for="tone-select">Tone</label>
+        <select class="ai-select" id="tone-select">
+          <option value="punchy and bold">Punchy & Bold</option>
+          <option value="curious and intriguing">Curious & Intriguing</option>
+          <option value="warm and personal">Warm & Personal</option>
+          <option value="controversial and provocative">Controversial</option>
+          <option value="educational and expert">Educational</option>
+          <option value="humorous and relatable">Humorous</option>
+        </select>
+      </div>
+      <button class="ai-generate-btn" id="generate-btn" onclick="generateHooks()">
+        Generate ↗
+      </button>
+    </div>
+
+    <div class="ai-output" id="ai-output">
+      <p class="ai-output-label">Generated hooks</p>
+      <div id="ai-loading" class="ai-loading" style="display:none">
+        <div class="ai-dots"><span></span><span></span><span></span></div>
+        Writing hooks…
+      </div>
+      <div class="hook-cards" id="hook-cards"></div>
+      <p class="ai-disclaimer">
+        AI-generated output. Results vary — real campaigns require audience research, testing and iteration. That's the part I do.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
@@ -1354,4 +1592,91 @@ function toggleCase(el) {
 }
 
 // Smooth nav links
-document.querySelectorAll(
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// ─── AI HOOK GENERATOR ───────────────────────────────
+async function generateHooks() {
+  const brand   = document.getElementById('brand-input').value.trim();
+  const tone    = document.getElementById('tone-select').value;
+  const btn     = document.getElementById('generate-btn');
+  const output  = document.getElementById('ai-output');
+  const loading = document.getElementById('ai-loading');
+  const cards   = document.getElementById('hook-cards');
+
+  if (!brand) {
+    const inp = document.getElementById('brand-input');
+    inp.focus();
+    inp.style.borderColor = 'rgba(200,150,62,0.8)';
+    setTimeout(() => inp.style.borderColor = '', 1200);
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Generating…';
+  output.classList.add('visible');
+  loading.style.display = 'flex';
+  cards.innerHTML = '';
+
+  const prompt = `You are a TikTok content strategist. Generate exactly 5 scroll-stopping TikTok video hooks for the following brand/niche: "${brand}".
+
+Tone: ${tone}
+
+Rules:
+- Each hook must be 1–2 sentences max (under 20 words ideally)
+- Hooks should make someone STOP scrolling in the first 2 seconds
+- Use proven formats: questions, bold claims, relatable pain points, surprising facts, or "POV:" openers
+- Be specific to the niche — no generic filler
+- Output ONLY the 5 hooks, one per line, no numbers, no labels, no intro text`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 400,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    const data = await res.json();
+    const text = data.content?.[0]?.text || '';
+    const hooks = text.split('\n').map(h => h.replace(/^[\d\.\-–—*•]\s*/, '').trim()).filter(h => h.length > 8).slice(0, 5);
+
+    loading.style.display = 'none';
+    cards.innerHTML = hooks.map((h, i) => `
+      <div class="hook-card">
+        <span class="hook-num">0${i+1}</span>
+        <p class="hook-text">${h}</p>
+        <button class="hook-copy" onclick="copyHook(this, this.previousElementSibling.textContent)">Copy</button>
+      </div>
+    `).join('');
+
+  } catch(e) {
+    loading.style.display = 'none';
+    cards.innerHTML = '<p style="color:rgba(245,240,232,0.3);font-size:13px;padding:8px 0;">Something went wrong — try again.</p>';
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Generate ↗';
+}
+
+function copyHook(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+document.getElementById('brand-input')?.addEventListener('keydown', e => {
+  if (e.key === 'Enter') generateHooks();
+});
+
+</script>
+</body>
+</html>
