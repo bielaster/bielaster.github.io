@@ -628,6 +628,50 @@ section { padding: 120px 48px; }
 }
 .btn-case-pdf:hover { color: var(--amber); border-color: var(--amber); }
 
+/* ─── CASE HOVER PREVIEW ─────────────────────────────── */
+.case-preview {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9990;
+  width: 260px;
+  background: var(--off-black);
+  padding: 20px 22px;
+  opacity: 0;
+  transform: translateY(8px) scale(0.97);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  border-left: 2px solid var(--amber);
+}
+.case-preview.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.case-preview-label {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.case-preview-text {
+  font-size: 12px;
+  line-height: 1.65;
+  color: rgba(245, 240, 232, 0.65);
+}
+.case-preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 12px;
+}
+.case-preview-tag {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border: 1px solid rgba(200, 150, 62, 0.25);
+  color: rgba(245, 240, 232, 0.4);
+}
+
 /* ─── AI TOOL SECTION ────────────────────────────────── */
 #ai-tool {
   background: var(--off-black);
@@ -1354,17 +1398,17 @@ footer p {
 
   <div class="work-intro">
     <h2 class="section-title reveal reveal-delay-1">
-      Three campaigns.<br><em>Real clients.</em>
+      Five projects.<br><em>Real strategy.</em>
     </h2>
     <p class="reveal reveal-delay-2">
-      Every project below was delivered as part of my BSc at Robert Gordon University — real briefs, real clients, real deliverables. No mock-ups, no invented numbers.
+      Three projects delivered as part of my BSc at Robert Gordon University — real briefs, real clients, real deliverables. Plus two concept projects demonstrating full-stack digital strategies across hospitality and fashion.
     </p>
   </div>
 
   <div class="case-list reveal">
 
     <!-- Case 1 -->
-    <div class="case-item" onclick="toggleCase(this)">
+    <div class="case-item" onclick="toggleCase(this)" data-preview="TikTok-first campaign for an Aberdeen restaurant. Drove awareness for cooking classes through short-form video, influencer outreach and targeted Facebook Ads." data-tags="TikTok · Instagram · Facebook Ads">
       <div class="case-header">
         <span class="case-num">01 —</span>
         <div class="case-meta-top">
@@ -1403,7 +1447,7 @@ footer p {
     </div>
 
     <!-- Case 2 -->
-    <div class="case-item" onclick="toggleCase(this)">
+    <div class="case-item" onclick="toggleCase(this)" data-preview="Multi-channel fundraising strategy for a £1M campaign. Built donor segmentation, email sequences and community storytelling for Aberdeen FC Community Trust." data-tags="Email · Social · Storytelling">
       <div class="case-header">
         <span class="case-num">02 —</span>
         <div class="case-meta-top">
@@ -1442,7 +1486,7 @@ footer p {
     </div>
 
     <!-- Case 3 -->
-    <div class="case-item" onclick="toggleCase(this)">
+    <div class="case-item" onclick="toggleCase(this)" data-preview="B2B email marketing strategy for a new SaaS supply chain company. Researched open rate psychology, subject line patterns and send timing to build a tailored outreach plan." data-tags="LinkedIn · Email · B2B">
       <div class="case-header">
         <span class="case-num">03 —</span>
         <div class="case-meta-top">
@@ -1475,6 +1519,89 @@ footer p {
               <li>Collaborated with team members covering social media strategy, content calendar and mockup design</li>
             </ul>
             <a href="LUNAR-COMET (5).pdf" target="_blank" class="btn-case-pdf">View full strategy ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Case 4 -->
+    <div class="case-item" onclick="toggleCase(this)" data-preview="Concept project: full digital strategy for a fictional Aberdeen specialty coffee shop. Competitor audit, 30-day content plan, Meta and TikTok Ads — built to show how I approach hospitality brands." data-tags="TikTok Ads · Meta Ads · Content Strategy">
+      <div class="case-header">
+        <span class="case-num">04 —</span>
+        <div class="case-meta-top">
+          <span class="case-name">Cairn Coffee</span>
+          <span class="case-type">Specialty Café · Concept Project · 2025</span>
+        </div>
+        <div class="case-tags">
+          <span class="case-tag">TikTok Ads</span>
+          <span class="case-tag">Meta Ads</span>
+          <span class="case-tag">Content Strategy</span>
+          <span class="case-tag">Concept</span>
+        </div>
+        <div class="case-arrow">↗</div>
+      </div>
+      <div class="case-body">
+        <div class="case-body-inner">
+          <div>
+            <p class="case-section-title">The Brief</p>
+            <p class="case-p">A concept project simulating a real client engagement for a fictional specialty coffee shop in Aberdeen's West End. Built to demonstrate how I approach a full digital strategy — from competitor audit to paid advertising — for an independent hospitality brand.</p>
+            <p class="case-section-title" style="margin-top: 28px;">Strategy</p>
+            <p class="case-p">TikTok-led discovery strategy supported by Instagram for brand trust and conversion. £600 paid ads budget split across Meta and TikTok, phased from awareness to footfall. Four content pillars: Craft, Place, People, Prompt.</p>
+          </div>
+          <div>
+            <p class="case-section-title">What I Delivered</p>
+            <ul class="case-bullets">
+              <li>Competitor audit of 4 real Aberdeen specialty coffee brands — identified content gaps and positioning opportunity</li>
+              <li>Full social media strategy across TikTok, Instagram and Google Business</li>
+              <li>30-day content calendar with post types, captions and pillar mapping</li>
+              <li>Meta Ads and TikTok Ads campaign briefs with audience targeting, creative specs and KPIs</li>
+              <li>90-day measurement framework: 800+ followers, 15,000+ TikTok views, +30% footfall</li>
+            </ul>
+            <a href="CAIRN_CaseStudy_PiotrBiela.pdf" target="_blank" class="btn-case-pdf">View full case study ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 5 -->
+    <div class="case-item" onclick="toggleCase(this)" data-preview="Concept project: launch strategy for a fictional Aberdeen minimal fashion boutique. Micro-influencer outreach, three-phase Meta Ads and a full email marketing sequence — plus a live brand landing page." data-tags="Meta Ads · Influencer · Email Marketing">
+      <div class="case-header">
+        <span class="case-num">05 —</span>
+        <div class="case-meta-top">
+          <span class="case-name">STANE</span>
+          <span class="case-type">Minimal Fashion Boutique · Concept Project · 2025</span>
+        </div>
+        <div class="case-tags">
+          <span class="case-tag">Meta Ads</span>
+          <span class="case-tag">Influencer</span>
+          <span class="case-tag">Email Marketing</span>
+          <span class="case-tag">Concept</span>
+        </div>
+        <div class="case-arrow">↗</div>
+      </div>
+      <div class="case-body">
+        <div class="case-body-inner">
+          <div>
+            <p class="case-section-title">The Brief</p>
+            <p class="case-p">Full digital marketing strategy for a fictional Aberdeen minimal fashion boutique. Key insight: no local fashion brand owns a credible digital presence. STANE is positioned to fill that gap through consistent aesthetics, local storytelling and data-driven paid campaigns.</p>
+            <p class="case-section-title" style="margin-top: 28px;">Strategy</p>
+            <p class="case-p">TikTok-first content strategy with Instagram as the conversion layer. Three-phase Meta Ads plan from awareness to retargeting. Micro-influencer outreach targeting Aberdeen and Scotland-based creators. Email sequences from sign-up to re-engagement.</p>
+          </div>
+          <div>
+            <p class="case-section-title">What I Delivered</p>
+            <ul class="case-bullets">
+              <li>Competitor audit of 4 Aberdeen fashion brands — identified gap in short-form video and local identity content</li>
+              <li>Multi-channel strategy: TikTok, Instagram, email — each with a distinct role in the customer journey</li>
+              <li>30-day launch content calendar with 4 content pillars: Texture, Landscape, Person, Prompt</li>
+              <li>Micro-influencer strategy with 3 Aberdeen/Scotland profiles, briefs and budget breakdown</li>
+              <li>Three-phase Meta Ads plan (£500) and 4-sequence email strategy mapped to customer lifecycle</li>
+              <li>Live brand landing page built as a supporting portfolio asset</li>
+            </ul>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+              <a href="STANE_CaseStudy_PiotrBiela.pdf" target="_blank" class="btn-case-pdf">View case study ↗</a>
+              <a href="stane_landing.html" target="_blank" class="btn-case-pdf" style="background:transparent;border:1px solid rgba(200,150,62,0.3);color:var(--amber)">View brand site ↗</a>
+            </div>
           </div>
         </div>
       </div>
@@ -1620,7 +1747,56 @@ revealEls.forEach(el => revealObs.observe(el));
 // Fallback: show everything after short delay if observer doesn't fire
 setTimeout(() => { revealEls.forEach(el => el.classList.add('visible')); }, 1200);
 
-// Case study toggle
+// Case hover preview
+const preview = document.createElement('div');
+preview.className = 'case-preview';
+preview.innerHTML = '<div class="case-preview-label">Quick look</div><div class="case-preview-text"></div><div class="case-preview-tags"></div>';
+document.body.appendChild(preview);
+
+let previewActive = false;
+let mouseX = 0, mouseY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  if (previewActive) positionPreview();
+});
+
+function positionPreview() {
+  const offset = 20;
+  const pw = 260, ph = preview.offsetHeight;
+  const vw = window.innerWidth, vh = window.innerHeight;
+  let x = mouseX + offset;
+  let y = mouseY + offset;
+  if (x + pw > vw - 16) x = mouseX - pw - offset;
+  if (y + ph > vh - 16) y = mouseY - ph - offset;
+  preview.style.left = x + 'px';
+  preview.style.top  = y + 'px';
+}
+
+document.querySelectorAll('.case-item').forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    const body = item.querySelector('.case-body');
+    if (body && body.classList.contains('open')) return;
+    const text = item.dataset.preview;
+    const tags = item.dataset.tags || '';
+    if (!text) return;
+    preview.querySelector('.case-preview-text').textContent = text;
+    preview.querySelector('.case-preview-tags').innerHTML = tags.split('·').map(t => `<span class="case-preview-tag">${t.trim()}</span>`).join('');
+    previewActive = true;
+    positionPreview();
+    requestAnimationFrame(() => preview.classList.add('visible'));
+  });
+  item.addEventListener('mouseleave', () => {
+    previewActive = false;
+    preview.classList.remove('visible');
+  });
+  item.addEventListener('click', () => {
+    previewActive = false;
+    preview.classList.remove('visible');
+  });
+});
+
+
 function toggleCase(el) {
   const body = el.querySelector('.case-body');
   const isOpen = body.classList.contains('open');

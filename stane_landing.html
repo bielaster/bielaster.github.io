@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STANE — Aberdeen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --w: #F8F6F2;
+  --off: #EDEBE6;
+  --ink: #111010;
+  --mid: #888480;
+  --red: #C13528;
+  --red2: #9E2B20;
+  --font-display: 'Unbounded', sans-serif;
+  --font-serif: 'Libre Baskerville', serif;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--w);color:var(--ink);font-family:var(--font-display);overflow-x:hidden;cursor:crosshair}
+
+/* ── CURSOR ── */
+.xhair{
+  position:fixed;pointer-events:none;z-index:9999;
+  width:20px;height:20px;
+  transform:translate(-50%,-50%);
+  transition:transform .08s;
+}
+.xhair::before,.xhair::after{content:'';position:absolute;background:var(--red)}
+.xhair::before{width:1px;height:100%;left:50%;top:0}
+.xhair::after{width:100%;height:1px;top:50%;left:0}
+.xhair.big{transform:translate(-50%,-50%) scale(2.5)}
+
+/* ── MARQUEE TOP ── */
+.ticker{
+  background:var(--ink);padding:10px 0;overflow:hidden;
+  position:fixed;top:0;left:0;right:0;z-index:900;
+}
+.ticker-track{
+  display:flex;white-space:nowrap;
+  animation:tick 22s linear infinite;
+}
+.ticker-item{
+  font-size:9px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(248,246,242,0.5);padding:0 28px;
+}
+.ticker-item.red{color:var(--red)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:32px;left:0;right:0;z-index:800;
+  padding:0 40px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.nav-logo{
+  font-family:var(--font-display);font-size:13px;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--ink);
+  text-decoration:none;
+}
+.nav-r{display:flex;gap:0;align-items:center}
+.nav-link{
+  font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mid);text-decoration:none;padding:8px 16px;
+  transition:color .15s;border-right:1px solid rgba(17,16,16,0.08);
+}
+.nav-link:first-child{border-left:1px solid rgba(17,16,16,0.08)}
+.nav-link:hover{color:var(--ink)}
+.nav-bag{
+  font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  background:var(--red);color:var(--w);padding:10px 20px;
+  text-decoration:none;margin-left:16px;
+  transition:background .15s;
+}
+.nav-bag:hover{background:var(--red2)}
+
+/* ── HERO ── */
+.hero{
+  padding-top:100px;min-height:100vh;
+  display:grid;grid-template-rows:auto 1fr auto;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+
+.hero-number{
+  font-family:var(--font-display);font-weight:900;
+  font-size:clamp(160px,28vw,380px);
+  line-height:.85;color:var(--off);
+  padding:0 40px;
+  letter-spacing:-.04em;
+  user-select:none;
+  position:relative;z-index:1;
+}
+.hero-number span{color:var(--red)}
+
+.hero-mid{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+}
+.hero-mid-l{
+  padding:48px 40px;
+  border-right:1px solid var(--ink);
+}
+.hero-mid-r{
+  padding:48px 40px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.hero-title{
+  font-family:var(--font-serif);font-style:italic;font-weight:400;
+  font-size:clamp(32px,4.5vw,58px);
+  line-height:1.15;color:var(--ink);
+  margin-bottom:24px;
+}
+.hero-desc{
+  font-family:var(--font-serif);font-weight:400;
+  font-size:15px;line-height:1.8;color:var(--mid);max-width:360px;
+}
+.hero-meta{
+  display:flex;gap:0;margin-top:40px;
+}
+.hero-meta-item{
+  flex:1;border-right:1px solid rgba(17,16,16,0.12);padding-right:24px;margin-right:24px;
+}
+.hero-meta-item:last-child{border-right:none}
+.hero-meta-val{font-size:28px;font-weight:200;letter-spacing:-.02em;color:var(--ink)}
+.hero-meta-label{font-size:8px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);margin-top:4px}
+.hero-cta-block{}
+.hero-cta-label{
+  font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mid);margin-bottom:16px;
+}
+.btn-red{
+  display:inline-block;
+  background:var(--ink);color:var(--w);
+  font-family:var(--font-display);font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  padding:18px 40px;text-decoration:none;
+  transition:background .15s;
+}
+.btn-red:hover{background:var(--red)}
+.btn-outline{
+  display:inline-block;margin-left:12px;
+  border:1px solid var(--ink);color:var(--ink);
+  font-family:var(--font-display);font-size:10px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;
+  padding:17px 32px;text-decoration:none;
+  transition:background .15s,color .15s;
+}
+.btn-outline:hover{background:var(--ink);color:var(--w)}
+
+.hero-bottom{
+  padding:20px 40px;display:flex;justify-content:space-between;align-items:center;
+}
+.hero-bottom-l{font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--mid)}
+.hero-bottom-r{font-family:var(--font-serif);font-style:italic;font-size:13px;color:var(--mid)}
+
+/* ── COLLECTION ── */
+.collection{border-bottom:1px solid var(--ink)}
+.collection-header{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--ink);
+}
+.coll-h-l{
+  padding:40px;border-right:1px solid var(--ink);
+  display:flex;align-items:center;
+}
+.coll-h-l h2{
+  font-family:var(--font-display);font-size:11px;font-weight:700;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--ink);
+}
+.coll-h-r{
+  padding:24px 40px;
+  display:flex;align-items:center;justify-content:flex-end;gap:2px;
+}
+.sort-btn{
+  font-size:9px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mid);padding:8px 16px;border:1px solid transparent;
+  transition:border-color .15s,color .15s;background:none;cursor:crosshair;
+}
+.sort-btn.active,.sort-btn:hover{border-color:var(--ink);color:var(--ink)}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto;
+}
+.pcard{
+  border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  position:relative;overflow:hidden;
+  cursor:crosshair;
+}
+.pcard:nth-child(4n){border-right:none}
+.pcard-img{
+  aspect-ratio:2/3;
+  position:relative;overflow:hidden;
+}
+.pcard-visual{
+  position:absolute;inset:0;
+  transition:transform .6s ease;
+}
+.pcard:hover .pcard-visual{transform:scale(1.03)}
+
+/* texture variants */
+.v1{background:linear-gradient(160deg,#E8E4DC 0%,#D4CEC4 40%,#C8C0B4 100%)}
+.v2{background:repeating-linear-gradient(0deg,#DDD8D0,#DDD8D0 4px,#D0CBC3 4px,#D0CBC3 8px)}
+.v3{background:conic-gradient(from 45deg,#E0DDD6,#C8C4BA,#E0DDD6,#D4D0C8)}
+.v4{background:repeating-linear-gradient(90deg,#D8D4CC,#D8D4CC 3px,#CCC8C0 3px,#CCC8C0 9px)}
+.v5{background:linear-gradient(to bottom right,#DCD8D0,#C4BEB4 50%,#E0DCD4)}
+.v6{background:radial-gradient(ellipse at 30% 30%,#E4E0D8,#C8C2B8)}
+.v7{background:repeating-linear-gradient(135deg,#D8D4CC,#D8D4CC 2px,#CCCAC2 2px,#CCCAC2 6px)}
+.v8{background:linear-gradient(200deg,#E8E6E0,#CCC8BE,#D8D4CC)}
+
+.pcard-badge{
+  position:absolute;top:16px;left:16px;
+  font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  padding:5px 10px;
+}
+.pcard-badge.new{background:var(--red);color:var(--w)}
+.pcard-badge.ltd{background:var(--ink);color:var(--w)}
+
+.pcard-info{
+  padding:20px 24px;border-top:1px solid var(--ink);
+}
+.pcard-name{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.pcard-sub{font-family:var(--font-serif);font-style:italic;font-size:12px;color:var(--mid);margin-top:3px}
+.pcard-price{font-size:13px;font-weight:200;letter-spacing:.08em;color:var(--ink);margin-top:10px}
+.pcard-price s{color:var(--mid);margin-right:8px;font-size:11px}
+
+/* ── EDITORIAL ── */
+.editorial{
+  display:grid;grid-template-columns:5fr 7fr;
+  border-bottom:1px solid var(--ink);
+  min-height:580px;
+}
+.ed-l{
+  border-right:1px solid var(--ink);
+  padding:64px 48px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.ed-tag{
+  font-size:9px;font-weight:300;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--red);margin-bottom:16px;
+}
+.ed-heading{
+  font-family:var(--font-serif);font-weight:700;
+  font-size:clamp(36px,4vw,56px);line-height:1.1;color:var(--ink);
+}
+.ed-heading em{font-style:italic;font-weight:400}
+.ed-body{
+  font-family:var(--font-serif);font-size:15px;line-height:1.85;color:var(--mid);
+  max-width:380px;margin-top:24px;
+}
+.ed-stats{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--ink);margin-top:40px}
+.ed-stat{padding:24px 24px 0 0;border-right:1px solid rgba(17,16,16,.1)}
+.ed-stat:nth-child(2){padding-left:24px;padding-right:0;border-right:none}
+.ed-stat-n{font-family:var(--font-display);font-size:40px;font-weight:200;letter-spacing:-.03em;color:var(--ink)}
+.ed-stat-l{font-size:8px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-top:6px}
+
+.ed-r{
+  display:grid;grid-template-rows:1fr 1fr;
+}
+.ed-img-top{
+  border-bottom:1px solid var(--ink);
+  background:var(--off);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.ed-img-top-inner{
+  width:100%;height:100%;
+  background:repeating-linear-gradient(45deg,#EDEBE6,#EDEBE6 3px,#E4E0D8 3px,#E4E0D8 9px);
+  display:flex;align-items:center;justify-content:center;
+}
+.ed-img-top-inner span{
+  font-family:var(--font-display);font-size:80px;font-weight:900;
+  color:rgba(17,16,16,0.06);letter-spacing:-.04em;
+}
+.ed-img-btm{
+  background:var(--ink);
+  padding:40px 48px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.ed-quote{
+  font-family:var(--font-serif);font-style:italic;font-weight:400;
+  font-size:20px;line-height:1.6;color:rgba(248,246,242,0.7);
+}
+.ed-quote-attr{
+  font-size:9px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(248,246,242,0.3);margin-top:20px;
+}
+
+/* ── PRESS ── */
+.press{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid var(--ink);
+}
+.press-item{
+  padding:40px 36px;
+  border-right:1px solid var(--ink);
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.press-item:last-child{border-right:none}
+.press-pub{
+  font-family:var(--font-display);font-size:10px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ink);
+}
+.press-quote{
+  font-family:var(--font-serif);font-style:italic;font-size:14px;
+  line-height:1.7;color:var(--mid);margin-top:20px;flex:1;
+}
+.press-date{font-size:8px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:rgba(136,132,128,0.5);margin-top:20px}
+
+/* ── EMAIL ── */
+.email-band{
+  background:var(--red);
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--ink);
+}
+.email-l{
+  padding:64px 48px;border-right:1px solid rgba(248,246,242,0.15);
+}
+.email-l h3{
+  font-family:var(--font-display);font-size:clamp(22px,3vw,36px);
+  font-weight:700;letter-spacing:-.02em;color:var(--w);line-height:1.1;
+}
+.email-l p{
+  font-family:var(--font-serif);font-size:14px;line-height:1.7;
+  color:rgba(248,246,242,0.6);margin-top:16px;max-width:320px;
+}
+.email-r{
+  padding:64px 48px;display:flex;flex-direction:column;justify-content:center;
+}
+.email-form{display:flex;flex-direction:column;gap:12px}
+.email-input{
+  padding:16px 20px;
+  background:rgba(248,246,242,0.1);
+  border:1px solid rgba(248,246,242,0.25);
+  font-family:var(--font-display);font-size:11px;font-weight:300;
+  letter-spacing:.1em;color:var(--w);outline:none;
+}
+.email-input::placeholder{color:rgba(248,246,242,0.35)}
+.email-input:focus{border-color:rgba(248,246,242,0.6)}
+.email-submit{
+  padding:16px 20px;background:var(--w);
+  font-family:var(--font-display);font-size:10px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--red);
+  border:none;cursor:crosshair;transition:opacity .15s;
+}
+.email-submit:hover{opacity:.9}
+.email-note{font-size:8px;font-weight:300;letter-spacing:.12em;color:rgba(248,246,242,0.35);margin-top:4px}
+
+/* ── FOOTER ── */
+footer{
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.footer-col{
+  padding:48px 36px;border-right:1px solid var(--ink);
+}
+.footer-col:last-child{border-right:none}
+.footer-col-title{
+  font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink);margin-bottom:20px;padding-bottom:12px;
+  border-bottom:1px solid var(--ink);
+}
+.footer-links-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links-list a{
+  font-family:var(--font-serif);font-style:italic;font-size:13px;color:var(--mid);
+  text-decoration:none;transition:color .15s;
+}
+.footer-links-list a:hover{color:var(--ink)}
+.footer-address{font-family:var(--font-serif);font-size:13px;line-height:1.8;color:var(--mid)}
+.footer-bottom{
+  padding:20px 40px;background:var(--ink);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-bottom span{font-size:9px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:rgba(248,246,242,0.3)}
+
+/* ── PORTFOLIO NOTE ── */
+.port-note{
+  position:fixed;bottom:20px;left:20px;z-index:700;
+  background:var(--ink);color:var(--w);
+  font-size:8px;font-weight:300;letter-spacing:.16em;text-transform:uppercase;
+  padding:8px 14px;
+}
+
+/* ── REVEAL ── */
+.r{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.r.on{opacity:1;transform:none}
+.r1{transition-delay:.1s}.r2{transition-delay:.2s}.r3{transition-delay:.3s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{display:none}
+  .ticker{top:0}
+  .hero{padding-top:50px}
+  .hero-number{font-size:clamp(80px,20vw,160px)}
+  .hero-mid{grid-template-columns:1fr}
+  .coll-h-l,.coll-h-r{padding:24px 20px}
+  .product-grid{grid-template-columns:1fr 1fr}
+  .pcard:nth-child(2n){border-right:none}
+  .pcard:nth-child(4n){border-right:1px solid var(--ink)}
+  .editorial{grid-template-columns:1fr}
+  .ed-r{display:none}
+  .press{grid-template-columns:1fr 1fr}
+  .press-item:nth-child(2n){border-right:none}
+  .email-band{grid-template-columns:1fr}
+  .email-l,.email-r{padding:40px 28px}
+  footer{grid-template-columns:1fr 1fr}
+  .footer-col:nth-child(2n){border-right:none}
+  .hero-meta{flex-direction:column;gap:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="xhair" id="xhair"></div>
+<div class="port-note">Concept — Piotr Biela · bielaster.github.io</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item red">New Drop</span>
+    <span class="ticker-item">The Cairngorm Coat — now in stock</span>
+    <span class="ticker-item">Free UK shipping over £80</span>
+    <span class="ticker-item">Aberdeen, Rosemount Viaduct</span>
+    <span class="ticker-item">Slow fashion, considered wardrobe</span>
+    <span class="ticker-item red">New Drop</span>
+    <span class="ticker-item">The Cairngorm Coat — now in stock</span>
+    <span class="ticker-item">Free UK shipping over £80</span>
+    <span class="ticker-item">Aberdeen, Rosemount Viaduct</span>
+    <span class="ticker-item">Slow fashion, considered wardrobe</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">STANE</a>
+  <div class="nav-r">
+    <a class="nav-link" href="#collection">Collection</a>
+    <a class="nav-link" href="#editorial">About</a>
+    <a class="nav-link" href="#email-band">Newsletter</a>
+    <a class="nav-bag" href="#">Bag (0)</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-number">S<span>T</span>ANE</div>
+
+  <div class="hero-mid">
+    <div class="hero-mid-l">
+      <h1 class="hero-title">Aberdeen's most<br>considered<br><em>wardrobe.</em></h1>
+      <p class="hero-desc">Premium basics rooted in Scotland's landscape. Wool, linen and organic cotton — made to last more than a season.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="hero-meta-val">12</div>
+          <div class="hero-meta-label">Pieces per drop</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-val">100%</div>
+          <div class="hero-meta-label">Natural fibres</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="hero-meta-val">ABZ</div>
+          <div class="hero-meta-label">Based in Aberdeen</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-mid-r">
+      <div class="hero-cta-block">
+        <p class="hero-cta-label">Spring Drop — In Stock Now</p>
+        <a href="#collection" class="btn-red">Shop Collection</a>
+        <a href="#editorial" class="btn-outline">Our Story</a>
+      </div>
+      <p style="font-family:var(--font-serif);font-style:italic;font-size:13px;color:var(--mid)">
+        "Dress for the landscape you actually live in."
+      </p>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <span class="hero-bottom-l">Spring / Summer 2025 · Aberdeen</span>
+    <span class="hero-bottom-r">Scroll to explore ↓</span>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="collection" id="collection">
+  <div class="collection-header">
+    <div class="coll-h-l"><h2>Spring Collection — 2025</h2></div>
+    <div class="coll-h-r">
+      <button class="sort-btn active">All</button>
+      <button class="sort-btn">Tops</button>
+      <button class="sort-btn">Outerwear</button>
+      <button class="sort-btn">Trousers</button>
+    </div>
+  </div>
+  <div class="product-grid">
+    <div class="pcard r">
+      <div class="pcard-img"><div class="pcard-visual v1"><span class="pcard-badge new">New</span></div></div>
+      <div class="pcard-info">
+        <div class="pcard-name">Cairngorm Coat</div>
+        <div class="pcard-sub">Heavy wool overcoat</div>
+        <div class="pcard-price">£285</div>
+      </div>
+    </div>
+    <div class="pcard r r1">
+      <div class="pcard-img"><div class="pcard-visual v2"></div></div>
+      <div class="pcard-info">
+        <div class="pcard-name">Granite Tee</div>
+        <div class="pcard-sub">100% organic cotton</div>
+        <div class="pcard-price">£45</div>
+      </div>
+    </div>
+    <div class="pcard r r2">
+      <div class="pcard-img"><div class="pcard-visual v3"><span class="pcard-badge ltd">Limited</span></div></div>
+      <div class="pcard-info">
+        <div class="pcard-name">North Sea Knit</div>
+        <div class="pcard-sub">Merino wool sweater</div>
+        <div class="pcard-price">£125</div>
+      </div>
+    </div>
+    <div class="pcard r r3">
+      <div class="pcard-img"><div class="pcard-visual v4"></div></div>
+      <div class="pcard-info">
+        <div class="pcard-name">Brae Linen Shirt</div>
+        <div class="pcard-sub">Belgian linen, unisex</div>
+        <div class="pcard-price">£95</div>
+      </div>
+    </div>
+    <div class="pcard r">
+      <div class="pcard-img"><div class="pcard-visual v5"></div></div>
+      <div class="pcard-info">
+        <div class="pcard-name">Don Trousers</div>
+        <div class="pcard-sub">Relaxed fit · 3 colours</div>
+        <div class="pcard-price"><s>£115</s>£89</div>
+      </div>
+    </div>
+    <div class="pcard r r1">
+      <div class="pcard-img"><div class="pcard-visual v6"><span class="pcard-badge new">New</span></div></div>
+      <div class="pcard-info">
+        <div class="pcard-name">Mearns Vest</div>
+        <div class="pcard-sub">Lightweight linen layer</div>
+        <div class="pcard-price">£72</div>
+      </div>
+    </div>
+    <div class="pcard r r2">
+      <div class="pcard-img"><div class="pcard-visual v7"></div></div>
+      <div class="pcard-info">
+        <div class="pcard-name">Dee Scarf</div>
+        <div class="pcard-sub">Cashmere blend · 2 sizes</div>
+        <div class="pcard-price">£68</div>
+      </div>
+    </div>
+    <div class="pcard r r3">
+      <div class="pcard-img"><div class="pcard-visual v8"></div></div>
+      <div class="pcard-info">
+        <div class="pcard-name">Deeside Cap</div>
+        <div class="pcard-sub">Boiled wool, unisex</div>
+        <div class="pcard-price">£52</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDITORIAL -->
+<section class="editorial" id="editorial">
+  <div class="ed-l">
+    <div>
+      <p class="ed-tag r">Aberdeen · Est. 2025</p>
+      <h2 class="ed-heading r r1">Built for<br>Scottish<br><em>winters.</em><br>And the rest.</h2>
+      <p class="ed-body r r2">STANE started with one question: why does Aberdeen — a city built from granite, surrounded by sea and mountain — have nowhere to buy clothing that actually reflects that? We build for people who want fewer, better things.</p>
+    </div>
+    <div class="ed-stats r r3">
+      <div class="ed-stat">
+        <div class="ed-stat-n">100%</div>
+        <div class="ed-stat-l">Natural fibres only</div>
+      </div>
+      <div class="ed-stat">
+        <div class="ed-stat-n">2</div>
+        <div class="ed-stat-l">Drops per year</div>
+      </div>
+    </div>
+  </div>
+  <div class="ed-r">
+    <div class="ed-img-top">
+      <div class="ed-img-top-inner"><span>STANE</span></div>
+    </div>
+    <div class="ed-img-btm">
+      <p class="ed-quote">"We chose Aberdeen not despite its grey skies, but because of them."</p>
+      <p class="ed-quote-attr">— STANE Founder, Aberdeen 2025</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section class="press">
+  <div class="press-item r">
+    <div>
+      <div class="press-pub">P&J Style</div>
+      <p class="press-quote">"The most considered wardrobe to come out of the North East in years."</p>
+    </div>
+    <div class="press-date">Aberdeen, 2025</div>
+  </div>
+  <div class="press-item r r1">
+    <div>
+      <div class="press-pub">Grazia UK</div>
+      <p class="press-quote">"Quietly, STANE is doing what big fashion brands forgot how to do."</p>
+    </div>
+    <div class="press-date">London, 2025</div>
+  </div>
+  <div class="press-item r r2">
+    <div>
+      <div class="press-pub">Vogue Scotland</div>
+      <p class="press-quote">"Aberdeen finally has its own answer to slow fashion."</p>
+    </div>
+    <div class="press-date">Edinburgh, 2025</div>
+  </div>
+  <div class="press-item r r3">
+    <div>
+      <div class="press-pub">i-D Magazine</div>
+      <p class="press-quote">"STANE wears its geography like a second skin."</p>
+    </div>
+    <div class="press-date">London, 2025</div>
+  </div>
+</section>
+
+<!-- EMAIL -->
+<section class="email-band" id="email-band">
+  <div class="email-l r">
+    <h3>Early access.<br>Always.</h3>
+    <p>New drops sell out fast. Sign up and you'll always hear first — no noise, no spam, just STANE.</p>
+  </div>
+  <div class="email-r r r1">
+    <div class="email-form">
+      <input class="email-input" type="email" placeholder="your@email.com">
+      <button class="email-submit">Get Early Access →</button>
+      <span class="email-note">Unsubscribe anytime. We respect your inbox.</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-col">
+    <div class="footer-col-title">STANE</div>
+    <p class="footer-address">100–102 Rosemount Viaduct<br>Aberdeen AB25 2TF<br>Scotland, UK<br><br>Tue–Sat 10:00–18:00</p>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Shop</div>
+    <ul class="footer-links-list">
+      <li><a href="#">New Arrivals</a></li>
+      <li><a href="#">Outerwear</a></li>
+      <li><a href="#">Knitwear</a></li>
+      <li><a href="#">Accessories</a></li>
+      <li><a href="#">Sale</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">About</div>
+    <ul class="footer-links-list">
+      <li><a href="#">Our Story</a></li>
+      <li><a href="#">Materials</a></li>
+      <li><a href="#">Stockists</a></li>
+      <li><a href="#">Press</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Help</div>
+    <ul class="footer-links-list">
+      <li><a href="#">Shipping</a></li>
+      <li><a href="#">Returns</a></li>
+      <li><a href="#">Sizing</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 STANE Aberdeen</span>
+  <span>Concept project — Piotr Biela · Digital Marketing Portfolio</span>
+</div>
+
+<script>
+// Crosshair cursor
+const xh=document.getElementById('xhair');
+document.addEventListener('mousemove',e=>{xh.style.left=e.clientX+'px';xh.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button,.pcard').forEach(el=>{
+  el.addEventListener('mouseenter',()=>xh.classList.add('big'));
+  el.addEventListener('mouseleave',()=>xh.classList.remove('big'));
+});
+
+// Reveal
+const obs=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}
+}),{threshold:0.06});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+setTimeout(()=>document.querySelectorAll('.r').forEach(el=>el.classList.add('on')),1400);
+
+// Sort buttons
+document.querySelectorAll('.sort-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const t=document.querySelector(a.getAttribute('href'));
+  if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+}));
+</script>
+</body>
+</html>
