@@ -3,11 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piotr Biela — Social Media & Content Marketer</title>
-<meta name="description" content="Portfolio of Piotr Biela — Digital Marketing graduate specialising in social media, content strategy and AI-powered workflows. Available for remote roles.">
+<title>Piotr Biela — Social Media & Content Marketer | Aberdeen, UK</title>
+<meta name="description" content="Portfolio of Piotr Biela — BSc Digital Marketing graduate from Robert Gordon University. Specialising in TikTok strategy, social media content, and AI-powered workflows. Available for remote roles immediately.">
+<meta name="keywords" content="social media marketer, content marketer, digital marketing, TikTok strategy, Aberdeen, remote marketing, BSc digital marketing, content creation, social media manager">
+<meta name="author" content="Piotr Biela">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bielaster.github.io/">
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta property="og:type" content="profile">
 <meta property="og:title" content="Piotr Biela — Social Media & Content Marketer">
-<meta property="og:description" content="Digital Marketing graduate. Real campaigns. Available immediately.">
+<meta property="og:description" content="BSc Digital Marketing graduate. TikTok strategy, social media content, AI workflows. Real campaigns. Available immediately.">
 <meta property="og:url" content="https://bielaster.github.io/">
+<meta property="og:image" content="https://bielaster.github.io/photo.jpg">
+<meta property="og:image:width" content="720">
+<meta property="og:image:height" content="1075">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="Piotr Biela Portfolio">
+<meta property="profile:first_name" content="Piotr">
+<meta property="profile:last_name" content="Biela">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Piotr Biela — Social Media & Content Marketer">
+<meta name="twitter:description" content="BSc Digital Marketing graduate. TikTok strategy, social media content, AI workflows. Real campaigns. Available immediately.">
+<meta name="twitter:image" content="https://bielaster.github.io/photo.jpg">
+
+<!-- Google Search Console verification -->
+<meta name="google-site-verification" content="PmnGZeFnKazT574xhHhqX1QS3Iv4ngYIZZ1En5_mGNY">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7CPSBW7T3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-L7CPSBW7T3');
+</script>
+
+<!-- Structured Data (JSON-LD) — helps Google understand who you are -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Piotr Biela",
+  "url": "https://bielaster.github.io/",
+  "image": "https://bielaster.github.io/photo.jpg",
+  "jobTitle": "Social Media & Content Marketer",
+  "description": "BSc Digital Marketing graduate from Robert Gordon University. Specialising in TikTok strategy, social media content creation, and AI-powered marketing workflows.",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Robert Gordon University",
+    "address": { "@type": "PostalAddress", "addressLocality": "Aberdeen", "addressCountry": "GB" }
+  },
+  "address": { "@type": "PostalAddress", "addressLocality": "Aberdeen", "addressCountry": "GB" },
+  "sameAs": ["https://www.linkedin.com/in/biela-piotr", "https://github.com/bielaster"],
+  "knowsAbout": ["TikTok Marketing", "Social Media Strategy", "Content Creation", "Instagram Marketing", "Meta Ads", "Email Marketing", "AI Content Workflows", "Canva", "CapCut", "Google Analytics 4"],
+  "email": "bielaster@gmail.com",
+  "workLocation": { "@type": "Place", "name": "Remote / Aberdeen, UK" }
+}
+</script>
+
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1145,6 +1201,176 @@ footer p {
   .case-tags, .case-arrow { display: none; }
   footer { flex-direction: column; gap: 12px; text-align: center; }
 }
+
+/* ─── HAMBURGER BUTTON ───────────────────────────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--cream);
+  transition: transform 0.35s var(--ease), opacity 0.25s;
+  transform-origin: center;
+  pointer-events: none;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ─── MOBILE NAV OVERLAY ─────────────────────────────── */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(8,8,8,0.97);
+  backdrop-filter: blur(20px);
+  z-index: 880;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 80px 24px 40px;
+  overflow-y: auto;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile-link {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 8vw, 48px);
+  font-weight: 300;
+  color: rgba(245,240,232,0.5);
+  text-decoration: none;
+  padding: 14px 0;
+  letter-spacing: -0.01em;
+  transition: color 0.2s;
+  border-bottom: 1px solid rgba(200,150,62,0.1);
+  width: 100%;
+  text-align: center;
+}
+.nav-mobile-link:hover,
+.nav-mobile-link:focus { color: var(--cream); }
+.nav-cv-mobile {
+  font-family: var(--font-body) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase;
+  color: var(--amber) !important;
+  border: 1px solid rgba(200,150,62,0.5) !important;
+  border-radius: 0;
+  padding: 14px 40px !important;
+  margin-top: 28px;
+  width: auto !important;
+}
+
+/* ─── TOUCH / MOBILE: cursor fix ────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto !important; }
+  .cursor, .cursor-ring { display: none !important; }
+  * { cursor: auto; }
+  a, button, [onclick], label,
+  .case-item, .skill-tag, .now-card,
+  .whyme-card, .process-step { cursor: pointer; }
+  .ai-input { cursor: text; }
+  .ai-select { cursor: pointer; }
+  .avail-close { cursor: pointer; }
+  .hook-copy { cursor: pointer; }
+}
+
+/* ─── MOBILE: 768px breakpoint ───────────────────────── */
+@media (max-width: 768px) {
+  /* Show hamburger, hide desktop nav */
+  .nav-hamburger { display: flex; }
+  .nav-links { display: none; }
+
+  /* Hero bottom stacks vertically */
+  .hero-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .hero-meta {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  /* Hide the decorative scroll hint */
+  .scroll-hint { display: none; }
+
+  /* Fix case body inner padding on mobile */
+  .case-body-inner {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Center photo on mobile */
+  .about-photo-col { margin: 0 auto; }
+
+  /* Stack contact links vertically */
+  .contact-links {
+    flex-direction: column;
+    gap: 0;
+  }
+  .contact-link {
+    padding: 16px 0;
+    width: 100%;
+  }
+}
+
+/* ─── MOBILE: 480px (small phones) ───────────────────── */
+@media (max-width: 480px) {
+  section { padding: 60px 20px; }
+  .hero { padding: 0 20px 56px; }
+  #ai-tool { padding: 60px 20px; }
+  #whyme, #process, #contact { padding: 60px 20px; }
+  footer { padding: 24px 20px; }
+  nav { padding: 16px 20px; }
+  nav.scrolled { padding: 12px 20px; }
+
+  /* Case cards */
+  .case-header { padding: 22px 20px; gap: 12px; }
+  .case-body-inner { padding: 0 20px 28px 20px !important; }
+  .case-header { grid-template-columns: 40px 1fr !important; }
+
+  /* Cards */
+  .now-card { padding: 28px 22px; }
+  .whyme-card { padding: 20px 18px; gap: 14px; }
+  .process-step { padding: 28px 22px; }
+
+  /* Availability banner */
+  .avail-banner {
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+    padding: 10px 14px;
+  }
+  .avail-text span { display: none; }
+
+  /* AI tool */
+  .ai-tool-box { padding: 20px 16px; }
+  .ai-generate-btn { width: 100%; justify-content: center; }
+
+  /* Footer */
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+
+  /* Stats on about page */
+  .stat-num { font-size: 40px; }
+
+  /* About grid: ensure photo is smaller and centered */
+  .about-photo-col { max-width: 240px !important; }
+}
 </style>
 </head>
 <body>
@@ -1174,7 +1400,20 @@ footer p {
     <li><a href="#contact">Contact</a></li>
     <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="nav-cv">Download CV</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation">
+  <a href="#about" class="nav-mobile-link">About</a>
+  <a href="#whyme" class="nav-mobile-link">Why me</a>
+  <a href="#skills" class="nav-mobile-link">Skills</a>
+  <a href="#work" class="nav-mobile-link">Work</a>
+  <a href="#contact" class="nav-mobile-link">Contact</a>
+  <a href="Piotr_Biela_CV.pdf" target="_blank" class="nav-mobile-link nav-cv-mobile">Download CV</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -1223,7 +1462,7 @@ footer p {
 
     <div class="about-photo-col reveal">
       <div class="about-photo-wrap">
-        <img src="photo.jpg" alt="Piotr Biela — Social Media & Content Marketer" loading="lazy">
+        <img src="photo.jpg" alt="Piotr Biela — Social Media & Content Marketer" loading="lazy" width="720" height="1075" decoding="async">
       </div>
       <p class="about-photo-caption">Piotr Biela — Aberdeen</p>
     </div>
@@ -1899,6 +2138,36 @@ function copyHook(btn, text) {
 
 document.getElementById('brand-input')?.addEventListener('keydown', e => {
   if (e.key === 'Enter') generateHooks();
+});
+
+// ─── HAMBURGER MENU ───────────────────────────────────
+const hamburger = document.getElementById('nav-hamburger');
+const mobileNav = document.getElementById('nav-mobile');
+
+function toggleMobileNav(open) {
+  const isOpen = open !== undefined ? open : !hamburger.classList.contains('open');
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  mobileNav.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
+hamburger.addEventListener('click', () => toggleMobileNav());
+
+// Close nav on mobile link click
+document.querySelectorAll('.nav-mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    if (!link.getAttribute('href').startsWith('http') && !link.getAttribute('target')) {
+      toggleMobileNav(false);
+    } else {
+      toggleMobileNav(false);
+    }
+  });
+});
+
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && mobileNav.classList.contains('open')) toggleMobileNav(false);
 });
 
 </script>
