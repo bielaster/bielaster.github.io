@@ -79,8 +79,8 @@
   --off-black:#1C1917;
   --cream:    #FDFAF6;
   --cream-dk: #F0EDE8;
-  --amber:    #89986D;
-  --amber-lt: #9CAB84;
+  --accent:    #89986D;
+  --accent-lt: #9CAB84;
   --warm:     #6B6560;
   --muted:    #3D3833;
   --border:   rgba(137,152,109,0.2);
@@ -106,7 +106,7 @@ body {
 .cursor {
   position: fixed;
   width: 8px; height: 8px;
-  background: var(--amber);
+  background: var(--accent);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
@@ -117,7 +117,7 @@ body {
 .cursor-ring {
   position: fixed;
   width: 36px; height: 36px;
-  border: 1px solid var(--amber);
+  border: 1px solid var(--accent);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
@@ -134,7 +134,7 @@ body:hover .cursor { opacity: 1; }
   position: fixed;
   top: 0; left: 0;
   height: 2px;
-  background: var(--amber);
+  background: var(--accent);
   z-index: 1000;
   width: 0%;
   transition: width 0.05s linear;
@@ -181,12 +181,12 @@ nav.scrolled {
 }
 .nav-links a:hover { color: var(--cream); }
 .nav-cv {
-  border: 1px solid var(--amber) !important;
-  color: var(--amber) !important;
+  border: 1px solid var(--accent) !important;
+  color: var(--accent) !important;
   padding: 8px 20px;
   transition: background 0.2s, color 0.2s !important;
 }
-.nav-cv:hover { background: var(--amber) !important; color: var(--black) !important; }
+.nav-cv:hover { background: var(--accent) !important; color: var(--black) !important; }
 
 /* ─── HERO ───────────────────────────────────────────── */
 .hero {
@@ -220,7 +220,7 @@ nav.scrolled {
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--accent);
   margin-bottom: 24px;
   opacity: 0;
   transform: translateY(20px);
@@ -240,7 +240,7 @@ nav.scrolled {
 }
 .hero-name em {
   font-style: italic;
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .hero-bottom {
@@ -280,7 +280,7 @@ nav.scrolled {
   display: inline-block;
   width: 4px; height: 4px;
   border-radius: 50%;
-  background: var(--amber);
+  background: var(--accent);
 }
 
 .scroll-hint {
@@ -303,7 +303,7 @@ nav.scrolled {
   display: block;
   width: 1px;
   height: 48px;
-  background: linear-gradient(to bottom, var(--amber), transparent);
+  background: linear-gradient(to bottom, var(--accent), transparent);
   animation: growDown 1.5s 1.6s var(--ease-out) forwards;
   transform-origin: top;
   transform: scaleY(0);
@@ -317,7 +317,7 @@ section { padding: 120px 48px; }
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--accent);
   margin-bottom: 48px;
   display: flex;
   align-items: center;
@@ -339,7 +339,7 @@ section { padding: 120px 48px; }
   line-height: 1.05;
   letter-spacing: -0.01em;
 }
-.section-title em { font-style: italic; color: var(--amber); }
+.section-title em { font-style: italic; color: var(--accent); }
 
 /* ─── ABOUT PHOTO ────────────────────────────────────── */
 .about-grid {
@@ -419,56 +419,13 @@ section { padding: 120px 48px; }
   color: var(--off-black);
   line-height: 1;
 }
-.stat-num em { font-style: italic; color: var(--amber); font-size: 32px; }
+.stat-num em { font-style: italic; color: var(--accent); font-size: 32px; }
 .stat-label {
   font-size: 13px;
   color: var(--warm);
   margin-top: 6px;
   letter-spacing: 0.02em;
 }
-
-/* ─── NOW ────────────────────────────────────────────── */
-#now { background: var(--off-black); }
-#now .section-label, #now .section-title { color: var(--cream); }
-#now .section-title em { color: var(--amber); }
-
-.now-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 64px;
-}
-
-.now-card {
-  background: rgba(253,250,246,0.04);
-  padding: 40px 36px;
-  border: 1px solid rgba(137,152,109,0.1);
-  transition: background 0.3s, border-color 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-.now-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 3px;
-  height: 0;
-  background: var(--amber);
-  transition: height 0.4s var(--ease-out);
-}
-.now-card:hover { background: rgba(253,250,246,0.07); border-color: rgba(137,152,109,0.25); }
-.now-card:hover::before { height: 100%; }
-
-.now-icon { font-size: 28px; margin-bottom: 20px; display: block; }
-.now-title {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 400;
-  color: var(--cream);
-  margin-bottom: 12px;
-  letter-spacing: -0.01em;
-}
-.now-desc { font-size: 14px; color: rgba(253,250,246,0.45); line-height: 1.7; }
 
 /* ─── SKILLS ─────────────────────────────────────────── */
 #skills { background: var(--cream); }
@@ -509,224 +466,19 @@ section { padding: 120px 48px; }
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--amber);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s var(--ease-out);
   z-index: -1;
 }
-.skill-tag:hover { color: var(--black); border-color: var(--amber); }
+.skill-tag:hover { color: var(--black); border-color: var(--accent); }
 .skill-tag:hover::after { transform: scaleX(1); }
 .skill-tag.featured {
   background: var(--off-black);
   color: var(--cream);
   border-color: var(--off-black);
   font-weight: 500;
-}
-
-/* ─── CASE STUDIES ───────────────────────────────────── */
-#work { background: var(--cream-dk); padding-bottom: 160px; }
-
-.work-intro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-top: 64px;
-  margin-bottom: 80px;
-  align-items: end;
-}
-.work-intro p { font-size: 16px; line-height: 1.8; color: var(--warm); }
-
-.case-list { display: flex; flex-direction: column; gap: 2px; }
-
-.case-item {
-  background: var(--cream);
-  border: 1px solid transparent;
-  transition: border-color 0.3s, background 0.3s;
-  cursor: pointer;
-}
-.case-item:hover { border-color: var(--border); }
-
-.case-header {
-  display: grid;
-  grid-template-columns: 80px 1fr auto auto;
-  align-items: center;
-  gap: 32px;
-  padding: 36px 40px;
-}
-
-.case-num {
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--amber);
-  letter-spacing: 0.08em;
-}
-
-.case-meta-top {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.case-name {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 400;
-  color: var(--off-black);
-  letter-spacing: -0.01em;
-  transition: color 0.2s;
-}
-.case-item:hover .case-name { color: var(--amber); }
-
-.case-type {
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--warm);
-}
-
-.case-tags {
-  display: flex;
-  gap: 8px;
-}
-.case-tag {
-  font-size: 11px;
-  padding: 4px 12px;
-  border: 1px solid var(--cream-dk);
-  color: var(--warm);
-  letter-spacing: 0.06em;
-}
-
-.case-arrow {
-  width: 36px; height: 36px;
-  border: 1px solid var(--cream-dk);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  color: var(--warm);
-  transition: all 0.3s;
-  flex-shrink: 0;
-}
-.case-item:hover .case-arrow {
-  background: var(--off-black);
-  border-color: var(--off-black);
-  color: var(--cream);
-  transform: rotate(45deg);
-}
-
-.case-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s var(--ease-out), opacity 0.4s;
-  opacity: 0;
-}
-.case-body.open { opacity: 1; }
-
-.case-body-inner {
-  padding: 0 40px 40px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  padding-left: calc(40px + 80px + 32px);
-}
-
-.case-section-title {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 12px;
-}
-
-.case-p {
-  font-size: 14px;
-  line-height: 1.8;
-  color: var(--muted);
-}
-
-.case-bullets {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.case-bullets li {
-  font-size: 14px;
-  color: var(--muted);
-  display: flex;
-  gap: 12px;
-  line-height: 1.6;
-}
-.case-bullets li::before {
-  content: '—';
-  color: var(--amber);
-  flex-shrink: 0;
-  font-family: var(--font-display);
-}
-
-.btn-case-pdf {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 20px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--off-black);
-  text-decoration: none;
-  border-bottom: 1px solid var(--off-black);
-  padding-bottom: 2px;
-  transition: color 0.2s, border-color 0.2s;
-}
-.btn-case-pdf:hover { color: var(--amber); border-color: var(--amber); }
-
-/* ─── CASE HOVER PREVIEW ─────────────────────────────── */
-.case-preview {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9990;
-  width: 260px;
-  background: var(--off-black);
-  padding: 20px 22px;
-  opacity: 0;
-  transform: translateY(8px) scale(0.97);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  border-left: 2px solid var(--amber);
-}
-.case-preview.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-.case-preview-label {
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 8px;
-}
-.case-preview-text {
-  font-size: 12px;
-  line-height: 1.65;
-  color: rgba(253, 250, 246, 0.65);
-}
-.case-preview-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 12px;
-}
-.case-preview-tag {
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  padding: 3px 8px;
-  border: 1px solid rgba(137, 152, 109, 0.25);
-  color: rgba(253, 250, 246, 0.4);
 }
 
 /* ─── AI TOOL SECTION ────────────────────────────────── */
@@ -747,7 +499,7 @@ section { padding: 120px 48px; }
 }
 .ai-tool-label { color: rgba(137,152,109,0.7); }
 .ai-tool-title { color: var(--cream); margin-bottom: 12px; }
-.ai-tool-title em { color: var(--amber); }
+.ai-tool-title em { color: var(--accent); }
 .ai-tool-subtitle {
   font-size: 16px;
   color: rgba(253,250,246,0.4);
@@ -804,7 +556,7 @@ section { padding: 120px 48px; }
 .ai-select option { background: var(--off-black); }
 
 .ai-generate-btn {
-  background: var(--amber);
+  background: var(--accent);
   border: none;
   color: var(--black);
   font-family: var(--font-body);
@@ -818,7 +570,7 @@ section { padding: 120px 48px; }
   white-space: nowrap;
   align-self: end;
 }
-.ai-generate-btn:hover { background: var(--amber-lt); }
+.ai-generate-btn:hover { background: var(--accent-lt); }
 .ai-generate-btn:active { transform: scale(0.98); }
 .ai-generate-btn:disabled {
   background: rgba(137,152,109,0.3);
@@ -854,7 +606,7 @@ section { padding: 120px 48px; }
   display: inline-block;
   width: 4px; height: 4px;
   border-radius: 50%;
-  background: var(--amber);
+  background: var(--accent);
   animation: dot-bounce 1.2s infinite;
 }
 .ai-dots span:nth-child(2) { animation-delay: 0.2s; }
@@ -879,7 +631,7 @@ section { padding: 120px 48px; }
 .hook-num {
   font-family: var(--font-display);
   font-size: 13px;
-  color: var(--amber);
+  color: var(--accent);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -901,7 +653,7 @@ section { padding: 120px 48px; }
   font-family: var(--font-body);
   letter-spacing: 0.06em;
 }
-.hook-copy:hover { border-color: var(--amber); color: var(--amber); }
+.hook-copy:hover { border-color: var(--accent); color: var(--accent); }
 .hook-copy.copied { border-color: #4CAF50; color: #4CAF50; }
 
 .ai-disclaimer {
@@ -933,7 +685,7 @@ section { padding: 120px 48px; }
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--accent);
   margin-bottom: 32px;
 }
 
@@ -946,7 +698,7 @@ section { padding: 120px 48px; }
   margin-bottom: 48px;
   letter-spacing: -0.02em;
 }
-.contact-heading em { font-style: italic; color: var(--amber); }
+.contact-heading em { font-style: italic; color: var(--accent); }
 
 .contact-links {
   display: flex;
@@ -966,7 +718,7 @@ section { padding: 120px 48px; }
   padding: 14px 0;
   border-bottom: 1px solid rgba(137,152,109,0.2);
 }
-.contact-link:hover { color: var(--amber); border-bottom-color: var(--amber); }
+.contact-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .contact-link-label {
   font-size: 10px;
   letter-spacing: 0.16em;
@@ -997,7 +749,7 @@ footer p {
   transition: color 0.2s;
   letter-spacing: 0.06em;
 }
-.footer-links a:hover { color: var(--amber); }
+.footer-links a:hover { color: var(--accent); }
 
 /* ─── AVAILABILITY BANNER ───────────────────────────── */
 .avail-banner {
@@ -1107,64 +859,6 @@ footer p {
 }
 .whyme-card-desc strong { color: rgba(253,250,246,0.75); font-weight: 500; }
 
-/* ─── PROCESS ────────────────────────────────────────── */
-#process { background: var(--cream-dk); padding: 120px 48px; }
-
-.process-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  margin-top: 64px;
-}
-
-.process-step {
-  background: var(--cream);
-  padding: 40px 32px;
-  border: 1px solid transparent;
-  position: relative;
-  transition: border-color 0.3s, background 0.3s;
-  overflow: hidden;
-}
-.process-step:hover {
-  border-color: var(--border);
-  background: #FAF7F2;
-}
-.process-step::after {
-  content: attr(data-num);
-  position: absolute;
-  top: -20px; right: 20px;
-  font-family: var(--font-display);
-  font-size: 96px;
-  font-weight: 300;
-  color: rgba(137,152,109,0.07);
-  line-height: 1;
-  pointer-events: none;
-  transition: color 0.3s;
-}
-.process-step:hover::after { color: rgba(137,152,109,0.13); }
-
-.process-num {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--amber);
-  margin-bottom: 20px;
-}
-.process-step-title {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 400;
-  color: var(--off-black);
-  margin-bottom: 14px;
-  letter-spacing: -0.01em;
-}
-.process-step-desc {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--warm);
-}
-
 @media (max-width: 900px) {
   .process-steps { grid-template-columns: 1fr 1fr; }
   .whyme-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1189,7 +883,7 @@ footer p {
   align-items: center;
   gap: 8px;
   padding: 14px 32px;
-  background: var(--amber);
+  background: var(--accent);
   color: var(--black);
   font-family: var(--font-body);
   font-size: 13px;
@@ -1199,7 +893,7 @@ footer p {
   text-decoration: none;
   transition: background 0.2s, transform 0.15s;
 }
-.btn-hero:hover { background: var(--amber-lt); transform: translateY(-2px); }
+.btn-hero:hover { background: var(--accent-lt); transform: translateY(-2px); }
 .btn-hero-ghost {
   background: transparent;
   color: rgba(253,250,246,0.7);
@@ -1234,7 +928,7 @@ footer p {
   bottom: 0; left: 0;
   width: 0;
   height: 2px;
-  background: var(--amber);
+  background: var(--accent);
   transition: width 0.4s var(--ease-out);
 }
 .work-card:hover { border-color: var(--border); box-shadow: 0 8px 32px rgba(24,29,69,0.06); }
@@ -1251,7 +945,7 @@ footer p {
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 400;
-  color: var(--amber);
+  color: var(--accent);
   letter-spacing: 0.08em;
   flex-shrink: 0;
 }
@@ -1271,7 +965,7 @@ footer p {
 }
 .concept-tag {
   border-color: rgba(137,152,109,0.35);
-  color: var(--amber);
+  color: var(--accent);
 }
 .work-card-name {
   font-family: var(--font-display);
@@ -1283,7 +977,7 @@ footer p {
   line-height: 1.1;
   transition: color 0.2s;
 }
-.work-card:hover .work-card-name { color: var(--amber); }
+.work-card:hover .work-card-name { color: var(--accent); }
 .work-card-type {
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -1313,10 +1007,10 @@ footer p {
   transition: color 0.2s, border-color 0.2s;
   align-self: flex-start;
 }
-.work-card-link:hover { color: var(--amber); border-color: var(--amber); }
+.work-card-link:hover { color: var(--accent); border-color: var(--accent); }
 .work-card-links { display: flex; gap: 20px; flex-wrap: wrap; }
-.work-card-link-alt { color: var(--amber); border-color: rgba(137,152,109,0.4); }
-.work-card-link-alt:hover { border-color: var(--amber); }
+.work-card-link-alt { color: var(--accent); border-color: rgba(137,152,109,0.4); }
+.work-card-link-alt:hover { border-color: var(--accent); }
 
 @media (max-width: 768px) {
   .work-cards { grid-template-columns: 1fr; }
@@ -1337,7 +1031,7 @@ footer p {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--accent);
   margin-bottom: 14px;
   display: flex;
   align-items: center;
@@ -1445,7 +1139,7 @@ footer p {
   font-weight: 500 !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase;
-  color: var(--amber) !important;
+  color: var(--accent) !important;
   border: 1px solid rgba(137,152,109,0.5) !important;
   border-radius: 0;
   padding: 14px 40px !important;
@@ -1576,7 +1270,7 @@ footer p {
     <li><a href="#skills">Skills</a></li>
     <li><a href="#whyme">Why me</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="nav-cv">Download CV</a></li>
+    <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="nav-cv" rel="noopener noreferrer">Download CV</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -1590,7 +1284,7 @@ footer p {
   <a href="#skills" class="nav-mobile-link">Skills</a>
   <a href="#whyme" class="nav-mobile-link">Why me</a>
   <a href="#contact" class="nav-mobile-link">Contact</a>
-  <a href="Piotr_Biela_CV.pdf" target="_blank" class="nav-mobile-link nav-cv-mobile">Download CV</a>
+  <a href="Piotr_Biela_CV.pdf" target="_blank" class="nav-mobile-link nav-cv-mobile" rel="noopener noreferrer">Download CV</a>
 </div>
 
 <!-- HERO -->
@@ -1617,7 +1311,7 @@ footer p {
 
   <div class="hero-cta">
     <a href="#work" class="btn-hero">See my work ↓</a>
-    <a href="Piotr_Biela_CV.pdf" target="_blank" class="btn-hero btn-hero-ghost">Download CV</a>
+    <a href="Piotr_Biela_CV.pdf" target="_blank" class="btn-hero btn-hero-ghost" rel="noopener noreferrer">Download CV</a>
   </div>
 
   <div class="scroll-hint">Scroll</div>
@@ -1694,7 +1388,7 @@ footer p {
       <h3 class="work-card-name">Namaste Delhi</h3>
       <p class="work-card-type">Restaurant · Social Media Campaign · 2023</p>
       <p class="work-card-desc">TikTok-first campaign driving awareness for cooking classes. Built a 3-month content calendar, produced 15 short-form videos, coordinated 3 influencer partnerships and ran a £200 Facebook Ads test.</p>
-      <a href="AFCCT_Final Presentation.pdf" target="_blank" class="work-card-link">View presentation ↗</a>
+      <a href="AFCCT_Final Presentation.pdf" target="_blank" class="work-card-link" rel="noopener noreferrer">View presentation ↗</a>
     </div>
 
     <div class="work-card reveal reveal-delay-1">
@@ -1709,7 +1403,7 @@ footer p {
       <h3 class="work-card-name">Aberdeen FC Community Trust</h3>
       <p class="work-card-type">Non-profit · Fundraising Campaign · 2023</p>
       <p class="work-card-desc">Multi-channel fundraising strategy for a £1M campaign. Donor segmentation model, 4-part email sequence and community storytelling content series delivered to the Trust.</p>
-      <a href="AFCCT_Final Presentation.pdf" target="_blank" class="work-card-link">View case study ↗</a>
+      <a href="AFCCT_Final Presentation.pdf" target="_blank" class="work-card-link" rel="noopener noreferrer">View case study ↗</a>
     </div>
 
     <div class="work-card reveal reveal-delay-2">
@@ -1724,7 +1418,7 @@ footer p {
       <h3 class="work-card-name">LUNAR-COMET</h3>
       <p class="work-card-type">B2B SaaS · Email Strategy · 2023</p>
       <p class="work-card-desc">B2B email marketing strategy for a new supply chain SaaS starting from zero. Researched open rate psychology, subject line patterns and send timing to build a tailored outreach plan.</p>
-      <a href="LUNAR-COMET (5).pdf" target="_blank" class="work-card-link">View full strategy ↗</a>
+      <a href="LUNAR-COMET (5).pdf" target="_blank" class="work-card-link" rel="noopener noreferrer">View full strategy ↗</a>
     </div>
 
     <div class="work-card work-card-concept reveal">
@@ -1739,7 +1433,7 @@ footer p {
       <h3 class="work-card-name">Cairn Coffee</h3>
       <p class="work-card-type">Specialty Café · Concept Project · 2025</p>
       <p class="work-card-desc">Full digital strategy for a fictional Aberdeen specialty coffee shop — competitor audit, 30-day content calendar, £600 paid ads across Meta and TikTok, plus a 90-day measurement framework.</p>
-      <a href="CAIRN_CaseStudy_PiotrBiela.pdf" target="_blank" class="work-card-link">View case study ↗</a>
+      <a href="CAIRN_CaseStudy_PiotrBiela.pdf" target="_blank" class="work-card-link" rel="noopener noreferrer">View case study ↗</a>
     </div>
 
     <div class="work-card work-card-concept reveal reveal-delay-1">
@@ -1755,8 +1449,8 @@ footer p {
       <p class="work-card-type">Minimal Fashion Boutique · Concept Project · 2025</p>
       <p class="work-card-desc">Launch strategy for a fictional Aberdeen fashion boutique — three-phase Meta Ads plan, micro-influencer outreach, 4-sequence email strategy and a live brand landing page.</p>
       <div class="work-card-links">
-        <a href="STANE_CaseStudy_PiotrBiela.pdf" target="_blank" class="work-card-link">View case study ↗</a>
-        <a href="stane_landing.html" target="_blank" class="work-card-link work-card-link-alt">View brand site ↗</a>
+        <a href="STANE_CaseStudy_PiotrBiela.pdf" target="_blank" class="work-card-link" rel="noopener noreferrer">View case study ↗</a>
+        <a href="stane_landing.html" target="_blank" class="work-card-link work-card-link-alt" rel="noopener noreferrer">View brand site ↗</a>
       </div>
     </div>
   </div>
@@ -1933,11 +1627,11 @@ footer p {
         <span class="contact-link-label">Email</span>
         <span class="__cf_email__" data-cfemail="47252e222b263433223507202a262e2b6924282a">[email&#160;protected]</span>
       </a>
-      <a href="https://www.linkedin.com/in/biela-piotr" target="_blank" class="contact-link">
+      <a href="https://www.linkedin.com/in/biela-piotr" target="_blank" class="contact-link" rel="noopener noreferrer">
         <span class="contact-link-label">LinkedIn</span>
         biela-piotr
       </a>
-      <a href="Piotr_Biela_CV.pdf" target="_blank" class="contact-link">
+      <a href="Piotr_Biela_CV.pdf" target="_blank" class="contact-link" rel="noopener noreferrer">
         <span class="contact-link-label">CV</span>
         Download PDF
       </a>
@@ -1951,8 +1645,8 @@ footer p {
   <p>© <span id="yr"></span> Piotr Biela</p>
   <div class="footer-links">
     <a href="#hero">Back to top ↑</a>
-    <a href="https://github.com/bielaster" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/biela-piotr" target="_blank">LinkedIn</a>
+    <a href="https://github.com/bielaster" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://www.linkedin.com/in/biela-piotr" target="_blank" rel="noopener noreferrer">LinkedIn</a>
   </div>
 </footer>
 
@@ -1976,22 +1670,23 @@ window.addEventListener('scroll', () => {
 // Cursor
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
+let mx = 0, my = 0, rx = 0, ry = 0, rafPending = false;
 
 document.addEventListener('mousemove', e => {
   mx = e.clientX; my = e.clientY;
   cursor.style.left = mx + 'px';
   cursor.style.top = my + 'px';
+  if (!rafPending) { rafPending = true; requestAnimationFrame(animRing); }
 });
 
 function animRing() {
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
+  const dx = mx - rx, dy = my - ry;
+  rx += dx * 0.12; ry += dy * 0.12;
   ring.style.left = rx + 'px';
   ring.style.top = ry + 'px';
-  requestAnimationFrame(animRing);
+  rafPending = (Math.abs(dx) > 0.05 || Math.abs(dy) > 0.05);
+  if (rafPending) requestAnimationFrame(animRing);
 }
-animRing();
 
 document.querySelectorAll('a, button, .case-item, .skill-tag, .now-card, .whyme-card, .process-step').forEach(el => {
   el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
@@ -2043,7 +1738,14 @@ document.querySelectorAll('.case-item').forEach(item => {
     const tags = item.dataset.tags || '';
     if (!text) return;
     preview.querySelector('.case-preview-text').textContent = text;
-    preview.querySelector('.case-preview-tags').innerHTML = tags.split('·').map(t => `<span class="case-preview-tag">${t.trim()}</span>`).join('');
+    const tagsEl = preview.querySelector('.case-preview-tags');
+    tagsEl.innerHTML = '';
+    tags.split('·').forEach(t => {
+      const span = document.createElement('span');
+      span.className = 'case-preview-tag';
+      span.textContent = t.trim();
+      tagsEl.appendChild(span);
+    });
     previewActive = true;
     positionPreview();
     requestAnimationFrame(() => preview.classList.add('visible'));
@@ -2072,7 +1774,7 @@ function toggleCase(el) {
 
   if (!isOpen) {
     body.classList.add('open');
-    body.style.maxHeight = body.scrollHeight + 500 + 'px';
+    body.style.maxHeight = body.scrollHeight + 'px';
     el.style.borderColor = 'rgba(137,152,109,0.3)';
   }
 }
@@ -2134,13 +1836,23 @@ Rules:
     const hooks = text.split('\n').map(h => h.replace(/^[\d\.\-–—*•]\s*/, '').trim()).filter(h => h.length > 8).slice(0, 5);
 
     loading.style.display = 'none';
-    cards.innerHTML = hooks.map((h, i) => `
-      <div class="hook-card">
-        <span class="hook-num">0${i+1}</span>
-        <p class="hook-text">${h}</p>
-        <button class="hook-copy" onclick="copyHook(this, this.previousElementSibling.textContent)">Copy</button>
-      </div>
-    `).join('');
+    cards.innerHTML = '';
+    hooks.forEach((h, i) => {
+      const card = document.createElement('div');
+      card.className = 'hook-card';
+      const num = document.createElement('span');
+      num.className = 'hook-num';
+      num.textContent = '0' + (i + 1);
+      const text = document.createElement('p');
+      text.className = 'hook-text';
+      text.textContent = h;
+      const btn = document.createElement('button');
+      btn.className = 'hook-copy';
+      btn.textContent = 'Copy';
+      btn.addEventListener('click', () => copyHook(btn, h));
+      card.append(num, text, btn);
+      cards.appendChild(card);
+    });
 
   } catch(e) {
     loading.style.display = 'none';
@@ -2179,13 +1891,7 @@ hamburger.addEventListener('click', () => toggleMobileNav());
 
 // Close nav on mobile link click
 document.querySelectorAll('.nav-mobile-link').forEach(link => {
-  link.addEventListener('click', () => {
-    if (!link.getAttribute('href').startsWith('http') && !link.getAttribute('target')) {
-      toggleMobileNav(false);
-    } else {
-      toggleMobileNav(false);
-    }
-  });
+  link.addEventListener('click', () => toggleMobileNav(false));
 });
 
 // Close on Escape
