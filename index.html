@@ -96,7 +96,7 @@ body {
   background: var(--cream);
   color: var(--muted);
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
   cursor: none;
   overflow-x: hidden;
@@ -841,8 +841,10 @@ footer p {
   border-color: rgba(137,152,109,0.2);
 }
 .whyme-icon {
-  font-size: 22px;
-  line-height: 1.4;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--accent);
 }
 .whyme-card-title {
   font-family: var(--font-display);
@@ -1243,11 +1245,63 @@ footer p {
   /* About grid: ensure photo is smaller and centered */
   .about-photo-col { max-width: 240px !important; }
 }
+
+/* ─── REDUCED MOTION ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .hero-eyebrow, .hero-name, .hero-bottom, .hero-cta, .scroll-hint,
+  .avail-banner { opacity: 1 !important; transform: none !important; }
+}
+
+/* ─── SKIP LINK ──────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  background: var(--accent);
+  color: var(--cream);
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  z-index: 10000;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 16px; }
+
+/* ─── FOCUS RINGS (keyboard nav) ────────────────────── */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.nav-links a:focus-visible,
+.nav-cv:focus-visible,
+.btn-hero:focus-visible,
+.work-card-link:focus-visible,
+.contact-link:focus-visible,
+.footer-links a:focus-visible,
+.nav-mobile-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ─── TOUCH ACTION ───────────────────────────────────── */
+a, button, [role="button"] { touch-action: manipulation; }
+
 </style>
 </head>
 <body>
 
 <!-- Cursor -->
+<a href="#about" class="skip-link">Skip to main content</a>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
 
@@ -1532,28 +1586,28 @@ footer p {
 
     <div class="whyme-cards reveal reveal-delay-2">
       <div class="whyme-card">
-        <span class="whyme-icon">🍽️</span>
+        <span class="whyme-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></span>
         <div>
           <p class="whyme-card-title">Deep food & hospitality fluency</p>
           <p class="whyme-card-desc">6 years working inside restaurants — not observing them. I understand the operational reality behind food brands: <strong>what they can actually deliver</strong>, what their customers care about, and what content resonates. That's rare in a junior marketer.</p>
         </div>
       </div>
       <div class="whyme-card">
-        <span class="whyme-icon">🤖</span>
+        <span class="whyme-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="10" x="3" y="11" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg></span>
         <div>
           <p class="whyme-card-title">AI workflows as a practical skill</p>
           <p class="whyme-card-desc">I use Stable Diffusion, ComfyUI, Foocus and AI writing tools daily — not as novelties, but as <strong>genuine production tools</strong> that speed up asset creation. Most juniors claim "AI skills" and mean ChatGPT. I mean image generation pipelines.</p>
         </div>
       </div>
       <div class="whyme-card">
-        <span class="whyme-icon">🇵🇱</span>
+        <span class="whyme-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span>
         <div>
           <p class="whyme-card-title">Bilingual — Polish & English</p>
           <p class="whyme-card-desc">Native Polish speaker, fluent English. If your brand has <strong>any Polish-speaking audience</strong> — in the UK or EU — I can create content that actually sounds right, not translated.</p>
         </div>
       </div>
       <div class="whyme-card">
-        <span class="whyme-icon">📐</span>
+        <span class="whyme-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
         <div>
           <p class="whyme-card-title">Strategy-first mindset</p>
           <p class="whyme-card-desc">My degree wasn't just "how to post on Instagram." It covered <strong>consumer behaviour, campaign planning, B2B content strategy and audience research</strong>. I know why tactics work, not just how to execute them.</p>
