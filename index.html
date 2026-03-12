@@ -1174,6 +1174,183 @@ footer p {
   .process-steps { grid-template-columns: 1fr; }
 }
 
+/* ─── HERO CTA ───────────────────────────────────────── */
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 1s var(--ease-out) forwards;
+}
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--amber);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-hero:hover { background: var(--amber-lt); transform: translateY(-2px); }
+.btn-hero-ghost {
+  background: transparent;
+  color: rgba(245,240,232,0.7);
+  border: 1px solid rgba(245,240,232,0.25);
+}
+.btn-hero-ghost:hover { background: rgba(245,240,232,0.08); color: var(--cream); transform: translateY(-2px); }
+
+/* ─── WORK CARDS ─────────────────────────────────────── */
+#work { background: var(--cream-dk); padding-bottom: 120px; }
+
+.work-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  margin-top: 0;
+}
+
+.work-card {
+  background: var(--cream);
+  padding: 40px 36px;
+  border: 1px solid transparent;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+}
+.work-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--amber);
+  transition: width 0.4s var(--ease-out);
+}
+.work-card:hover { border-color: var(--border); box-shadow: 0 8px 32px rgba(24,29,69,0.06); }
+.work-card:hover::before { width: 100%; }
+.work-card-concept { background: #FEFCF7; }
+
+.work-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.work-card-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+.work-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+.work-card-tag {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border: 1px solid var(--cream-dk);
+  color: var(--warm);
+}
+.concept-tag {
+  border-color: rgba(200,150,62,0.35);
+  color: var(--amber);
+}
+.work-card-name {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 400;
+  color: var(--off-black);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+  line-height: 1.1;
+  transition: color 0.2s;
+}
+.work-card:hover .work-card-name { color: var(--amber); }
+.work-card-type {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm);
+  margin-bottom: 18px;
+}
+.work-card-desc {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--muted);
+  flex: 1;
+  margin-bottom: 28px;
+}
+.work-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--off-black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--off-black);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+.work-card-link:hover { color: var(--amber); border-color: var(--amber); }
+.work-card-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.work-card-link-alt { color: var(--amber); border-color: rgba(200,150,62,0.4); }
+.work-card-link-alt:hover { border-color: var(--amber); }
+
+@media (max-width: 768px) {
+  .work-cards { grid-template-columns: 1fr; }
+  .work-card { padding: 32px 28px; }
+}
+@media (max-width: 480px) {
+  .work-card { padding: 28px 20px; }
+}
+
+/* ─── SKILLS CATEGORIES ──────────────────────────────── */
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.skill-category-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.skill-category-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 48px;
+}
+
 /* ─── ANIMATIONS ─────────────────────────────────────── */
 @keyframes fadeUp {
   to { opacity: 1; transform: translateY(0); }
@@ -1395,9 +1572,9 @@ footer p {
   <a href="#about" class="nav-logo">PB</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#whyme">Why me</a></li>
-    <li><a href="#skills">Skills</a></li>
     <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#whyme">Why me</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="Piotr_Biela_CV.pdf" target="_blank" class="nav-cv">Download CV</a></li>
   </ul>
@@ -1409,9 +1586,9 @@ footer p {
 <!-- MOBILE NAV OVERLAY -->
 <div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation">
   <a href="#about" class="nav-mobile-link">About</a>
-  <a href="#whyme" class="nav-mobile-link">Why me</a>
-  <a href="#skills" class="nav-mobile-link">Skills</a>
   <a href="#work" class="nav-mobile-link">Work</a>
+  <a href="#skills" class="nav-mobile-link">Skills</a>
+  <a href="#whyme" class="nav-mobile-link">Why me</a>
   <a href="#contact" class="nav-mobile-link">Contact</a>
   <a href="Piotr_Biela_CV.pdf" target="_blank" class="nav-mobile-link nav-cv-mobile">Download CV</a>
 </div>
@@ -1436,6 +1613,11 @@ footer p {
       <span>Open to remote</span>
       <span>Real campaigns</span>
     </div>
+  </div>
+
+  <div class="hero-cta">
+    <a href="#work" class="btn-hero">See my work ↓</a>
+    <a href="Piotr_Biela_CV.pdf" target="_blank" class="btn-hero btn-hero-ghost">Download CV</a>
   </div>
 
   <div class="scroll-hint">Scroll</div>
@@ -1480,6 +1662,161 @@ footer p {
       <div class="stat-row">
         <span class="stat-num">6<em>yrs</em></span>
         <span class="stat-label">Customer-facing experience — consumer insight built in the real world</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WORK / CASE STUDIES -->
+<section id="work">
+  <p class="section-label reveal">Selected work</p>
+
+  <div class="work-intro">
+    <h2 class="section-title reveal reveal-delay-1">
+      Five projects.<br><em>Real strategy.</em>
+    </h2>
+    <p class="reveal reveal-delay-2">
+      Three projects delivered as part of my BSc at Robert Gordon University — real briefs, real clients, real deliverables. Plus two concept projects demonstrating full-stack digital strategies across hospitality and fashion.
+    </p>
+  </div>
+
+  <div class="work-cards">
+    <div class="work-card reveal">
+      <div class="work-card-top">
+        <span class="work-card-num">01</span>
+        <div class="work-card-tags">
+          <span class="work-card-tag">TikTok</span>
+          <span class="work-card-tag">Instagram</span>
+          <span class="work-card-tag">Facebook Ads</span>
+        </div>
+      </div>
+      <h3 class="work-card-name">Namaste Delhi</h3>
+      <p class="work-card-type">Restaurant · Social Media Campaign · 2023</p>
+      <p class="work-card-desc">TikTok-first campaign driving awareness for cooking classes. Built a 3-month content calendar, produced 15 short-form videos, coordinated 3 influencer partnerships and ran a £200 Facebook Ads test.</p>
+      <a href="AFCCT_Final Presentation.pdf" target="_blank" class="work-card-link">View presentation ↗</a>
+    </div>
+
+    <div class="work-card reveal reveal-delay-1">
+      <div class="work-card-top">
+        <span class="work-card-num">02</span>
+        <div class="work-card-tags">
+          <span class="work-card-tag">Email</span>
+          <span class="work-card-tag">Social</span>
+          <span class="work-card-tag">Storytelling</span>
+        </div>
+      </div>
+      <h3 class="work-card-name">Aberdeen FC Community Trust</h3>
+      <p class="work-card-type">Non-profit · Fundraising Campaign · 2023</p>
+      <p class="work-card-desc">Multi-channel fundraising strategy for a £1M campaign. Donor segmentation model, 4-part email sequence and community storytelling content series delivered to the Trust.</p>
+      <a href="AFCCT_Final Presentation.pdf" target="_blank" class="work-card-link">View case study ↗</a>
+    </div>
+
+    <div class="work-card reveal reveal-delay-2">
+      <div class="work-card-top">
+        <span class="work-card-num">03</span>
+        <div class="work-card-tags">
+          <span class="work-card-tag">LinkedIn</span>
+          <span class="work-card-tag">Email</span>
+          <span class="work-card-tag">B2B</span>
+        </div>
+      </div>
+      <h3 class="work-card-name">LUNAR-COMET</h3>
+      <p class="work-card-type">B2B SaaS · Email Strategy · 2023</p>
+      <p class="work-card-desc">B2B email marketing strategy for a new supply chain SaaS starting from zero. Researched open rate psychology, subject line patterns and send timing to build a tailored outreach plan.</p>
+      <a href="LUNAR-COMET (5).pdf" target="_blank" class="work-card-link">View full strategy ↗</a>
+    </div>
+
+    <div class="work-card work-card-concept reveal">
+      <div class="work-card-top">
+        <span class="work-card-num">04</span>
+        <div class="work-card-tags">
+          <span class="work-card-tag">TikTok Ads</span>
+          <span class="work-card-tag">Meta Ads</span>
+          <span class="work-card-tag concept-tag">Concept</span>
+        </div>
+      </div>
+      <h3 class="work-card-name">Cairn Coffee</h3>
+      <p class="work-card-type">Specialty Café · Concept Project · 2025</p>
+      <p class="work-card-desc">Full digital strategy for a fictional Aberdeen specialty coffee shop — competitor audit, 30-day content calendar, £600 paid ads across Meta and TikTok, plus a 90-day measurement framework.</p>
+      <a href="CAIRN_CaseStudy_PiotrBiela.pdf" target="_blank" class="work-card-link">View case study ↗</a>
+    </div>
+
+    <div class="work-card work-card-concept reveal reveal-delay-1">
+      <div class="work-card-top">
+        <span class="work-card-num">05</span>
+        <div class="work-card-tags">
+          <span class="work-card-tag">Meta Ads</span>
+          <span class="work-card-tag">Influencer</span>
+          <span class="work-card-tag concept-tag">Concept</span>
+        </div>
+      </div>
+      <h3 class="work-card-name">STANE</h3>
+      <p class="work-card-type">Minimal Fashion Boutique · Concept Project · 2025</p>
+      <p class="work-card-desc">Launch strategy for a fictional Aberdeen fashion boutique — three-phase Meta Ads plan, micro-influencer outreach, 4-sequence email strategy and a live brand landing page.</p>
+      <div class="work-card-links">
+        <a href="STANE_CaseStudy_PiotrBiela.pdf" target="_blank" class="work-card-link">View case study ↗</a>
+        <a href="stane_landing.html" target="_blank" class="work-card-link work-card-link-alt">View brand site ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label reveal">Toolkit</p>
+
+  <div class="skills-grid">
+    <div class="reveal reveal-delay-1">
+      <h2 class="section-title" style="margin-bottom: 24px;">Skills that<br><em>ship work</em></h2>
+      <p class="skills-intro">
+        Tools are only as good as the strategy behind them. Here's what I know — and what I'm actively building on.
+      </p>
+    </div>
+
+    <div class="skills-categories reveal reveal-delay-2">
+      <div class="skill-category">
+        <p class="skill-category-label">Social &amp; Content</p>
+        <div class="skills-tags">
+          <span class="skill-tag featured">TikTok Strategy</span>
+          <span class="skill-tag featured">Instagram Marketing</span>
+          <span class="skill-tag featured">Content Creation</span>
+          <span class="skill-tag">Content Planning</span>
+          <span class="skill-tag">Brand Storytelling</span>
+          <span class="skill-tag">Audience Research</span>
+          <span class="skill-tag">Consumer Behaviour</span>
+          <span class="skill-tag">B2B Content Strategy</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <p class="skill-category-label">Paid &amp; Analytics</p>
+        <div class="skills-tags">
+          <span class="skill-tag">Meta Ads</span>
+          <span class="skill-tag">Facebook Ads</span>
+          <span class="skill-tag">Email Marketing</span>
+          <span class="skill-tag">Campaign Reporting</span>
+          <span class="skill-tag">Google Analytics 4</span>
+          <span class="skill-tag">SEO Fundamentals</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <p class="skill-category-label">Tools &amp; AI</p>
+        <div class="skills-tags">
+          <span class="skill-tag featured">Canva — Advanced</span>
+          <span class="skill-tag featured">CapCut — Advanced</span>
+          <span class="skill-tag">AI Content Workflows</span>
+          <span class="skill-tag">Stable Diffusion</span>
+          <span class="skill-tag">Notion</span>
+          <span class="skill-tag">Meta Business Suite</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <p class="skill-category-label">Languages</p>
+        <div class="skills-tags">
+          <span class="skill-tag featured">Polish — Native</span>
+          <span class="skill-tag featured">English — Fluent</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1532,323 +1869,6 @@ footer p {
   </div>
 </section>
 
-<!-- NOW -->
-<section id="now">
-  <p class="section-label reveal" style="color: rgba(200,150,62,0.7);">What I'm doing now</p>
-
-  <h2 class="section-title reveal reveal-delay-1" style="color: var(--cream);">
-    Always <em>learning,</em><br>never standing still
-  </h2>
-
-  <div class="now-grid" style="margin-top: 64px;">
-    <div class="now-card reveal reveal-delay-1">
-      <span class="now-icon">📱</span>
-      <h3 class="now-title">Studying TikTok Ads</h3>
-      <p class="now-desc">Working through TikTok's official Ads Manager certification — learning campaign structure, creative best practices and performance optimisation for short-form paid content.</p>
-    </div>
-    <div class="now-card reveal reveal-delay-2">
-      <span class="now-icon">🤖</span>
-      <h3 class="now-title">AI Content Workflows</h3>
-      <p class="now-desc">Experimenting with Stable Diffusion, ComfyUI and Foocus for AI-assisted visual content creation. Building workflows that speed up asset production without losing brand consistency.</p>
-    </div>
-    <div class="now-card reveal reveal-delay-3">
-      <span class="now-icon">✍️</span>
-      <h3 class="now-title">Writing & Analysing</h3>
-      <p class="now-desc">Drafting an analysis of social media storytelling trends for lifestyle brands — documenting patterns in what drives engagement beyond standard food and product photography.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <p class="section-label reveal">Toolkit</p>
-
-  <div class="skills-grid">
-    <div class="reveal reveal-delay-1">
-      <h2 class="section-title" style="margin-bottom: 24px;">Skills that<br><em>ship work</em></h2>
-      <p class="skills-intro">
-        Tools are only as good as the strategy behind them. Here's what I know — and what I'm actively building on.
-      </p>
-    </div>
-
-    <div class="skills-tags reveal reveal-delay-2">
-      <span class="skill-tag featured">TikTok Strategy</span>
-      <span class="skill-tag featured">Instagram Marketing</span>
-      <span class="skill-tag featured">Content Creation</span>
-      <span class="skill-tag featured">Canva — Advanced</span>
-      <span class="skill-tag featured">CapCut — Advanced</span>
-      <span class="skill-tag">Meta Ads</span>
-      <span class="skill-tag">Facebook Ads</span>
-      <span class="skill-tag">Content Planning</span>
-      <span class="skill-tag">Audience Research</span>
-      <span class="skill-tag">Email Marketing</span>
-      <span class="skill-tag">Campaign Reporting</span>
-      <span class="skill-tag">AI Content Workflows</span>
-      <span class="skill-tag">Stable Diffusion</span>
-      <span class="skill-tag">Notion</span>
-      <span class="skill-tag">Meta Business Suite</span>
-      <span class="skill-tag">Google Analytics 4</span>
-      <span class="skill-tag">SEO Fundamentals</span>
-      <span class="skill-tag">B2B Content Strategy</span>
-      <span class="skill-tag">Brand Storytelling</span>
-      <span class="skill-tag">Consumer Behaviour</span>
-      <span class="skill-tag">Polish — Native</span>
-      <span class="skill-tag">English — Fluent</span>
-    </div>
-  </div>
-</section>
-
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <p class="section-label reveal">How I work</p>
-
-  <h2 class="section-title reveal reveal-delay-1" style="margin-bottom: 0;">
-    Four steps.<br><em>Every time.</em>
-  </h2>
-
-  <div class="process-steps">
-    <div class="process-step reveal reveal-delay-1" data-num="1">
-      <p class="process-num">Step 01</p>
-      <h3 class="process-step-title">Research</h3>
-      <p class="process-step-desc">Audience analysis, competitor content audit, platform behaviour patterns. I don't create content before I understand <em>who</em> I'm talking to and <em>where</em> they spend their attention.</p>
-    </div>
-    <div class="process-step reveal reveal-delay-2" data-num="2">
-      <p class="process-num">Step 02</p>
-      <h3 class="process-step-title">Strategy</h3>
-      <p class="process-step-desc">Campaign objectives, channel selection, content pillars, posting cadence. Everything mapped before a single piece of content is made — so execution is fast and purposeful.</p>
-    </div>
-    <div class="process-step reveal reveal-delay-3" data-num="3">
-      <p class="process-num">Step 03</p>
-      <h3 class="process-step-title">Execution</h3>
-      <p class="process-step-desc">Content creation, scheduling, copy, visuals. I build the assets, write the captions, and ship on time. I use Canva, CapCut, AI tools and Notion to stay organised and consistent.</p>
-    </div>
-    <div class="process-step reveal" style="transition-delay: 0.4s;" data-num="4">
-      <p class="process-num">Step 04</p>
-      <h3 class="process-step-title">Review</h3>
-      <p class="process-step-desc">Analytics review, performance tracking, content iteration. What worked, what didn't, what to change next cycle. Strategy without review is just guessing twice.</p>
-    </div>
-  </div>
-</section>
-
-<!-- WORK / CASE STUDIES -->
-<section id="work">
-  <p class="section-label reveal">Selected work</p>
-
-  <div class="work-intro">
-    <h2 class="section-title reveal reveal-delay-1">
-      Five projects.<br><em>Real strategy.</em>
-    </h2>
-    <p class="reveal reveal-delay-2">
-      Three projects delivered as part of my BSc at Robert Gordon University — real briefs, real clients, real deliverables. Plus two concept projects demonstrating full-stack digital strategies across hospitality and fashion.
-    </p>
-  </div>
-
-  <div class="case-list reveal">
-
-    <!-- Case 1 -->
-    <div class="case-item" onclick="toggleCase(this)" data-preview="TikTok-first campaign for an Aberdeen restaurant. Drove awareness for cooking classes through short-form video, influencer outreach and targeted Facebook Ads." data-tags="TikTok · Instagram · Facebook Ads">
-      <div class="case-header">
-        <span class="case-num">01 —</span>
-        <div class="case-meta-top">
-          <span class="case-name">Namaste Delhi</span>
-          <span class="case-type">Restaurant · Social Media Campaign · 2023</span>
-        </div>
-        <div class="case-tags">
-          <span class="case-tag">TikTok</span>
-          <span class="case-tag">Instagram</span>
-          <span class="case-tag">Facebook Ads</span>
-        </div>
-        <div class="case-arrow">↗</div>
-      </div>
-      <div class="case-body">
-        <div class="case-body-inner">
-          <div>
-            <p class="case-section-title">The Brief</p>
-            <p class="case-p">Drive awareness and bookings for cooking and bartending classes among 25–40 year olds in Aberdeen. The client had no existing social strategy and relied entirely on word-of-mouth.</p>
-
-            <p class="case-section-title" style="margin-top: 28px;">Strategy</p>
-            <p class="case-p">TikTok-first content campaign — short-form video to drive discovery, supported by Instagram cross-posting and targeted Facebook Ads to convert interest into bookings.</p>
-          </div>
-          <div>
-            <p class="case-section-title">What I Did</p>
-            <ul class="case-bullets">
-              <li>Conducted audience segmentation research to define targeting parameters</li>
-              <li>Built a 3-month TikTok-first content calendar covering food, behind-the-scenes and class previews</li>
-              <li>Produced 15 short-form videos with scripted storytelling hooks</li>
-              <li>Coordinated local influencer outreach and managed 3 partnerships</li>
-              <li>Set up and ran a £200 Facebook Ads test targeting Aberdeen food enthusiasts</li>
-            </ul>
-            <a href="AFCCT_Final Presentation.pdf" target="_blank" class="btn-case-pdf">View presentation ↗</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Case 2 -->
-    <div class="case-item" onclick="toggleCase(this)" data-preview="Multi-channel fundraising strategy for a £1M campaign. Built donor segmentation, email sequences and community storytelling for Aberdeen FC Community Trust." data-tags="Email · Social · Storytelling">
-      <div class="case-header">
-        <span class="case-num">02 —</span>
-        <div class="case-meta-top">
-          <span class="case-name">Aberdeen FC Community Trust</span>
-          <span class="case-type">Non-profit · Fundraising Campaign · 2023</span>
-        </div>
-        <div class="case-tags">
-          <span class="case-tag">Email</span>
-          <span class="case-tag">Social</span>
-          <span class="case-tag">Storytelling</span>
-        </div>
-        <div class="case-arrow">↗</div>
-      </div>
-      <div class="case-body">
-        <div class="case-body-inner">
-          <div>
-            <p class="case-section-title">The Brief</p>
-            <p class="case-p">Develop a digital marketing strategy to support a £1M fundraising initiative for new community sports facilities. The campaign needed to mobilise local supporters and drive donations through digital channels.</p>
-
-            <p class="case-section-title" style="margin-top: 28px;">Strategy</p>
-            <p class="case-p">Multi-channel community storytelling approach — leading with emotional local impact narratives, supported by structured donor segmentation and email sequences.</p>
-          </div>
-          <div>
-            <p class="case-section-title">What I Did</p>
-            <ul class="case-bullets">
-              <li>Developed the overarching campaign narrative framework around community impact</li>
-              <li>Built a donor segmentation model to personalise messaging by audience type</li>
-              <li>Designed 4-part email sequence from awareness to donation conversion</li>
-              <li>Created social proof content series featuring community testimonials</li>
-              <li>Delivered complete campaign strategy and content plan to the Trust</li>
-            </ul>
-            <a href="AFCCT_Final Presentation.pdf" target="_blank" class="btn-case-pdf">View case study ↗</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Case 3 -->
-    <div class="case-item" onclick="toggleCase(this)" data-preview="B2B email marketing strategy for a new SaaS supply chain company. Researched open rate psychology, subject line patterns and send timing to build a tailored outreach plan." data-tags="LinkedIn · Email · B2B">
-      <div class="case-header">
-        <span class="case-num">03 —</span>
-        <div class="case-meta-top">
-          <span class="case-name">LUNAR-COMET</span>
-          <span class="case-type">B2B SaaS · Content Strategy · 2023</span>
-        </div>
-        <div class="case-tags">
-          <span class="case-tag">LinkedIn</span>
-          <span class="case-tag">Email</span>
-          <span class="case-tag">B2B</span>
-        </div>
-        <div class="case-arrow">↗</div>
-      </div>
-      <div class="case-body">
-        <div class="case-body-inner">
-          <div>
-            <p class="case-section-title">The Brief</p>
-            <p class="case-p">Build brand visibility and credibility for a new B2B supply chain software company starting from zero — no existing content, no audience, no brand voice.</p>
-
-            <p class="case-section-title" style="margin-top: 28px;">My Role</p>
-            <p class="case-p">Email Marketing Strategist — responsible for researching effective B2B email marketing approaches and translating findings into a strategy tailored specifically to COMET's company context.</p>
-          </div>
-          <div>
-            <p class="case-section-title">What I Did</p>
-            <ul class="case-bullets">
-              <li>Researched effective B2B email marketing strategies across the SaaS and supply chain sector</li>
-              <li>Analysed why specific approaches work — psychology of open rates, subject line patterns, send timing</li>
-              <li>Identified gaps and opportunities specific to COMET's market positioning</li>
-              <li>Produced a written email marketing strategy document tailored to COMET's audience and objectives</li>
-              <li>Collaborated with team members covering social media strategy, content calendar and mockup design</li>
-            </ul>
-            <a href="LUNAR-COMET (5).pdf" target="_blank" class="btn-case-pdf">View full strategy ↗</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Case 4 -->
-    <div class="case-item" onclick="toggleCase(this)" data-preview="Concept project: full digital strategy for a fictional Aberdeen specialty coffee shop. Competitor audit, 30-day content plan, Meta and TikTok Ads — built to show how I approach hospitality brands." data-tags="TikTok Ads · Meta Ads · Content Strategy">
-      <div class="case-header">
-        <span class="case-num">04 —</span>
-        <div class="case-meta-top">
-          <span class="case-name">Cairn Coffee</span>
-          <span class="case-type">Specialty Café · Concept Project · 2025</span>
-        </div>
-        <div class="case-tags">
-          <span class="case-tag">TikTok Ads</span>
-          <span class="case-tag">Meta Ads</span>
-          <span class="case-tag">Content Strategy</span>
-          <span class="case-tag">Concept</span>
-        </div>
-        <div class="case-arrow">↗</div>
-      </div>
-      <div class="case-body">
-        <div class="case-body-inner">
-          <div>
-            <p class="case-section-title">The Brief</p>
-            <p class="case-p">A concept project simulating a real client engagement for a fictional specialty coffee shop in Aberdeen's West End. Built to demonstrate how I approach a full digital strategy — from competitor audit to paid advertising — for an independent hospitality brand.</p>
-            <p class="case-section-title" style="margin-top: 28px;">Strategy</p>
-            <p class="case-p">TikTok-led discovery strategy supported by Instagram for brand trust and conversion. £600 paid ads budget split across Meta and TikTok, phased from awareness to footfall. Four content pillars: Craft, Place, People, Prompt.</p>
-          </div>
-          <div>
-            <p class="case-section-title">What I Delivered</p>
-            <ul class="case-bullets">
-              <li>Competitor audit of 4 real Aberdeen specialty coffee brands — identified content gaps and positioning opportunity</li>
-              <li>Full social media strategy across TikTok, Instagram and Google Business</li>
-              <li>30-day content calendar with post types, captions and pillar mapping</li>
-              <li>Meta Ads and TikTok Ads campaign briefs with audience targeting, creative specs and KPIs</li>
-              <li>90-day measurement framework: 800+ followers, 15,000+ TikTok views, +30% footfall</li>
-            </ul>
-            <a href="CAIRN_CaseStudy_PiotrBiela.pdf" target="_blank" class="btn-case-pdf">View full case study ↗</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Case 5 -->
-    <div class="case-item" onclick="toggleCase(this)" data-preview="Concept project: launch strategy for a fictional Aberdeen minimal fashion boutique. Micro-influencer outreach, three-phase Meta Ads and a full email marketing sequence — plus a live brand landing page." data-tags="Meta Ads · Influencer · Email Marketing">
-      <div class="case-header">
-        <span class="case-num">05 —</span>
-        <div class="case-meta-top">
-          <span class="case-name">STANE</span>
-          <span class="case-type">Minimal Fashion Boutique · Concept Project · 2025</span>
-        </div>
-        <div class="case-tags">
-          <span class="case-tag">Meta Ads</span>
-          <span class="case-tag">Influencer</span>
-          <span class="case-tag">Email Marketing</span>
-          <span class="case-tag">Concept</span>
-        </div>
-        <div class="case-arrow">↗</div>
-      </div>
-      <div class="case-body">
-        <div class="case-body-inner">
-          <div>
-            <p class="case-section-title">The Brief</p>
-            <p class="case-p">Full digital marketing strategy for a fictional Aberdeen minimal fashion boutique. Key insight: no local fashion brand owns a credible digital presence. STANE is positioned to fill that gap through consistent aesthetics, local storytelling and data-driven paid campaigns.</p>
-            <p class="case-section-title" style="margin-top: 28px;">Strategy</p>
-            <p class="case-p">TikTok-first content strategy with Instagram as the conversion layer. Three-phase Meta Ads plan from awareness to retargeting. Micro-influencer outreach targeting Aberdeen and Scotland-based creators. Email sequences from sign-up to re-engagement.</p>
-          </div>
-          <div>
-            <p class="case-section-title">What I Delivered</p>
-            <ul class="case-bullets">
-              <li>Competitor audit of 4 Aberdeen fashion brands — identified gap in short-form video and local identity content</li>
-              <li>Multi-channel strategy: TikTok, Instagram, email — each with a distinct role in the customer journey</li>
-              <li>30-day launch content calendar with 4 content pillars: Texture, Landscape, Person, Prompt</li>
-              <li>Micro-influencer strategy with 3 Aberdeen/Scotland profiles, briefs and budget breakdown</li>
-              <li>Three-phase Meta Ads plan (£500) and 4-sequence email strategy mapped to customer lifecycle</li>
-              <li>Live brand landing page built as a supporting portfolio asset</li>
-            </ul>
-            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
-              <a href="STANE_CaseStudy_PiotrBiela.pdf" target="_blank" class="btn-case-pdf">View case study ↗</a>
-              <a href="stane_landing.html" target="_blank" class="btn-case-pdf" style="background:transparent;border:1px solid rgba(200,150,62,0.3);color:var(--amber)">View brand site ↗</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
 
 <!-- AI TOOL -->
 <section id="ai-tool" style="display:none">
@@ -1900,6 +1920,7 @@ footer p {
   </div>
 </section>
 
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
@@ -1923,6 +1944,7 @@ footer p {
     </div>
   </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer>
@@ -2172,5 +2194,6 @@ document.addEventListener('keydown', e => {
 });
 
 </script>
+
 </body>
 </html>
