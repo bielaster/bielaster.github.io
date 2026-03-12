@@ -190,7 +190,7 @@ nav.scrolled {
 
 /* ─── HERO ───────────────────────────────────────────── */
 .hero {
-  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--black);
   display: flex;
   flex-direction: column;
@@ -935,7 +935,7 @@ footer p {
 }
 .work-card:hover { border-color: var(--border); box-shadow: 0 8px 32px rgba(24,29,69,0.06); }
 .work-card:hover::before { width: 100%; }
-.work-card-concept { background: #FAF7F2; }
+.work-card-concept { background: #FAF7F2; border-left: 3px solid rgba(137,152,109,0.4) !important; }
 
 .work-card-top {
   display: flex;
@@ -1296,12 +1296,56 @@ footer p {
 /* ─── TOUCH ACTION ───────────────────────────────────── */
 a, button, [role="button"] { touch-action: manipulation; }
 
+
+/* ─── WORK CARD WIDE (last card, odd count) ─────────── */
+.work-card-wide {
+  grid-column: 1 / -1;
+  max-width: 640px;
+}
+
+/* ─── PAGE MAX-WIDTH ─────────────────────────────────── */
+section, footer, nav {
+  max-width: 100%;
+}
+section > *:not(.work-cards):not(.about-grid):not(.skills-grid):not(.whyme-grid),
+.section-label,
+.section-title,
+.work-intro,
+.contact-inner,
+.about-grid,
+.skills-grid,
+.whyme-grid {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.work-cards {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-sub {
+  font-size: 16px;
+  color: rgba(253,250,246,0.45);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+
+.concept-tag {
+  background: rgba(137,152,109,0.12) !important;
+  color: var(--accent) !important;
+  border-color: rgba(137,152,109,0.3) !important;
+  font-weight: 500 !important;
+}
+
 </style>
 </head>
 <body>
 
 <!-- Cursor -->
-<a href="#about" class="skip-link">Skip to main content</a>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
 
@@ -1332,7 +1376,7 @@ a, button, [role="button"] { touch-action: manipulation; }
 </nav>
 
 <!-- MOBILE NAV OVERLAY -->
-<div class="nav-mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation">
+<div class="nav-mobile" id="nav-mobile" role="dialog" aria-modal="true" aria-label="Mobile navigation">
   <a href="#about" class="nav-mobile-link">About</a>
   <a href="#work" class="nav-mobile-link">Work</a>
   <a href="#skills" class="nav-mobile-link">Skills</a>
@@ -1371,6 +1415,7 @@ a, button, [role="button"] { touch-action: manipulation; }
   <div class="scroll-hint">Scroll</div>
 </section>
 
+<main id="main-content">
 <!-- ABOUT -->
 <section id="about">
   <p class="section-label reveal">About me</p>
@@ -1490,7 +1535,7 @@ a, button, [role="button"] { touch-action: manipulation; }
       <a href="CAIRN_CaseStudy_PiotrBiela.pdf" target="_blank" class="work-card-link" rel="noopener noreferrer">View case study ↗</a>
     </div>
 
-    <div class="work-card work-card-concept reveal reveal-delay-1">
+    <div class="work-card work-card-concept work-card-wide reveal reveal-delay-1">
       <div class="work-card-top">
         <span class="work-card-num">05</span>
         <div class="work-card-tags">
@@ -1676,6 +1721,7 @@ a, button, [role="button"] { touch-action: manipulation; }
     <h2 class="contact-heading reveal reveal-delay-1">
       Let's work<br><em>together</em>
     </h2>
+    <p class="contact-sub reveal reveal-delay-2">I'm actively looking for a remote or hybrid marketing role — happy to chat about briefs, contracts, or anything creative. Response within 24 hours.</p>
     <div class="contact-links reveal reveal-delay-2">
       <a href="/cdn-cgi/l/email-protection#0f6d666a636e7c7b6a7d4f68626e6663216c6062" class="contact-link">
         <span class="contact-link-label">Email</span>
@@ -1694,6 +1740,8 @@ a, button, [role="button"] { touch-action: manipulation; }
 </section>
 
 
+</main>
+
 <!-- FOOTER -->
 <footer>
   <p>© <span id="yr"></span> Piotr Biela</p>
@@ -1705,6 +1753,20 @@ a, button, [role="button"] { touch-action: manipulation; }
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+// Hide availability banner when contact section is visible
+const availBanner = document.getElementById('avail-banner');
+if (availBanner) {
+  const contactObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (availBanner) availBanner.style.opacity = e.isIntersecting ? '0' : '1';
+      availBanner.style.pointerEvents = e.isIntersecting ? 'none' : 'auto';
+    });
+  }, { threshold: 0.1 });
+  const contactSection = document.getElementById('contact');
+  if (contactSection) contactObs.observe(contactSection);
+}
+
 // Year
 document.getElementById('yr').textContent = new Date().getFullYear();
 
